@@ -75,7 +75,6 @@ function renderCountdown(data) {
     const days = Math.floor(totalSeconds / SECONDS_PER_DAY);
     const hideDays = totalSeconds < SECONDS_PER_DAY;
     if (daysBox) daysBox.hidden = hideDays;
-    if (daysSep && daysSep.classList.contains('cd-sep')) daysSep.hidden = hideDays;
     if (daysEl) {
       daysEl.textContent = days;
     }
