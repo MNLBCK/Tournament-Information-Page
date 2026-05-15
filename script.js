@@ -165,7 +165,8 @@ function validateData(data) {
 function applySiteConfig() {
   if (!state.siteTitle) return;
   const currentTitle = document.title.trim();
-  if (currentTitle && !currentTitle.includes(state.siteTitle)) {
+  const expectedSuffix = `| ${state.siteTitle}`;
+  if (currentTitle && currentTitle !== state.siteTitle && !currentTitle.endsWith(expectedSuffix)) {
     document.title = `${currentTitle} | ${state.siteTitle}`;
   } else if (!currentTitle) {
     document.title = state.siteTitle;
@@ -184,9 +185,18 @@ function setData(data) {
 }
 
 async function loadJson(path, errorMessage) {
-  const response = await fetch(path);
+  let response;
+  try {
+    response = await fetch(path);
+  } catch {
+    throw new Error(errorMessage);
+  }
   if (!response.ok) throw new Error(errorMessage);
-  return response.json();
+  try {
+    return await response.json();
+  } catch {
+    throw new Error(errorMessage);
+  }
 }
 
 function mergeDataParts(parts) {
@@ -227,8 +237,12 @@ function wireAdminAuth() {
 
   elements.adminLoginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (!state.adminPasswordHash) {
+      if (elements.adminError) elements.adminError.hidden = false;
+      return;
+    }
     const enteredPassword = elements.adminPassword?.value ?? '';
-    const granted = Boolean(state.adminPasswordHash) && (await hashPassword(enteredPassword)) === state.adminPasswordHash;
+    const granted = (await hashPassword(enteredPassword)) === state.adminPasswordHash;
 
     if (!granted) {
       if (elements.adminError) elements.adminError.hidden = false;
