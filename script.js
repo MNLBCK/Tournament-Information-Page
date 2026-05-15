@@ -175,9 +175,13 @@ function applySiteConfig() {
     document.title = state.siteTitle;
     return;
   }
-  const titleParts = currentTitle.split('|').map((part) => part.trim());
-  if (titleParts[titleParts.length - 1] === state.siteTitle) return;
-  document.title = `${currentTitle} | ${state.siteTitle}`;
+  const separator = ' | ';
+  const suffixStart = currentTitle.lastIndexOf(separator);
+  const hasSuffix = suffixStart !== -1;
+  const baseTitle = hasSuffix ? currentTitle.slice(0, suffixStart).trim() : currentTitle;
+  const currentSuffix = hasSuffix ? currentTitle.slice(suffixStart + separator.length).trim() : '';
+  if (currentSuffix === state.siteTitle) return;
+  document.title = baseTitle ? `${baseTitle}${separator}${state.siteTitle}` : state.siteTitle;
 }
 
 function setData(data) {
