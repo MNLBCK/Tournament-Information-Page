@@ -247,7 +247,12 @@ async function loadAllData() {
     )
   ]);
 
-  state.adminPasswordHash = config.adminPasswordHash ?? '';
+  const adminPasswordHash = config.adminPasswordHash;
+  if (typeof adminPasswordHash !== 'string' || !/^[a-f0-9]{64}$/i.test(adminPasswordHash)) {
+    throw new Error('Konfiguration ungültig: data/config.json benötigt ein gültiges Feld "adminPasswordHash" (SHA-256 Hex).');
+  }
+
+  state.adminPasswordHash = adminPasswordHash;
   state.siteTitle = config.siteTitle ?? '';
   applySiteConfig();
 
