@@ -28,17 +28,11 @@ Ablage unter `data/`:
 
 Pflichtfelder:
 
-- `adminPasswordHash` (SHA-256 als Hex-String, 64 Zeichen)
+- keine
 
-Optional:
+Optionale Felder:
 
 - `siteTitle` (String für seitenspezifischen Titel)
-
-Hash-Erzeugung (Beispiel):
-
-```bash
-printf '%s' 'DEIN_PASSWORT' | sha256sum | awk '{print $1}'
-```
 
 ### 2) Spielplan: `data/spielplan.json`
 

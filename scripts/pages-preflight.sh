@@ -13,7 +13,7 @@ python -m json.tool data/spielfeldlayout.json >/dev/null
 python -m json.tool data/spielplan.json >/dev/null
 
 echo "[2/4] Referenzierte Seiten prüfen"
-html_files=(index.html verpflegung.html anfahrt.html spielfeldlayout.html spielplan.html admin.html)
+html_files=(index.html verpflegung.html anfahrt.html spielfeldlayout.html spielplan.html)
 missing=0
 for file in "${html_files[@]}"; do
   while IFS= read -r href; do
