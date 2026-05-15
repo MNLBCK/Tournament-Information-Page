@@ -87,6 +87,48 @@ function renderMatches() {
     if (isRunning && !firstActiveId) firstActiveId = id;
     return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${m.time}</strong><span>${m.field} · ${m.group}</span></div><p>${m.home.team} (${m.home.club})</p><p>vs.</p><p>${m.away.team} (${m.away.club})</p></article>`;
   }).join('');
+  if (!filtered.length) {
+    elements.scheduleList.innerHTML = '<p>Keine Spiele mit diesen Filtern gefunden.</p>';
+    return;
+  }
+
+  elements.scheduleList.innerHTML = filtered
+    .map(
+      (m) => `<article class="match-card"><div class="match-header"><strong>${m.time}</strong><span>${m.field} · ${m.group}</span></div><p>${m.home.team} vs. ${m.away.team} </p></article>`
+    )
+    .join('');
+}
+
+function validateData(data) {
+  return Boolean(data && data.event && Array.isArray(data.matches));
+}
+
+function applySiteConfig() {
+  if (!state.siteTitle) return;
+  const currentTitle = document.title.trim();
+  if (!currentTitle) {
+    document.title = state.siteTitle;
+    return;
+  }
+  const separator = ' | ';
+  const suffixStart = currentTitle.lastIndexOf(separator);
+  const hasSuffix = suffixStart !== -1;
+  const baseTitle = hasSuffix ? currentTitle.slice(0, suffixStart).trim() : currentTitle;
+  const currentSuffix = hasSuffix ? currentTitle.slice(suffixStart + separator.length).trim() : '';
+  if (currentSuffix === state.siteTitle) return;
+  document.title = baseTitle ? `${baseTitle}${separator}${state.siteTitle}` : state.siteTitle;
+}
+
+function setData(data) {
+  if (!validateData(data)) {
+    alert('JSON ungültig: Erwartet wird mindestens "event" und "matches".');
+    return;
+  }
+  state.data = data;
+  renderInfo(data);
+  renderMatches();
+  if (elements.jsonExample) elements.jsonExample.textContent = JSON.stringify(data, null, 2);
+}
 
   if (firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
