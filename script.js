@@ -70,7 +70,15 @@ function renderCountdown(data) {
     const totalSeconds = Math.floor(diff / 1000);
     if (grid) grid.hidden = false;
     if (message) message.hidden = true;
-    if (daysEl) daysEl.textContent = Math.floor(totalSeconds / SECONDS_PER_DAY);
+    const days = Math.floor(totalSeconds / SECONDS_PER_DAY);
+    const hideDays = days === 0;
+    if (daysEl) {
+      daysEl.textContent = days;
+      const daysBox = daysEl.closest('.cd-box');
+      const daysSep = daysBox ? daysBox.nextElementSibling : null;
+      if (daysBox) daysBox.hidden = hideDays;
+      if (daysSep && daysSep.classList.contains('cd-sep')) daysSep.hidden = hideDays;
+    }
     if (hoursEl) hoursEl.textContent = zeroPad(Math.floor((totalSeconds % SECONDS_PER_DAY) / SECONDS_PER_HOUR));
     if (minutesEl) minutesEl.textContent = zeroPad(Math.floor((totalSeconds % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE));
     if (secondsEl) secondsEl.textContent = zeroPad(totalSeconds % SECONDS_PER_MINUTE);
