@@ -37,7 +37,7 @@ Mehrere Mannschaften pro Verein sind unterstützt (z. B. „SV Grün 1“, „SV
 - `admin.html` – passwortgeschützter Adminbereich
 - `styles.css` – responsives, kompaktes Layout inkl. Kinder-Fußball-Theme
 - `script.js` – Laden, Validieren, Rendern, Countdown, Filtern und Admin-Sperre
-- `_config.yml` – Jekyll-Theme-Konfiguration für GitHub Pages
+- `.nojekyll` – deaktiviert Jekyll auf GitHub Pages, damit die statische Seite unverändert veröffentlicht wird
 - `sample-data.json` – Referenzvorlage (nicht aktive Laufzeitquelle)
 - `AGENT-README.md` – Formatvorgaben für Agenten
 - `data/config.json` – seitenspezifische Konfiguration inkl. Admin-Passwort-Hash
@@ -106,4 +106,5 @@ Danach öffnen:
 
 1. Repository zu GitHub pushen.
 2. Unter **Settings → Pages** als Source den Branch (z. B. `main`) und Ordner `/ (root)` wählen.
-3. Speichern; GitHub veröffentlicht die statische Seite.
+3. Die Datei `.nojekyll` sorgt dafür, dass GitHub Pages die statischen Dateien direkt veröffentlicht und keine Jekyll-Konfiguration erwartet.
+4. Speichern; GitHub veröffentlicht die statische Seite.
