@@ -71,12 +71,13 @@ function renderCountdown(data) {
     if (grid) grid.hidden = false;
     if (message) message.hidden = true;
     const days = Math.floor(totalSeconds / SECONDS_PER_DAY);
+    const hideDays = days === 0;
     if (daysEl) {
       daysEl.textContent = days;
       const daysBox = daysEl.closest('.cd-box');
-      const daysSep = daysBox && daysBox.nextElementSibling;
-      if (daysBox) daysBox.hidden = days === 0;
-      if (daysSep && daysSep.classList.contains('cd-sep')) daysSep.hidden = days === 0;
+      const daysSep = daysBox ? daysBox.nextElementSibling : null;
+      if (daysBox) daysBox.hidden = hideDays;
+      if (daysSep && daysSep.classList.contains('cd-sep')) daysSep.hidden = hideDays;
     }
     if (hoursEl) hoursEl.textContent = zeroPad(Math.floor((totalSeconds % SECONDS_PER_DAY) / SECONDS_PER_HOUR));
     if (minutesEl) minutesEl.textContent = zeroPad(Math.floor((totalSeconds % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE));
