@@ -27,8 +27,17 @@ const elements = {
 const state = { data: null, sampleData: null, countdownTimer: null };
 
 const hasScheduleUi = Boolean(elements.scheduleList && elements.scheduleMeta);
+const hasAdminDataControls = Boolean(elements.fileInput || elements.loadSample);
 const ADMIN_SESSION_KEY = 'tip-admin-auth';
-const ADMIN_PASSWORD = 'kinderfussball';
+const ADMIN_PASSWORD_HASH = 'dff95fe75f6c8f8fdadf7453f8f9f8de09d8410b30f7ab53f6cb6e68a0f64276';
+
+async function hashPassword(input) {
+  const bytes = new TextEncoder().encode(input);
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+}
 
 function createList(items = []) {
   return `<ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul>`;
@@ -186,10 +195,10 @@ function wireAdminAuth() {
   const isUnlocked = sessionStorage.getItem(ADMIN_SESSION_KEY) === '1';
   setAdminVisibility(isUnlocked);
 
-  elements.adminLoginForm.addEventListener('submit', (event) => {
+  elements.adminLoginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const enteredPassword = elements.adminPassword?.value ?? '';
-    const granted = enteredPassword === ADMIN_PASSWORD;
+    const granted = (await hashPassword(enteredPassword)) === ADMIN_PASSWORD_HASH;
 
     if (!granted) {
       if (elements.adminError) elements.adminError.hidden = false;
@@ -207,9 +216,13 @@ function wireAdminAuth() {
 }
 
 function wireScheduleEvents() {
+  if (!hasScheduleUi && !hasAdminDataControls) return;
+
   elements.loadSample?.addEventListener('click', () => setData(state.sampleData));
 
-  Object.values(elements.filters).forEach((node) => node?.addEventListener('input', renderMatches));
+  if (hasScheduleUi) {
+    Object.values(elements.filters).forEach((node) => node?.addEventListener('input', renderMatches));
+  }
 
   elements.fileInput?.addEventListener('change', async (event) => {
     const file = event.target.files?.[0];

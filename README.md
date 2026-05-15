@@ -61,7 +61,6 @@ Jedes Spiel in `matches` enthält u. a. `field`, `group`, `home`, `away`.
 ## Passwortschutz Adminbereich
 
 - URL: `admin.html`
-- Standardpasswort: `kinderfussball`
 - Passwort wird nur sitzungsbasiert im Browser (`sessionStorage`) als entsperrt markiert.
 
 ## Lokal testen
