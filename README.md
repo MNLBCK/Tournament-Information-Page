@@ -1,6 +1,6 @@
-# Tournament-Information-Page
+# Turnier-Info-Seite
 
-![Website-Logo](logo.svg)
+![Website-Logo](favicon.svg)
 
 Statische, mobilefreundliche Website für Spieltags- und Turnierinformationen (GitHub Pages kompatibel).
 
@@ -50,11 +50,3 @@ python3 -m http.server 8000
 ```
 
 Danach öffnen: <http://localhost:8000>
-
-## Vorschau Assets
-
-![Website-Logo](logo.svg)
-
-![Gastgeberlogo](Host_Logo.png)
-
-![Favicon](favicon.svg)
