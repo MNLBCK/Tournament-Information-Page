@@ -46,6 +46,12 @@ function setHtml(node, html) {
   if (node) node.innerHTML = html;
 }
 
+function setAdminError(message, hidden = false) {
+  if (!elements.adminError) return;
+  elements.adminError.textContent = message;
+  elements.adminError.hidden = hidden;
+}
+
 function kickoffDate(eventData = {}) {
   if (!eventData.date || !eventData.startTime) return null;
   return new Date(`${eventData.date}T${eventData.startTime}:00`);
@@ -200,24 +206,58 @@ async function loadJson(path, errorMessage) {
 }
 
 function mergeDataParts(parts) {
-  return parts.reduce((merged, current) => ({ ...merged, ...current }), {});
+  const merged = {};
+  const keyOwners = new Map();
+
+  parts.forEach(({ source, data }) => {
+    Object.entries(data).forEach(([key, value]) => {
+      if (keyOwners.has(key)) {
+        throw new Error(`Datenkonflikt: Schlüssel "${key}" ist doppelt vorhanden (${keyOwners.get(key)} und ${source}).`);
+      }
+      keyOwners.set(key, source);
+      merged[key] = value;
+    });
+  });
+
+  return merged;
 }
 
 async function loadAllData() {
   const [config, eventData, cateringData, directionsData, fieldLayoutData, scheduleData] = await Promise.all([
-    loadJson('./data/config.json', 'Konfiguration konnte nicht geladen werden.'),
-    loadJson('./data/event.json', 'Event-Daten konnten nicht geladen werden.'),
-    loadJson('./data/catering.json', 'Verpflegungsdaten konnten nicht geladen werden.'),
-    loadJson('./data/anfahrt.json', 'Anfahrtsdaten konnten nicht geladen werden.'),
-    loadJson('./data/spielfeldlayout.json', 'Spielfeldlayout konnte nicht geladen werden.'),
-    loadJson('./data/spielplan.json', 'Spielplandaten konnten nicht geladen werden.')
+    loadJson(
+      './data/config.json',
+      'Konfiguration konnte nicht geladen werden. Bitte Datei prüfen (vorhanden, gültiges JSON).'
+    ),
+    loadJson('./data/event.json', 'Event-Daten konnten nicht geladen werden. Bitte Datei prüfen (vorhanden, gültiges JSON).'),
+    loadJson(
+      './data/catering.json',
+      'Verpflegungsdaten konnten nicht geladen werden. Bitte Datei prüfen (vorhanden, gültiges JSON).'
+    ),
+    loadJson(
+      './data/anfahrt.json',
+      'Anfahrtsdaten konnten nicht geladen werden. Bitte Datei prüfen (vorhanden, gültiges JSON).'
+    ),
+    loadJson(
+      './data/spielfeldlayout.json',
+      'Spielfeldlayout konnte nicht geladen werden. Bitte Datei prüfen (vorhanden, gültiges JSON).'
+    ),
+    loadJson(
+      './data/spielplan.json',
+      'Spielplandaten konnten nicht geladen werden. Bitte Datei prüfen (vorhanden, gültiges JSON).'
+    )
   ]);
 
   state.adminPasswordHash = config.adminPasswordHash ?? '';
   state.siteTitle = config.siteTitle ?? '';
   applySiteConfig();
 
-  return mergeDataParts([scheduleData, eventData, cateringData, directionsData, fieldLayoutData]);
+  return mergeDataParts([
+    { source: 'data/spielplan.json', data: scheduleData },
+    { source: 'data/event.json', data: eventData },
+    { source: 'data/catering.json', data: cateringData },
+    { source: 'data/anfahrt.json', data: directionsData },
+    { source: 'data/spielfeldlayout.json', data: fieldLayoutData }
+  ]);
 }
 
 function setAdminVisibility(isUnlocked) {
@@ -226,7 +266,7 @@ function setAdminVisibility(isUnlocked) {
   elements.adminGate.hidden = isUnlocked;
   if (elements.jsonFormatSection) elements.jsonFormatSection.hidden = !isUnlocked;
   if (!isUnlocked && elements.adminPassword) elements.adminPassword.value = '';
-  if (elements.adminError) elements.adminError.hidden = true;
+  setAdminError('Falsches Passwort.', true);
 }
 
 function wireAdminAuth() {
@@ -238,14 +278,14 @@ function wireAdminAuth() {
   elements.adminLoginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!state.adminPasswordHash) {
-      if (elements.adminError) elements.adminError.hidden = false;
+      setAdminError('Admin-Zugang ist nicht konfiguriert. Bitte data/config.json prüfen.', false);
       return;
     }
     const enteredPassword = elements.adminPassword?.value ?? '';
     const granted = (await hashPassword(enteredPassword)) === state.adminPasswordHash;
 
     if (!granted) {
-      if (elements.adminError) elements.adminError.hidden = false;
+      setAdminError('Falsches Passwort.', false);
       return;
     }
 
