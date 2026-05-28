@@ -395,6 +395,9 @@ function searchableTournamentText(tournament = {}) {
 }
 
 function tournamentSortValue(tournament, now, queryTokens = [], searchableText = '') {
+  const normalizedQueryTokens = Array.isArray(queryTokens)
+    ? queryTokens
+    : parseSearchTokens(String(queryTokens ?? ''));
   const status = tournamentStatus(tournament, now);
   const start = kickoffDate(tournament.event ?? {});
   const end = tournamentEndDate(tournament);
@@ -402,7 +405,7 @@ function tournamentSortValue(tournament, now, queryTokens = [], searchableText =
   const timeDistance = status.key === 'past'
     ? Math.abs(now.getTime() - (end?.getTime() ?? Number.MAX_SAFE_INTEGER))
     : Math.abs((start?.getTime() ?? Number.MAX_SAFE_INTEGER) - now.getTime());
-  const queryState = queryMatchState(searchableText, queryTokens);
+  const queryState = queryMatchState(searchableText, normalizedQueryTokens);
 
   return {
     statusRank: status.rank,
@@ -480,7 +483,7 @@ function filterAndSortTournaments(minimum = 0) {
     })()
     : searchBase;
   const visible = filterBySearchWindow(nearbyBase, selectedDate);
-  return visible.sort((a, b) => {
+  const sorted = visible.sort((a, b) => {
     const va = tournamentSortValue(a, now, queryTokens, searchCache.get(a.id) ?? '');
     const vb = tournamentSortValue(b, now, queryTokens, searchCache.get(b.id) ?? '');
     return va.statusRank - vb.statusRank
@@ -489,6 +492,7 @@ function filterAndSortTournaments(minimum = 0) {
       || va.timeRank - vb.timeRank
       || va.name.localeCompare(vb.name, 'de');
   });
+  return minimum > 0 ? ensureMinimumTournaments(sorted, minimum) : sorted;
 }
 
 function renderTournamentSuggestions() {
@@ -640,8 +644,8 @@ function renderSelectorPage() {
   if (elements.tournamentDate && !elements.tournamentDate.value) {
     const today = new Date();
     elements.tournamentDate.value = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-    state.selectedDate = elements.tournamentDate.value;
   }
+  state.selectedDate = elements.tournamentDate?.value ?? '';
   wireTournamentSelector();
   renderTournamentCards();
   requestUserLocation();
