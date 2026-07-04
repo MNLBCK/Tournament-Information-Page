@@ -7,7 +7,7 @@
         "date": "2026-07-05",
         "startTime": "09:30",
         "location": "SKV Hochberg, Waldallee 70, 71686 Remseck",
-        "endTime": "11:59"
+        "endTime": "12:30"
       },
       "geo": {
         "lat": 48.8665,
@@ -21,17 +21,18 @@
         "Anpfiff nur im 1. Spiel.",
         "Abpfiff jedes Spiel.",
         "Eckball ohne.",
+        "Abstand bei Tor, Abstoß und Eindribbeln: 3 Meter.",
         "Erstgenannte Mannschaft hat Anstoß und trägt Leibchen.",
         "Jedes Team hat 6 Spiele (3 Hin-/3 Rückspiele)."
       ],
       "trainerMeeting": {
         "time": "09:15",
-        "location": "nicht angegeben"
+        "location": "zwischen den Feldern B und C"
       },
       "awardCeremony": {
-        "isPlanned": false,
-        "time": "",
-        "location": ""
+        "isPlanned": true,
+        "time": "12:15 Uhr",
+        "location": "zwischen den Feldern B und C"
       },
       "catering": {
         "offerings": [
