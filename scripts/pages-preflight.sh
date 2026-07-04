@@ -5,13 +5,13 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 echo "[1/4] JSON-Dateien validieren"
-python -m json.tool data/config.json >/dev/null
-python -m json.tool data/event.json >/dev/null
-python -m json.tool data/catering.json >/dev/null
-python -m json.tool data/anfahrt.json >/dev/null
-python -m json.tool data/spielfeldlayout.json >/dev/null
-python -m json.tool data/spielplan.json >/dev/null
-python -m json.tool data/tournaments.json >/dev/null
+python3 -m json.tool data/config.json >/dev/null
+python3 -m json.tool data/event.json >/dev/null
+python3 -m json.tool data/catering.json >/dev/null
+python3 -m json.tool data/anfahrt.json >/dev/null
+python3 -m json.tool data/spielfeldlayout.json >/dev/null
+python3 -m json.tool data/spielplan.json >/dev/null
+python3 -m json.tool data/tournaments.json >/dev/null
 
 echo "[2/4] Referenzierte Seiten prüfen"
 html_files=(index.html turnier.html verpflegung.html anfahrt.html spielfeldlayout.html spielplan.html)

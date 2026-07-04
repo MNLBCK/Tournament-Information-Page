@@ -1,1 +1,854 @@
-{"tournaments":[{"quickInfo":["Jahrgänge 2019 und jünger.","Spielweise: 3v3 auf je 1 Tor.","Spielzeit 9 Minuten.","Wechselzeit/Pause 1 Minute.","Anpfiff nur im 1. Spiel.","Abpfiff jedes Spiel.","Kein Eckball.","Erstgenannte Mannschaft hat Anstoß und trägt Leibchen.","Alle Teams haben 6 Spiele (3 Hin-/3 Rückspiele)."],"trainerMeeting":{"time":"","location":"nicht angegeben"},"awardCeremony":{"isPlanned":false,"time":"","location":""},"catering":{"offerings":["Informationen zur Verpflegung folgen."],"notes":"Bitte vor Ort auf Aushang/Ansage achten."},"directions":{"address":"SKV Hochberg\nWaldallee 70\n71686 Remseck","website":"https://skv.sghochx.de","notice":"Spielplan v3 für den 05.07.2026.","parking":"Parkhinweise vor Ort beachten."},"fieldLayout":{"title":"Felder und Gruppen","summary":"Gespielt wird parallel auf Feld A, Feld B und Feld C.","fields":[{"field":"Feld A","group":"Gruppe A: SG Hochberg/H'dorf 1, SG Hochberg/H'dorf 2, TSV Schwaikheim 1, TSV Schwaikheim 2, DjK Ludwigsburg 1"},{"field":"Feld B","group":"Gruppe B: TV Aldingen 1, SGV Murr 1, SG Hochberg/H'dorf 3, DjK Ludwigsburg 2, TSV Schwaikheim 3"},{"field":"Feld C","group":"Gruppe C: TSV Schwaikheim 4, TV Aldingen 2, SGV Murr 2, SG Hochberg/H'dorf 4, SG Hochberg/H'dorf 5"}]},"matches":[{"time":"09:30","field":"Feld A","group":"Gruppe A","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 1"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 2"}},{"time":"09:30","field":"Feld B","group":"Gruppe B","home":{"club":"TV Aldingen","team":"TV Aldingen 1"},"away":{"club":"SGV Murr","team":"SGV Murr 1"}},{"time":"09:30","field":"Feld C","group":"Gruppe C","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 4"},"away":{"club":"TV Aldingen","team":"TV Aldingen 2"}},{"time":"09:40","field":"Feld A","group":"Gruppe A","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 1"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 2"}},{"time":"09:40","field":"Feld B","group":"Gruppe B","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 3"},"away":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 2"}},{"time":"09:40","field":"Feld C","group":"Gruppe C","home":{"club":"SGV Murr","team":"SGV Murr 2"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 4"}},{"time":"09:50","field":"Feld A","group":"Gruppe A","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 1"},"away":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 1"}},{"time":"09:50","field":"Feld B","group":"Gruppe B","home":{"club":"TV Aldingen","team":"TV Aldingen 1"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 3"}},{"time":"09:50","field":"Feld C","group":"Gruppe C","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 4"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 5"}},{"time":"10:00","field":"Feld A","group":"Gruppe A","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 2"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 1"}},{"time":"10:00","field":"Feld B","group":"Gruppe B","home":{"club":"SGV Murr","team":"SGV Murr 1"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 3"}},{"time":"10:00","field":"Feld C","group":"Gruppe C","home":{"club":"TV Aldingen","team":"TV Aldingen 2"},"away":{"club":"SGV Murr","team":"SGV Murr 2"}},{"time":"10:10","field":"Feld A","group":"Gruppe A","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 2"},"away":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 1"}},{"time":"10:10","field":"Feld B","group":"Gruppe B","home":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 2"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 3"}},{"time":"10:10","field":"Feld C","group":"Gruppe C","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 4"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 5"}},{"time":"10:20","field":"Feld A","group":"Gruppe A","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 1"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 1"}},{"time":"10:20","field":"Feld B","group":"Gruppe B","home":{"club":"TV Aldingen","team":"TV Aldingen 1"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 3"}},{"time":"10:20","field":"Feld C","group":"Gruppe C","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 4"},"away":{"club":"SGV Murr","team":"SGV Murr 2"}},{"time":"10:30","field":"Feld A","group":"Gruppe A","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 2"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 2"}},{"time":"10:30","field":"Feld B","group":"Gruppe B","home":{"club":"SGV Murr","team":"SGV Murr 1"},"away":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 2"}},{"time":"10:30","field":"Feld C","group":"Gruppe C","home":{"club":"TV Aldingen","team":"TV Aldingen 2"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 4"}},{"time":"10:40","field":"Feld A","group":"Gruppe A","home":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 1"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 1"}},{"time":"10:40","field":"Feld B","group":"Gruppe B","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 3"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 3"}},{"time":"10:40","field":"Feld C","group":"Gruppe C","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 5"},"away":{"club":"SGV Murr","team":"SGV Murr 2"}},{"time":"10:50","field":"Feld A","group":"Gruppe A","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 2"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 1"}},{"time":"10:50","field":"Feld B","group":"Gruppe B","home":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 2"},"away":{"club":"TV Aldingen","team":"TV Aldingen 1"}},{"time":"10:50","field":"Feld C","group":"Gruppe C","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 4"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 4"}},{"time":"11:00","field":"Feld A","group":"Gruppe A","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 2"},"away":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 1"}},{"time":"11:00","field":"Feld B","group":"Gruppe B","home":{"club":"SGV Murr","team":"SGV Murr 1"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 3"}},{"time":"11:00","field":"Feld C","group":"Gruppe C","home":{"club":"TV Aldingen","team":"TV Aldingen 2"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 5"}},{"time":"11:10","field":"Feld A","group":"Gruppe A","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 1"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 1"}},{"time":"11:10","field":"Feld B","group":"Gruppe B","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 3"},"away":{"club":"TV Aldingen","team":"TV Aldingen 1"}},{"time":"11:10","field":"Feld C","group":"Gruppe C","home":{"club":"SGV Murr","team":"SGV Murr 2"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 4"}},{"time":"11:20","field":"Feld A","group":"Gruppe A","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 2"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 2"}},{"time":"11:20","field":"Feld B","group":"Gruppe B","home":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 2"},"away":{"club":"SGV Murr","team":"SGV Murr 1"}},{"time":"11:20","field":"Feld C","group":"Gruppe C","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 4"},"away":{"club":"TV Aldingen","team":"TV Aldingen 2"}},{"time":"11:30","field":"Feld A","group":"Gruppe A","home":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 1"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 1"}},{"time":"11:30","field":"Feld B","group":"Gruppe B","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 3"},"away":{"club":"TV Aldingen","team":"TV Aldingen 1"}},{"time":"11:30","field":"Feld C","group":"Gruppe C","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 5"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 4"}},{"time":"11:40","field":"Feld A","group":"Gruppe A","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 1"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 2"}},{"time":"11:40","field":"Feld B","group":"Gruppe B","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 3"},"away":{"club":"SGV Murr","team":"SGV Murr 1"}},{"time":"11:40","field":"Feld C","group":"Gruppe C","home":{"club":"SGV Murr","team":"SGV Murr 2"},"away":{"club":"TV Aldingen","team":"TV Aldingen 2"}},{"time":"11:50","field":"Feld A","group":"Gruppe A","home":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 1"},"away":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 2"}},{"time":"11:50","field":"Feld B","group":"Gruppe B","home":{"club":"TSV Schwaikheim","team":"TSV Schwaikheim 3"},"away":{"club":"DjK Ludwigsburg","team":"DjK Ludwigsburg 2"}},{"time":"11:50","field":"Feld C","group":"Gruppe C","home":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 5"},"away":{"club":"SG Hochberg/H'dorf","team":"SG Hochberg/H'dorf 4"}}],"id":"skv-hochberg-2026-07-05","event":{"name":"SKV Hochberg Turnier Jahrgänge 2019 und jünger","date":"2026-07-05","startTime":"09:30","location":"SKV Hochberg, Waldallee 70, 71686 Remseck","endTime":"12:00"},"geo":{"lat":48.8665,"lon":9.2671}}]}
+{
+  "tournaments": [
+    {
+      "id": "skv-hochberg-2026-07-05",
+      "event": {
+        "name": "SKV Hochberg Turnier Jahrgänge 2019 und jünger",
+        "date": "2026-07-05",
+        "startTime": "09:30",
+        "location": "SKV Hochberg, Waldallee 70, 71686 Remseck",
+        "endTime": "11:59"
+      },
+      "geo": {
+        "lat": 48.8665,
+        "lon": 9.2671
+      },
+      "quickInfo": [
+        "Jahrgänge 2019 und jünger.",
+        "Spielweise: Funino.",
+        "Spieldauer 9 Minuten.",
+        "Pause 1 Minute.",
+        "Anpfiff nur im 1. Spiel.",
+        "Abpfiff jedes Spiel.",
+        "Eckball ohne.",
+        "Erstgenannte Mannschaft hat Anstoß und trägt Leibchen.",
+        "Jedes Team hat 6 Spiele (3 Hin-/3 Rückspiele)."
+      ],
+      "trainerMeeting": {
+        "time": "09:15",
+        "location": "nicht angegeben"
+      },
+      "awardCeremony": {
+        "isPlanned": false,
+        "time": "",
+        "location": ""
+      },
+      "catering": {
+        "offerings": [
+          "Informationen zur Verpflegung folgen."
+        ],
+        "notes": "Bitte vor Ort auf Aushang/Ansage achten."
+      },
+      "directions": {
+        "address": "SKV Hochberg\nWaldallee 70\n71686 Remseck",
+        "website": "https://skv.sghochx.de",
+        "notice": "Spielplan v5 für den 05.07.2026.",
+        "parking": "Parkhinweise vor Ort beachten."
+      },
+      "fieldLayout": {
+        "title": "Felder und Gruppen",
+        "summary": "Gespielt wird parallel auf Feld A, Feld B, Feld C und Feld D.",
+        "fields": [
+          {
+            "field": "Feld A",
+            "group": "6A: SG Hochberg/H'dorf 1, FC Marbach 1, TSV Schwaikheim 1, SGV Murr 1, SG Hochberg/H'dorf 2"
+          },
+          {
+            "field": "Feld B",
+            "group": "6B: TV Aldingen 1, DjK Ludwigsburg 1, SG Hochberg/H'dorf 3, FC Marbach 2, TSV Schwaikheim 2"
+          },
+          {
+            "field": "Feld C",
+            "group": "6C: MTV Ludwigsburg, SGV Murr 2, TV Aldingen 2, DjK Ludwigsburg 2, TSV Schwaikheim 3"
+          },
+          {
+            "field": "Feld D",
+            "group": "6D: TV Aldingen 3, TV Aldingen 4, TSV Schwaikheim 4, SG Hochberg/H'dorf 4, SG Hochberg/H'dorf 5"
+          }
+        ]
+      },
+      "matches": [
+        {
+          "time": "09:30",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 1"
+          },
+          "away": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 1"
+          }
+        },
+        {
+          "time": "09:30",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 1"
+          },
+          "away": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 1"
+          }
+        },
+        {
+          "time": "09:30",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "MTV Ludwigsburg",
+            "team": "MTV Ludwigsburg"
+          },
+          "away": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 2"
+          }
+        },
+        {
+          "time": "09:30",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 3"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 4"
+          }
+        },
+        {
+          "time": "09:40",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 1"
+          },
+          "away": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 1"
+          }
+        },
+        {
+          "time": "09:40",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 3"
+          },
+          "away": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 2"
+          }
+        },
+        {
+          "time": "09:40",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 2"
+          },
+          "away": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 2"
+          }
+        },
+        {
+          "time": "09:40",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 4"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 4"
+          }
+        },
+        {
+          "time": "09:50",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 2"
+          }
+        },
+        {
+          "time": "09:50",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 1"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 2"
+          }
+        },
+        {
+          "time": "09:50",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "MTV Ludwigsburg",
+            "team": "MTV Ludwigsburg"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 3"
+          }
+        },
+        {
+          "time": "09:50",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 3"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 5"
+          }
+        },
+        {
+          "time": "10:00",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 1"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 1"
+          }
+        },
+        {
+          "time": "10:00",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 3"
+          }
+        },
+        {
+          "time": "10:00",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 2"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 2"
+          }
+        },
+        {
+          "time": "10:00",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 4"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 4"
+          }
+        },
+        {
+          "time": "10:10",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 2"
+          }
+        },
+        {
+          "time": "10:10",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 2"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 2"
+          }
+        },
+        {
+          "time": "10:10",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 2"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 3"
+          }
+        },
+        {
+          "time": "10:10",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 4"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 5"
+          }
+        },
+        {
+          "time": "10:20",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 1"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 1"
+          }
+        },
+        {
+          "time": "10:20",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 3"
+          }
+        },
+        {
+          "time": "10:20",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "MTV Ludwigsburg",
+            "team": "MTV Ludwigsburg"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 2"
+          }
+        },
+        {
+          "time": "10:20",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 3"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 4"
+          }
+        },
+        {
+          "time": "10:30",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 1"
+          },
+          "away": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 1"
+          }
+        },
+        {
+          "time": "10:30",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 1"
+          },
+          "away": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 2"
+          }
+        },
+        {
+          "time": "10:30",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 2"
+          },
+          "away": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 2"
+          }
+        },
+        {
+          "time": "10:30",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 4"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 4"
+          }
+        },
+        {
+          "time": "10:40",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 2"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 1"
+          }
+        },
+        {
+          "time": "10:40",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 2"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 3"
+          }
+        },
+        {
+          "time": "10:40",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 3"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 2"
+          }
+        },
+        {
+          "time": "10:40",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 5"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 4"
+          }
+        },
+        {
+          "time": "10:50",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 1"
+          }
+        },
+        {
+          "time": "10:50",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 2"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 1"
+          }
+        },
+        {
+          "time": "10:50",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 2"
+          },
+          "away": {
+            "club": "MTV Ludwigsburg",
+            "team": "MTV Ludwigsburg"
+          }
+        },
+        {
+          "time": "10:50",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 4"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 3"
+          }
+        },
+        {
+          "time": "11:00",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 2"
+          }
+        },
+        {
+          "time": "11:00",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 1"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 2"
+          }
+        },
+        {
+          "time": "11:00",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 2"
+          },
+          "away": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 3"
+          }
+        },
+        {
+          "time": "11:00",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 4"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 5"
+          }
+        },
+        {
+          "time": "11:10",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 1"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 1"
+          }
+        },
+        {
+          "time": "11:10",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 3"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 1"
+          }
+        },
+        {
+          "time": "11:10",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 2"
+          },
+          "away": {
+            "club": "MTV Ludwigsburg",
+            "team": "MTV Ludwigsburg"
+          }
+        },
+        {
+          "time": "11:10",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 4"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 3"
+          }
+        },
+        {
+          "time": "11:20",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 1"
+          },
+          "away": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 1"
+          }
+        },
+        {
+          "time": "11:20",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 2"
+          },
+          "away": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 1"
+          }
+        },
+        {
+          "time": "11:20",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 2"
+          },
+          "away": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 2"
+          }
+        },
+        {
+          "time": "11:20",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 4"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 4"
+          }
+        },
+        {
+          "time": "11:30",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 2"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 1"
+          }
+        },
+        {
+          "time": "11:30",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 2"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 1"
+          }
+        },
+        {
+          "time": "11:30",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 3"
+          },
+          "away": {
+            "club": "MTV Ludwigsburg",
+            "team": "MTV Ludwigsburg"
+          }
+        },
+        {
+          "time": "11:30",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 5"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 3"
+          }
+        },
+        {
+          "time": "11:40",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 1"
+          },
+          "away": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 1"
+          }
+        },
+        {
+          "time": "11:40",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 3"
+          },
+          "away": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 1"
+          }
+        },
+        {
+          "time": "11:40",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 2"
+          },
+          "away": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 2"
+          }
+        },
+        {
+          "time": "11:40",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 4"
+          },
+          "away": {
+            "club": "TV Aldingen",
+            "team": "TV Aldingen 4"
+          }
+        },
+        {
+          "time": "11:50",
+          "field": "Feld A",
+          "group": "6A",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 2"
+          },
+          "away": {
+            "club": "SGV Murr",
+            "team": "SGV Murr 1"
+          }
+        },
+        {
+          "time": "11:50",
+          "field": "Feld B",
+          "group": "6B",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 2"
+          },
+          "away": {
+            "club": "FC Marbach",
+            "team": "FC Marbach 2"
+          }
+        },
+        {
+          "time": "11:50",
+          "field": "Feld C",
+          "group": "6C",
+          "home": {
+            "club": "TSV Schwaikheim",
+            "team": "TSV Schwaikheim 3"
+          },
+          "away": {
+            "club": "DjK Ludwigsburg",
+            "team": "DjK Ludwigsburg 2"
+          }
+        },
+        {
+          "time": "11:50",
+          "field": "Feld D",
+          "group": "6D",
+          "home": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 5"
+          },
+          "away": {
+            "club": "SG Hochberg/H'dorf",
+            "team": "SG Hochberg/H'dorf 4"
+          }
+        }
+      ]
+    }
+  ]
+}
