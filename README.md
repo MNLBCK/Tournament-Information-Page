@@ -17,6 +17,10 @@ Die Website bietet jetzt eine vorgeschaltete Auswahlseite plus Turnier-Unterseit
 
 Turniere werden über den Query-Parameter `?t=<turnier-id>` ausgewählt. Damit sind Direktlinks und QR-Codes pro Turnier möglich.
 
+## Hinweise für Agenten
+
+Agenten finden den kompakten Pflegeleitfaden für Turnierdaten in [`AGENT-README.md`](AGENT-README.md). Dort stehen die aktive Datenquelle, Pflichtfelder, Validierungsschritte und typische Stolperfallen.
+
 ## Datenmodell
 
 - `data/tournaments.json` enthält mehrere Turniere mit:
