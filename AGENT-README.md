@@ -1,19 +1,160 @@
-# README für Agenten (Turnierdaten)
+# Agenten-Leitfaden für Turnierdaten
 
-Diese Datei beschreibt den **IST-Stand** der benötigten Datenformate, damit Agenten Turnierinformationen konsistent als JSON bereitstellen können.
+Kurzleitfaden für Agenten, die diese GitHub-Pages-Website mit Turnierinformationen pflegen. Die aktive App lädt ihre produktiven Turnierdaten aus `data/tournaments.json`; die übrigen JSON-Dateien unter `data/` bleiben als Referenz- und Kompatibilitätsdateien erhalten.
 
-## Ziel
+## Schnellstart für Agenten
 
-Agenten liefern strukturierte Daten für:
+1. **Aktive Datenquelle bearbeiten:** Neue oder geänderte Turniere gehören in `data/tournaments.json` unter `tournaments`.
+2. **Eindeutige Turnier-ID setzen:** `id` muss stabil, URL-tauglich und eindeutig sein, z. B. `verein-turnier-2026-07-05`.
+3. **Direktlink prüfen:** Turnierseiten werden mit `?t=<turnier-id>` geöffnet, z. B. `turnier.html?t=skv-hochberg-2026-07-05`.
+4. **JSON validieren:** Vor Abschluss `./scripts/pages-preflight.sh` ausführen.
+5. **Referenzdateien nur bei Bedarf anfassen:** `data/config.json`, `data/spielplan.json`, `data/event.json`, `data/catering.json`, `data/spielfeldlayout.json`, `data/anfahrt.json` und `sample-data.json` sind nicht die primäre Mehrturnier-Datenquelle.
 
-- Spielplan
-- Spielfeldlayout
-- Anfahrt (Adresse ist Pflicht, weitere Angaben optional)
-- Orga-Informationen wie Trainerbesprechung und Siegerehrung
+## Aktive Datenstruktur
 
-## Pflichtdateien
+`data/tournaments.json` hat diese Grundform:
 
-Ablage unter `data/`:
+```json
+{
+  "tournaments": [
+    {
+      "id": "turnier-id",
+      "event": {},
+      "geo": {},
+      "quickInfo": [],
+      "trainerMeeting": {},
+      "awardCeremony": {},
+      "catering": {},
+      "directions": {},
+      "fieldLayout": {},
+      "matches": []
+    }
+  ]
+}
+```
+
+## Pflicht- und optionale Felder pro Turnier
+
+### `id`
+
+Pflicht:
+
+- `id` (String): eindeutiger Slug für Links, QR-Codes und Auswahl per Query-Parameter.
+
+Empfehlung:
+
+- Kleinbuchstaben, Zahlen und Bindestriche verwenden.
+- Datum im Format `YYYY-MM-DD` aufnehmen, wenn es zur Eindeutigkeit beiträgt.
+
+### `event`
+
+Pflicht:
+
+- `event.name` (String)
+- `event.date` (ISO-Datum `YYYY-MM-DD`)
+- `event.startTime` (24h-Uhrzeit `HH:MM`)
+- `event.location` (String)
+
+Optional:
+
+- `event.endTime` (24h-Uhrzeit `HH:MM`)
+
+### `geo`
+
+Optional, aber empfohlen für die Geo-Sortierung auf der Auswahlseite:
+
+- `geo.lat` (Zahl)
+- `geo.lon` (Zahl)
+
+Wenn keine verlässlichen Koordinaten vorliegen, das Objekt lieber weglassen statt zu raten.
+
+### `quickInfo`
+
+Pflicht:
+
+- `quickInfo` (Array aus Strings): kurze Regeln, Hinweise und organisatorische Eckdaten.
+
+### `trainerMeeting`
+
+Pflicht:
+
+- `trainerMeeting.time` (String, idealerweise `HH:MM` oder klarer Text)
+- `trainerMeeting.location` (String)
+
+### `awardCeremony`
+
+Pflicht:
+
+- `awardCeremony.isPlanned` (Boolean)
+
+Optional:
+
+- `awardCeremony.time` (String)
+- `awardCeremony.location` (String)
+
+Wenn keine Siegerehrung geplant ist, `isPlanned` auf `false` setzen und Zeit/Ort weglassen.
+
+### `catering`
+
+Pflicht:
+
+- `catering.offerings` (Array aus Strings)
+
+Optional:
+
+- `catering.payment` (String)
+- `catering.notes` (String)
+
+### `directions`
+
+Pflicht:
+
+- `directions.address` (String; mehrzeilig mit `\n` möglich)
+
+Optional:
+
+- `directions.parking` (String)
+- `directions.publicTransport` (String)
+- `directions.website` (URL-String)
+- `directions.notice` (String)
+
+### `fieldLayout`
+
+Pflicht:
+
+- `fieldLayout.summary` (String)
+- `fieldLayout.fields` (Array)
+
+Optional:
+
+- `fieldLayout.title` (String)
+- `fieldLayout.image.url` (String; relativer Pfad, z. B. `images/layout-name.png`)
+- `fieldLayout.image.alt` (String; Pflicht, wenn ein Bild gesetzt wird)
+
+Pro Eintrag in `fieldLayout.fields`:
+
+- `field` (String, z. B. `Feld A`)
+- `group` (String, z. B. Gruppenname oder Teamliste)
+
+### `matches`
+
+Pflicht:
+
+- `matches` (Array)
+
+Pro Spiel:
+
+- `time` (`HH:MM`)
+- `field` (String, z. B. `Feld A`)
+- `group` (String, z. B. `A` oder `Gruppe A`)
+- `home.club` (String)
+- `home.team` (String)
+- `away.club` (String)
+- `away.team` (String)
+
+## Referenz- und Kompatibilitätsdateien
+
+Diese Dateien unter `data/` werden im Preflight weiterhin validiert, sind aber nicht die primäre Quelle für die Mehrturnier-Website:
 
 1. `data/config.json`
 2. `data/spielplan.json`
@@ -22,94 +163,43 @@ Ablage unter `data/`:
 5. `data/spielfeldlayout.json`
 6. `data/anfahrt.json`
 
-## Formatvorgaben
+`sample-data.json` ist ebenfalls nur eine Vorlage/Referenz. Änderungen an echten Turnieren müssen in `data/tournaments.json` landen.
 
-### 1) Konfiguration: `data/config.json`
+## Validierung und Qualitätscheck
 
-Pflichtfelder:
+Vor jedem Abschluss ausführen:
 
-- keine
+```bash
+./scripts/pages-preflight.sh
+```
 
-Optionale Felder:
+Der Check validiert JSON-Dateien, interne HTML-Links, Pflicht-Assets und die Datenquellen in `script.js`.
 
-- `siteTitle` (String für seitenspezifischen Titel)
+Zusätzliche manuelle Prüfungen bei Datenänderungen:
 
-### 2) Spielplan: `data/spielplan.json`
+- Ist `data/tournaments.json` valides UTF-8-JSON ohne Kommentare?
+- Sind Datum und Uhrzeiten einheitlich (`YYYY-MM-DD`, `HH:MM`)?
+- Ist jede `id` eindeutig?
+- Existieren referenzierte Bilder wirklich im Repository?
+- Hat jedes Bild einen aussagekräftigen Alt-Text?
+- Sind Mannschaftsnamen in Spielplan und Feldlayout konsistent geschrieben?
+- Funktioniert ein Direktlink wie `turnier.html?t=<turnier-id>` lokal?
 
-Pflichtfelder:
+## Lokale Ansicht
 
-- `event.name` (String)
-- `event.date` (ISO-Datum, `YYYY-MM-DD`)
-- `event.startTime` (24h, `HH:MM`)
-- `event.location` (String)
-- `matches` (Array)
+```bash
+python3 -m http.server 8000
+```
 
-Pro Eintrag in `matches`:
+Danach im Browser öffnen:
 
-- `time` (`HH:MM`)
-- `field` (z. B. `Feld 1`)
-- `group` (z. B. `Gruppe A`)
-- `home.club`, `home.team`
-- `away.club`, `away.team`
+- Auswahlseite: `http://localhost:8000/`
+- Direktlink: `http://localhost:8000/turnier.html?t=<turnier-id>`
 
-### 3) Event-Metadaten: `data/event.json`
+## Häufige Fehler vermeiden
 
-Pflichtfelder:
-
-- `quickInfo` (Array aus Strings)
-- `trainerMeeting.time`
-- `trainerMeeting.location`
-- `awardCeremony.isPlanned` (Boolean)
-
-Optionale Felder:
-
-- `awardCeremony.time`
-- `awardCeremony.location`
-
-### 4) Verpflegung: `data/catering.json`
-
-Pflichtfelder:
-
-- `catering.offerings` (Array aus Strings)
-- `catering.payment`
-- `catering.notes`
-
-### 5) Spielfeldlayout: `data/spielfeldlayout.json`
-
-Pflichtfelder:
-
-- `fieldLayout.summary` (String)
-- `fieldLayout.fields` (Array)
-
-Optionale Felder:
-
-- `fieldLayout.title` (String)
-- `fieldLayout.image.url` (String)
-- `fieldLayout.image.alt` (String)
-
-Pro Feld:
-
-- `field` (z. B. `Feld 1`)
-- `group` (z. B. `Gruppe A`)
-
-### 6) Anfahrt: `data/anfahrt.json`
-
-Pflichtfeld:
-
-- `directions.address`
-
-Optionale Felder:
-
-- `directions.parking`
-- `directions.publicTransport`
-
-## Hinweis zum Hauptdatensatz
-
-`sample-data.json` ist nur noch eine Referenzvorlage. Die aktive Website lädt die Daten aus den Dateien unter `data/`.
-
-## Validierungsempfehlungen
-
-- Nur valides JSON (UTF-8)
-- Datumsformat strikt `YYYY-MM-DD`
-- Uhrzeitformat strikt `HH:MM`
-- Mannschaftsnamen eindeutig pro Spiel
+- Keine produktiven Turnierdaten nur in den Einzeldateien unter `data/*.json` ändern.
+- Keine ungültigen JSON-Kommentare oder trailing commas einfügen.
+- Keine ungesicherten Koordinaten erfinden.
+- Keine leeren Pflichtfelder stehen lassen.
+- Bei neuen Layoutbildern immer Datei, relativen Pfad und Alt-Text gemeinsam pflegen.
