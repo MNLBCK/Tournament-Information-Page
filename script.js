@@ -158,6 +158,16 @@ function applyTournamentLinksToNav() {
   });
 }
 
+
+function applyOrganizerBranding(tournament = {}) {
+  const logo = document.querySelector('#organizerLogo');
+  if (!logo) return;
+  const organizer = tournament.organizer ?? {};
+  const logoUrl = safeImageUrl(organizer.logo?.url ?? '');
+  if (logoUrl) logo.src = logoUrl;
+  logo.alt = organizer.logo?.alt || (organizer.name ? `Gastgeberlogo ${organizer.name}` : 'Gastgeberlogo');
+}
+
 function renderCountdown(tournament) {
   if (!elements.kickoffCountdown) return;
   const startDate = kickoffDate(tournament?.event ?? {});
@@ -615,15 +625,20 @@ async function loadJson(path, err) {
 }
 
 async function loadConfigAndTournaments() {
-  const [config, tournamentData] = await Promise.all([
+  const [config, eventIndex] = await Promise.all([
     loadJson('./data/config.json', 'Konfiguration konnte nicht geladen werden.'),
-    loadJson('./data/tournaments.json', 'Turnierdaten konnten nicht geladen werden.')
+    loadJson('./data/events/index.json', 'Event-Verzeichnis konnte nicht geladen werden.')
   ]);
 
   state.siteTitle = config.siteTitle ?? '';
-  state.tournaments = Array.isArray(tournamentData.tournaments) ? tournamentData.tournaments : [];
+  const events = Array.isArray(eventIndex.events) ? eventIndex.events : [];
+  state.tournaments = await Promise.all(events.map(async ({ id, file }) => {
+    if (!TOURNAMENT_ID_PATTERN.test(String(id ?? '')) || !file) throw new Error('Event-Verzeichnis enthält einen ungültigen Eintrag.');
+    const eventData = await loadJson(`./data/events/${file}`, `Event-Daten für ${id} konnten nicht geladen werden.`);
+    return { id, ...eventData };
+  }));
   if (!state.tournaments.length || state.tournaments.some((tournament) => !validateTournamentData(tournament))) {
-    throw new Error('JSON ungültig: Erwartet wird data/tournaments.json mit id, event und matches je Turnier.');
+    throw new Error('JSON ungültig: Erwartet werden Event-Dateien mit event und matches.');
   }
 }
 
@@ -637,6 +652,7 @@ function renderDetailPages() {
 
   applyTournamentLinksToNav();
   markActiveNav();
+  applyOrganizerBranding(selected);
   applyPageMeta(selected.event ?? {});
   renderTournamentInfo(selected);
   populateScheduleFilters();
