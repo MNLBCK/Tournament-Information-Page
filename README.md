@@ -23,7 +23,7 @@ Agenten finden den kompakten Pflegeleitfaden für Turnierdaten in [`AGENT-README
 
 ## Datenmodell
 
-- `data/tournaments.json` enthält mehrere Turniere mit:
+- `data/events/index.json` enthält das schlanke Event-Verzeichnis. Die eigentlichen Event-Daten liegen getrennt als einzelne Dateien unter `data/events/<event-id>.json` mit:
   - `id`
   - `event` (inkl. Datum, Startzeit, optional Endzeit)
   - `geo` (lat/lon)
@@ -37,7 +37,14 @@ Bestehende Einzeldateien unter `data/*.json` bleiben als Referenz erhalten.
 
 - `styles.css` – responsives Layout inkl. Auswahlkarten, Status-Badges und QR-Code-Darstellung
 - `script.js` – Laden der Turnierdaten, Auswahl/Suche, Geo-/Zeit-Vorschläge, Rendern der Turnierseiten
-- `scripts/pages-preflight.sh` – Preflight inkl. Validierung von `data/tournaments.json`
+- `admin.html` / `admin.js` – passwortgeschützte Verwaltungsoberfläche für Events, JSON-Import/-Export und eingebettete Layoutbilder
+- `scripts/pages-preflight.sh` – Preflight inkl. Validierung des Event-Verzeichnisses und aller Event-Dateien
+
+## Event-Verwaltung
+
+Die Event-Verwaltung ist unter `admin.html` erreichbar. Das Startpasswort lautet `Turnier-Admin-2026!` und sollte vor dem Einsatz geändert werden: In `data/admin.json` wird dafür der SHA-256-Hash des neuen Passworts hinterlegt (z. B. mit `printf %s 'NEUES_PASSWORT' | sha256sum`).
+
+Da GitHub Pages statisch ist, kann die Seite keine Dateien direkt in das Repository schreiben. Die Verwaltung exportiert daher die bearbeiteten Daten als Download; diese werden anschließend nach `data/events/` übernommen und committet. Der Passwortschutz schützt die Admin-Bedienoberfläche, ersetzt auf einer statischen Website aber keine serverseitige Zugriffskontrolle.
 
 ## Lokal testen
 

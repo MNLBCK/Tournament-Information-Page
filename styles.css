@@ -13,6 +13,7 @@ ul{margin:0;padding-left:1.1rem}
 .top-nav{grid-template-columns:repeat(6,minmax(0,1fr))}
 .search-grid{grid-template-columns:1fr;align-items:start}
 input[type='search'],input[type='date'],select{border:1px solid var(--border);border-radius:.5rem;padding:.48rem;width:100%;background:#fff}
+input[type='password'],textarea{border:1px solid var(--border);border-radius:.5rem;padding:.48rem;width:100%;background:#fff;font:inherit}
 .pill-filter{display:flex;gap:.4rem;flex-wrap:wrap}
 .pill{border:1px solid var(--border);background:#eef2ff;color:#1e293b;border-radius:999px;padding:.3rem .7rem;font-weight:600}
 .pill.is-active{background:var(--primary);color:#fff;border-color:var(--primary)}
@@ -82,3 +83,4 @@ footer{text-align:center;padding:0 0 1.25rem}
   .hero-headline{align-items:flex-start}
   .tournament-actions{grid-template-columns:1fr}
 }
+.admin-page{--primary:#4338ca}.admin-login{max-width:440px;margin:auto}.admin-login form{display:grid;gap:.55rem}.admin-toolbar,.admin-actions,.form-heading{display:flex;gap:.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}.admin-layout{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,2fr);gap:.8rem;margin-top:.8rem}.event-list{display:grid;gap:.35rem}.event-list-item{border:1px solid var(--border);background:#fff;border-radius:.5rem;padding:.55rem;text-align:left;cursor:pointer;display:grid;gap:.15rem}.event-list-item.is-selected{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}.event-list-item small{color:var(--muted)}#eventForm{display:grid;gap:.55rem}#eventJson{min-height:520px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.82rem;line-height:1.45;resize:vertical}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer}.danger{background:#b91c1c}.form-message{min-height:1.4em;color:#166534}.form-message.is-error{color:#b91c1c}.admin-help{margin-top:.8rem}.admin-help ol{padding-left:1.25rem;margin:0 0 .5rem}@media(max-width:700px){.admin-layout{grid-template-columns:1fr}#eventJson{min-height:360px}}

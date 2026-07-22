@@ -1,10 +1,10 @@
 # Agenten-Leitfaden für Turnierdaten
 
-Kurzleitfaden für Agenten, die diese GitHub-Pages-Website mit Turnierinformationen pflegen. Die aktive App lädt ihre produktiven Turnierdaten aus `data/tournaments.json`; die übrigen JSON-Dateien unter `data/` bleiben als Referenz- und Kompatibilitätsdateien erhalten.
+Kurzleitfaden für Agenten, die diese GitHub-Pages-Website mit Turnierinformationen pflegen. Die aktive App lädt ihr Event-Verzeichnis aus `data/events/index.json` und die einzelnen produktiven Event-Dateien aus `data/events/<event-id>.json`; die übrigen JSON-Dateien unter `data/` bleiben als Referenz- und Kompatibilitätsdateien erhalten.
 
 ## Schnellstart für Agenten
 
-1. **Aktive Datenquelle bearbeiten:** Neue oder geänderte Turniere gehören in `data/tournaments.json` unter `tournaments`.
+1. **Aktive Datenquelle bearbeiten:** Neue oder geänderte Turniere gehören als eigene Datei nach `data/events/` und werden in `data/events/index.json` registriert.
 2. **Eindeutige Turnier-ID setzen:** `id` muss stabil, URL-tauglich und eindeutig sein, z. B. `verein-turnier-2026-07-05`.
 3. **Direktlink prüfen:** Turnierseiten werden mit `?t=<turnier-id>` geöffnet, z. B. `turnier.html?t=skv-hochberg-2026-07-05`.
 4. **JSON validieren:** Vor Abschluss `./scripts/pages-preflight.sh` ausführen.
@@ -12,23 +12,12 @@ Kurzleitfaden für Agenten, die diese GitHub-Pages-Website mit Turnierinformatio
 
 ## Aktive Datenstruktur
 
-`data/tournaments.json` hat diese Grundform:
+`data/events/index.json` hat diese Grundform:
 
 ```json
 {
-  "tournaments": [
-    {
-      "id": "turnier-id",
-      "event": {},
-      "geo": {},
-      "quickInfo": [],
-      "trainerMeeting": {},
-      "awardCeremony": {},
-      "catering": {},
-      "directions": {},
-      "fieldLayout": {},
-      "matches": []
-    }
+  "events": [
+    { "id": "turnier-id", "file": "turnier-id.json" }
   ]
 }
 ```
@@ -37,14 +26,7 @@ Kurzleitfaden für Agenten, die diese GitHub-Pages-Website mit Turnierinformatio
 
 ### `id`
 
-Pflicht:
-
-- `id` (String): eindeutiger Slug für Links, QR-Codes und Auswahl per Query-Parameter.
-
-Empfehlung:
-
-- Kleinbuchstaben, Zahlen und Bindestriche verwenden.
-- Datum im Format `YYYY-MM-DD` aufnehmen, wenn es zur Eindeutigkeit beiträgt.
+Die eindeutige, URL-taugliche `id` wird im Event-Verzeichnis (`data/events/index.json`) gepflegt und muss zum Dateinamen passen. In der einzelnen Event-Datei selbst steht keine `id`.
 
 ### `event`
 
@@ -163,7 +145,7 @@ Diese Dateien unter `data/` werden im Preflight weiterhin validiert, sind aber n
 5. `data/spielfeldlayout.json`
 6. `data/anfahrt.json`
 
-`sample-data.json` ist ebenfalls nur eine Vorlage/Referenz. Änderungen an echten Turnieren müssen in `data/tournaments.json` landen.
+`sample-data.json` ist ebenfalls nur eine Vorlage/Referenz. Änderungen an echten Turnieren müssen als einzelne Event-Datei in `data/events/` landen und im Verzeichnis registriert werden.
 
 ## Validierung und Qualitätscheck
 
@@ -177,7 +159,7 @@ Der Check validiert JSON-Dateien, interne HTML-Links, Pflicht-Assets und die Dat
 
 Zusätzliche manuelle Prüfungen bei Datenänderungen:
 
-- Ist `data/tournaments.json` valides UTF-8-JSON ohne Kommentare?
+- Ist `data/events/index.json` und jede Event-Datei valides UTF-8-JSON ohne Kommentare?
 - Sind Datum und Uhrzeiten einheitlich (`YYYY-MM-DD`, `HH:MM`)?
 - Ist jede `id` eindeutig?
 - Existieren referenzierte Bilder wirklich im Repository?
@@ -198,7 +180,7 @@ Danach im Browser öffnen:
 
 ## Häufige Fehler vermeiden
 
-- Keine produktiven Turnierdaten nur in den Einzeldateien unter `data/*.json` ändern.
+- Keine produktiven Turnierdaten in den Referenzdateien unter `data/*.json` ändern; Event-Dateien gehören nach `data/events/`.
 - Keine ungültigen JSON-Kommentare oder trailing commas einfügen.
 - Keine ungesicherten Koordinaten erfinden.
 - Keine leeren Pflichtfelder stehen lassen.

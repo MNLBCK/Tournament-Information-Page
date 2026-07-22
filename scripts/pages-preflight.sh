@@ -11,10 +11,12 @@ python3 -m json.tool data/catering.json >/dev/null
 python3 -m json.tool data/anfahrt.json >/dev/null
 python3 -m json.tool data/spielfeldlayout.json >/dev/null
 python3 -m json.tool data/spielplan.json >/dev/null
-python3 -m json.tool data/tournaments.json >/dev/null
+python3 -m json.tool data/admin.json >/dev/null
+python3 -m json.tool data/events/index.json >/dev/null
+while IFS= read -r file; do python3 -m json.tool "$file" >/dev/null; done < <(find data/events -maxdepth 1 -name '*.json' ! -name 'index.json' -type f)
 
 echo "[2/4] Referenzierte Seiten prüfen"
-html_files=(index.html turnier.html verpflegung.html anfahrt.html spielfeldlayout.html spielplan.html)
+html_files=(index.html turnier.html verpflegung.html anfahrt.html spielfeldlayout.html spielplan.html admin.html)
 missing=0
 for file in "${html_files[@]}"; do
   while IFS= read -r href; do
@@ -36,12 +38,12 @@ if [[ $missing -ne 0 ]]; then
 fi
 
 echo "[3/4] Asset-Dateien prüfen"
-required_assets=(styles.css script.js logo.svg favicon.svg)
+required_assets=(styles.css script.js admin.js logo.svg favicon.svg)
 for asset in "${required_assets[@]}"; do
   [[ -f "$asset" ]] || { echo "Fehlendes Asset: $asset"; exit 1; }
 done
 
 echo "[4/4] Datenquellen im Script prüfen"
-grep -En './data/config.json|./data/tournaments.json' script.js >/dev/null
+grep -En './data/config.json|./data/events/index.json' script.js >/dev/null
 
 echo "Pages-Preflight erfolgreich."

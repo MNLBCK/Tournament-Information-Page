@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration | Spieltag-Info</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <header class="card hero"><div class="hero-headline"><div><h1>Event-Verwaltung</h1><p>Turnierdaten erstellen, bearbeiten und als veröffentlichungsfertige Dateien herunterladen.</p></div></div></header>
+    <main>
+      <section id="adminLogin" class="card admin-login">
+        <h2>Anmelden</h2>
+        <p class="hint">Dieser Bereich ist für die Pflege von Event-Daten vorgesehen.</p>
+        <form id="loginForm"><label for="adminPassword">Passwort</label><input id="adminPassword" type="password" autocomplete="current-password" required /><button class="button" type="submit">Anmelden</button></form>
+        <p id="loginMessage" class="form-message" role="alert"></p>
+      </section>
+      <section id="adminApp" hidden>
+        <div class="card admin-toolbar"><div><h2>Events</h2><p class="hint">Änderungen bleiben bis zum Download nur in diesem Browser.</p></div><div class="admin-actions"><button id="newEvent" class="button" type="button">Neues Event</button><label class="button secondary file-button">Event importieren<input id="importEvent" type="file" accept="application/json" /></label><button id="downloadData" class="button" type="button">Daten herunterladen</button><button id="logout" class="button secondary" type="button">Abmelden</button></div></div>
+        <div class="admin-layout"><aside class="card"><div id="eventList" class="event-list"></div></aside><section class="card"><form id="eventForm"><div class="form-heading"><h2 id="editorTitle">Event</h2><button id="deleteEvent" class="button danger" type="button">Event löschen</button></div><p class="hint">Spielplan und alle weiteren Daten werden als JSON verwaltet. Der Spielplan, Hinweise und weitere Angaben werden direkt im Event-JSON gepflegt.</p><label for="eventJson">Event-Daten (JSON)</label><textarea id="eventJson" spellcheck="false" required></textarea><div class="admin-actions"><button class="button" type="submit">Änderungen übernehmen</button><button id="uploadImage" class="button secondary" type="button">Veranstalterlogo hochladen</button><input id="imageFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden /></div><p id="editorMessage" class="form-message" role="status"></p></form></section></div>
+        <section class="card admin-help"><h2>Veröffentlichen</h2><ol><li>Die heruntergeladene Exportdatei öffnen.</li><li>Den Inhalt des Ordners <code>data/events</code> in das Repository übernehmen.</li><li>Änderungen committen und veröffentlichen. Die Plattformdateien bleiben unverändert.</li></ol><p class="hint">Hinweis: Eine statische GitHub-Pages-Seite kann keine sichere Server-Anmeldung oder Dateien direkt ins Repository schreiben. Der Passwortschutz schützt deshalb die Bedienoberfläche, nicht den Quellcode. Für echten Zugriffsschutz ist die Seite hinter einer serverseitigen Anmeldung zu betreiben.</p></section>
+      </section>
+    </main>
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>
