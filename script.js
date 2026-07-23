@@ -61,6 +61,8 @@ function safeImageUrl(value = '') {
   try {
     const url = new URL(value, window.location.href);
     if (['http:', 'https:'].includes(url.protocol)) return url.href;
+    // The admin uploader embeds its accepted image files with FileReader as data URLs.
+    if (/^data:image\/(?:png|jpe?g|webp|svg\+xml);base64,[a-z0-9+/]*={0,2}$/i.test(value)) return url.href;
     return url.origin === window.location.origin ? url.href : '';
   } catch {
     return '';
