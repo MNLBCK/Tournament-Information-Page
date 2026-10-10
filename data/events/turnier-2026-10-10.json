@@ -1,0 +1,727 @@
+{
+  "event": {
+    "name": "Turnier am 10.10.2026",
+    "date": "2026-10-10",
+    "startTime": "10:00",
+    "endTime": "12:11",
+    "location": "Nicht angegeben"
+  },
+  "quickInfo": [
+    "Gemeinsames Turnier mit den Unterplänen Gruppe 1, Gruppe 2 und Gruppe 3.",
+    "Die vier Meinturnierplan-Seiten sind Unterpläne dieses einen Turniers.",
+    "Veranstaltungsname und Ort sind in den bereitgestellten Quellen nicht angegeben.",
+    "Spielzeiten aus der bereitgestellten Gruppe-1-XLSX und den vier verlinkten Meinturnierplan-Seiten.",
+    "Vorrunde/Rückrunde ist für Gruppe 1 aus der XLSX nicht eindeutig ableitbar; diese Spiele tragen daher phase: null statt einer unbelegten Zuordnung."
+  ],
+  "trainerMeeting": {
+    "time": "Nicht angegeben",
+    "location": "Nicht angegeben"
+  },
+  "awardCeremony": {
+    "isPlanned": null
+  },
+  "catering": {
+    "offerings": [
+      "Keine Angaben vorhanden."
+    ]
+  },
+  "directions": {
+    "address": "Nicht angegeben"
+  },
+  "fieldLayout": {
+    "title": "Felder und Gruppen",
+    "summary": "Gruppe 1 auf Feld 3 und Feld 4; Gruppen 2 und 3 auf Feld 1 und Feld 2.",
+    "fields": [
+      {
+        "field": "Feld 1",
+        "group": "Gruppe 2 und Gruppe 3"
+      },
+      {
+        "field": "Feld 2",
+        "group": "Gruppe 2 und Gruppe 3"
+      },
+      {
+        "field": "Feld 3",
+        "group": "Gruppe 1"
+      },
+      {
+        "field": "Feld 4",
+        "group": "Gruppe 1"
+      }
+    ]
+  },
+  "matches": [
+    {
+      "time": "10:00",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "round": 1,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/1"
+      },
+      "round": 2,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 3,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "round": 4,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/1"
+      },
+      "round": 5,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "round": 6,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/1"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "round": 7,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "round": 8,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 9,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "round": 10,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "round": 11,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 3",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 12,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "round": 1,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 2,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "round": 3,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "round": 4,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "round": 5,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 6,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 7,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/1"
+      },
+      "round": 8,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "round": 9,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "round": 10,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler"
+      },
+      "round": 11,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 4",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 18/2"
+      },
+      "round": 12,
+      "phase": "Unbekannt"
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 1"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "round": 1,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 2"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "round": 2,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 2"
+      },
+      "round": 3,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "round": 4,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 2"
+      },
+      "round": 5,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "away": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 1"
+      },
+      "round": 6,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 1"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "round": 1,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 2"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "round": 2,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 2"
+      },
+      "round": 3,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "round": 4,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 2"
+      },
+      "round": 5,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 1"
+      },
+      "round": 6,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 1",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "round": 1,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 1",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 3"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 3"
+      },
+      "round": 2,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 1",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 2"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 3"
+      },
+      "round": 3,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 1",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 3"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "round": 4,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 1",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 3"
+      },
+      "round": 5,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 1",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 3"
+      },
+      "away": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 2"
+      },
+      "round": 6,
+      "phase": "Vorrunde"
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 2",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "round": 1,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 2",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV neckarweihingen 3"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 3"
+      },
+      "round": 2,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 2",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 2"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV neckarweihingen 3"
+      },
+      "round": 3,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 2",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 3"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "round": 4,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 2",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV neckarweihingen 3"
+      },
+      "round": 5,
+      "phase": "Rückrunde"
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 2",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 3"
+      },
+      "away": {
+        "club": "TSV Affalterbach",
+        "team": "TSV Affalterbach 2"
+      },
+      "round": 6,
+      "phase": "Rückrunde"
+    }
+  ]
+}

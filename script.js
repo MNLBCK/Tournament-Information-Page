@@ -219,7 +219,10 @@ function renderTournamentInfo(tournament = {}) {
   const ac = tournament.awardCeremony ?? {};
   const awardTime = String(ac.time ?? '').trim();
   const awardTimeLabel = awardTime && /\buhr\b/i.test(awardTime) ? awardTime : awardTime ? `${awardTime} Uhr` : '';
-  setHtml(elements.orgaInfoContent, `<p><strong>Trainerbesprechung:</strong> ${escapeHtml(tm.time ?? '-')} Uhr, ${escapeHtml(tm.location ?? '-')}</p><p><strong>Siegerehrung:</strong> ${ac.isPlanned ? `Ja${awardTimeLabel ? `, geplant um ${escapeHtml(awardTimeLabel)}` : ''}${ac.location ? ` (${escapeHtml(ac.location)})` : ''}.` : 'Nein.'}</p>`);
+  const awardLabel = ac.isPlanned === true
+    ? `Ja${awardTimeLabel ? `, geplant um ${escapeHtml(awardTimeLabel)}` : ''}${ac.location ? ` (${escapeHtml(ac.location)})` : ''}.`
+    : ac.isPlanned === false ? 'Nein.' : 'Unbekannt.';
+  setHtml(elements.orgaInfoContent, `<p><strong>Trainerbesprechung:</strong> ${escapeHtml(tm.time ?? '-')} Uhr, ${escapeHtml(tm.location ?? '-')}</p><p><strong>Siegerehrung:</strong> ${awardLabel}</p>`);
 
   const c = tournament.catering ?? {};
   if (Array.isArray(c.categories) && c.categories.length) {
@@ -270,7 +273,15 @@ function parseMatchDate(time) {
 function renderMatches() {
   if (!hasScheduleUi || !state.selectedTournament) return;
   const allMatches = state.selectedTournament.matches ?? [];
-  const filtered = allMatches.filter((match) => matchesFilter(match, currentFilters()));
+  const phaseRank = { Vorrunde: 0, Rückrunde: 1 };
+  const sortedMatches = [...allMatches].sort((a, b) => {
+    const time = String(a.time ?? '').localeCompare(String(b.time ?? ''));
+    const field = String(a.field ?? '').localeCompare(String(b.field ?? ''), 'de');
+    const round = Number(a.round ?? Number.MAX_SAFE_INTEGER) - Number(b.round ?? Number.MAX_SAFE_INTEGER);
+    const phase = (phaseRank[a.phase] ?? 2) - (phaseRank[b.phase] ?? 2);
+    return time || field || round || phase;
+  });
+  const filtered = sortedMatches.filter((match) => matchesFilter(match, currentFilters()));
 
   if (!filtered.length) {
     elements.scheduleList.innerHTML = '<p>Keine Spiele mit diesen Filtern gefunden.</p>';
@@ -289,7 +300,11 @@ function renderMatches() {
     const fieldName = m.field || m.group || 'Feld';
     const colorClass = state.fieldColors[fieldName.toLowerCase()] ?? '';
 
-    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${escapeHtml(m.time ?? '--:--')}</strong><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-line">${escapeHtml(m.home?.team ?? 'TBD')} : ${escapeHtml(m.away?.team ?? 'TBD')}</p></article>`;
+    const homeLabel = m.home?.team ?? 'TBD';
+    const opponentLabel = m.away?.team ? m.away.team : 'Spielfrei';
+    const roundLabel = m.round ? ` · Runde ${escapeHtml(m.round)}` : '';
+    const phaseLabel = m.phase ? ` · ${escapeHtml(m.phase)}` : '';
+    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${escapeHtml(m.time ?? '--:--')}</strong><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-meta">${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}</p><p class="match-line">${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}</p></article>`;
   }).join('');
 
   if (firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
