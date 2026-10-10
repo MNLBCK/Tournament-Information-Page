@@ -273,14 +273,9 @@ function parseMatchDate(time) {
 function renderMatches() {
   if (!hasScheduleUi || !state.selectedTournament) return;
   const allMatches = state.selectedTournament.matches ?? [];
-  const phaseRank = { Vorrunde: 0, Rückrunde: 1 };
-  const sortedMatches = [...allMatches].sort((a, b) => {
-    const time = String(a.time ?? '').localeCompare(String(b.time ?? ''));
-    const field = String(a.field ?? '').localeCompare(String(b.field ?? ''), 'de');
-    const round = Number(a.round ?? Number.MAX_SAFE_INTEGER) - Number(b.round ?? Number.MAX_SAFE_INTEGER);
-    const phase = (phaseRank[a.phase] ?? 2) - (phaseRank[b.phase] ?? 2);
-    return time || field || round || phase;
-  });
+  const sortedMatches = [...allMatches].sort((a, b) =>
+    String(a.time ?? '').localeCompare(String(b.time ?? ''))
+  );
   const filtered = sortedMatches.filter((match) => matchesFilter(match, currentFilters()));
 
   if (!filtered.length) {
