@@ -26,12 +26,14 @@
       <section class="card schedule-card" id="schedule">
         <p class="hint">Suche nach Feld/Gruppe, Mannschaft oder Verein.</p>
         <div class="search-grid">
+          <div id="groupFilterPills" class="pill-filter" role="group" aria-label="Gruppen-Filter"></div>
           <div id="fieldFilterPills" class="pill-filter" role="group" aria-label="Feld-Filter"></div>
           <div class="autocomplete-wrap">
             <input id="searchTerm" type="search" placeholder="Mannschaft oder Verein" autocomplete="off" />
             <div id="searchSuggestions" class="autocomplete-list" role="listbox" aria-label="Vorschläge"></div>
           </div>
         </div>
+        <div id="scheduleSourceLinks"></div>
         <div id="scheduleList" class="match-list"></div>
       </section>
     </main>

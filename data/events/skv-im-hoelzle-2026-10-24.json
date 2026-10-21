@@ -1,0 +1,1106 @@
+{
+  "event": {
+    "name": "Fußballturnier SKV Im Hölzle",
+    "date": "2026-10-24",
+    "startTime": "10:00",
+    "location": "SKV Sportgelände Im Hölzle, Waldallee 70, 71686 Remseck am Neckar"
+  },
+  "geo": {
+    "lat": 48.8665,
+    "lon": 9.2671
+  },
+  "quickInfo": [
+    "Trainerbesprechung um 09:40 Uhr; direkt anschließend Begrüßung der Kinder.",
+    "Erstes Spiel mit Anpfiff; danach werden die Spiele nur abgepfiffen. Sobald die nächsten beiden Teams bereitstehen, kann wieder gespielt werden.",
+    "Torschusszone und Eckball auf den Spielfeldern.",
+    "Nach dem Eindribbeln muss mindestens ein Pass vor dem Torabschluss erfolgen.",
+    "Die erstgenannte Mannschaft hat Anstoß und organisiert bei gleicher Trikotfarbe die Leibchen.",
+    "Keine Spielerliste erforderlich – einfach kommen und Spaß haben.",
+    "Mixed-Modus nacheinander, nicht parallel: zunächst 4 gegen 4 (Vorrunde), danach 3 gegen 3 (Rückrunde); mindestens vier Kinder pro Team.",
+    "Spielpläne und alle 60 Begegnungen sind auf der Spielplan-Seite einsehbar."
+  ],
+  "trainerMeeting": {
+    "time": "09:40",
+    "location": "SKV Sportgelände Im Hölzle (genauer Treffpunkt nicht angegeben); danach Kinderbegrüßung"
+  },
+  "awardCeremony": {
+    "isPlanned": null
+  },
+  "catering": {
+    "offerings": [
+      "Zur Verpflegung liegen keine Angaben vor."
+    ]
+  },
+  "directions": {
+    "address": "SKV Sportgelände Im Hölzle\nWaldallee 70\n71686 Remseck am Neckar",
+    "parking": "Keine Angaben vorhanden."
+  },
+  "fieldLayout": {
+    "title": "Spielfelder 1 bis 6",
+    "summary": "Felder 1, 3 und 5: 4 gegen 4. Felder 2, 4 und 6: 3 gegen 3. Die Rückrunde beginnt um 11:06 Uhr auf dem jeweils anderen Feld.",
+    "image": {
+      "url": "images/layout-skv-im-hoelzle-2026-10-24.svg",
+      "alt": "Lageplan des SKV-Sportgeländes Im Hölzle: links Feld 1 bis 4, rechts Feld 5 und 6; 4-gegen-4 auf Feld 1, 3 und 5 sowie 3-gegen-3 auf Feld 2, 4 und 6."
+    },
+    "fields": [
+      {
+        "field": "Feld 1 (4 vs. 4)",
+        "group": "Gruppe 1 Vorrunde / Gruppe 2 Rückrunde"
+      },
+      {
+        "field": "Feld 2 (3 vs. 3)",
+        "group": "Gruppe 2 Vorrunde / Gruppe 1 Rückrunde"
+      },
+      {
+        "field": "Feld 3 (4 vs. 4)",
+        "group": "Gruppe 3 Vorrunde / Gruppe 4 Rückrunde"
+      },
+      {
+        "field": "Feld 4 (3 vs. 3)",
+        "group": "Gruppe 4 Vorrunde / Gruppe 3 Rückrunde"
+      },
+      {
+        "field": "Feld 5 (4 vs. 4)",
+        "group": "Gruppe 5 Vorrunde"
+      },
+      {
+        "field": "Feld 6 (3 vs. 3)",
+        "group": "Gruppe 5 Rückrunde"
+      }
+    ]
+  },
+  "schedules": [
+    {
+      "group": "Gruppe 1",
+      "phase": "Vorrunde",
+      "field": "Feld 1",
+      "format": "4 vs. 4",
+      "url": "https://www.meinturnierplan.de/c/e1y5oam6/24-10-gruppe-1-vorrunde-feld-1-4-vs-4/"
+    },
+    {
+      "group": "Gruppe 1",
+      "phase": "Rückrunde",
+      "field": "Feld 2",
+      "format": "3 vs. 3",
+      "url": "https://www.meinturnierplan.de/c/xvkl4tdg/24-10-gruppe-1-rueckrunde-feld-2-3-vs-3/"
+    },
+    {
+      "group": "Gruppe 2",
+      "phase": "Vorrunde",
+      "field": "Feld 2",
+      "format": "3 vs. 3",
+      "url": "https://www.meinturnierplan.de/c/kcd6g2v9/24-10-gruppe-2-vorrunde-feld-2-3-vs-3/"
+    },
+    {
+      "group": "Gruppe 2",
+      "phase": "Rückrunde",
+      "field": "Feld 1",
+      "format": "4 vs. 4",
+      "url": "https://www.meinturnierplan.de/c/z1hfdqk4/24-10-gruppe-2-rueckrunde-feld-1-4-vs-4/"
+    },
+    {
+      "group": "Gruppe 3",
+      "phase": "Vorrunde",
+      "field": "Feld 3",
+      "format": "4 vs. 4",
+      "url": "https://www.meinturnierplan.de/c/hf5np18w/24-10-gruppe-3-vorrunde-feld-3-4-vs-4/"
+    },
+    {
+      "group": "Gruppe 3",
+      "phase": "Rückrunde",
+      "field": "Feld 4",
+      "format": "3 vs. 3",
+      "url": "https://www.meinturnierplan.de/c/f8c6iea1/24-10-gruppe-3-rueckrunde-feld-4-3-vs-3/"
+    },
+    {
+      "group": "Gruppe 4",
+      "phase": "Vorrunde",
+      "field": "Feld 4",
+      "format": "3 vs. 3",
+      "url": "https://www.meinturnierplan.de/c/xgb3t510/24-10-gruppe-4-vorrunde-feld-4-3-vs-3/"
+    },
+    {
+      "group": "Gruppe 4",
+      "phase": "Rückrunde",
+      "field": "Feld 3",
+      "format": "4 vs. 4",
+      "url": "https://www.meinturnierplan.de/c/emdp5a7o/24-10-gruppe-4-rueckrunde-feld-3-4-vs-4/"
+    },
+    {
+      "group": "Gruppe 5",
+      "phase": "Vorrunde",
+      "field": "Feld 5",
+      "format": "4 vs. 4",
+      "url": "https://www.meinturnierplan.de/c/p9x08reb/24-10-gruppe-5-vorrunde-feld-5-4-vs-4/"
+    },
+    {
+      "group": "Gruppe 5",
+      "phase": "Rückrunde",
+      "field": "Feld 6",
+      "format": "3 vs. 3",
+      "url": "https://www.meinturnierplan.de/c/o2tjsr0q/24-10-gruppe-5-rueckrunde-feld-6-3-vs-3/"
+    }
+  ],
+  "matches": [
+    {
+      "time": "10:00",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "round": 1,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 1"
+      }
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "round": 1,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      }
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 3",
+      "group": "Gruppe 3",
+      "round": 1,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/1"
+      }
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 4",
+      "group": "Gruppe 4",
+      "round": 1,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 2"
+      },
+      "away": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/1"
+      }
+    },
+    {
+      "time": "10:00",
+      "field": "Feld 5",
+      "group": "Gruppe 5",
+      "round": 1,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 3"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/2"
+      }
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "round": 2,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "away": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 1"
+      }
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "round": 2,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/1"
+      },
+      "away": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 2"
+      }
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 3",
+      "group": "Gruppe 3",
+      "round": 2,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 2"
+      },
+      "away": {
+        "club": "TSV Grünbühl",
+        "team": "TSV Grünbühl"
+      }
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 4",
+      "group": "Gruppe 4",
+      "round": 2,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/2"
+      },
+      "away": {
+        "club": "VFR Großbottwar",
+        "team": "VFR Großbottwar 2"
+      }
+    },
+    {
+      "time": "10:11",
+      "field": "Feld 5",
+      "group": "Gruppe 5",
+      "round": 2,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "away": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/2"
+      }
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "round": 3,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      }
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "round": 3,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/1"
+      }
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 3",
+      "group": "Gruppe 3",
+      "round": 3,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 2"
+      }
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 4",
+      "group": "Gruppe 4",
+      "round": 3,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/2"
+      }
+    },
+    {
+      "time": "10:22",
+      "field": "Feld 5",
+      "group": "Gruppe 5",
+      "round": 3,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 3"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      }
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "round": 4,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 1"
+      }
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "round": 4,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 2"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      }
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 3",
+      "group": "Gruppe 3",
+      "round": 4,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TSV Grünbühl",
+        "team": "TSV Grünbühl"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/1"
+      }
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 4",
+      "group": "Gruppe 4",
+      "round": 4,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "VFR Großbottwar",
+        "team": "VFR Großbottwar 2"
+      },
+      "away": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/1"
+      }
+    },
+    {
+      "time": "10:33",
+      "field": "Feld 5",
+      "group": "Gruppe 5",
+      "round": 4,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/2"
+      }
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "round": 5,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      }
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "round": 5,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/1"
+      }
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 3",
+      "group": "Gruppe 3",
+      "round": 5,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/1"
+      },
+      "away": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 2"
+      }
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 4",
+      "group": "Gruppe 4",
+      "round": 5,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/2"
+      }
+    },
+    {
+      "time": "10:44",
+      "field": "Feld 5",
+      "group": "Gruppe 5",
+      "round": 5,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      }
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "round": 6,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 1"
+      },
+      "away": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 1"
+      }
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "round": 6,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      }
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 3",
+      "group": "Gruppe 3",
+      "round": 6,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TSV Grünbühl",
+        "team": "TSV Grünbühl"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      }
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 4",
+      "group": "Gruppe 4",
+      "round": 6,
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "VFR Großbottwar",
+        "team": "VFR Großbottwar 2"
+      },
+      "away": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 2"
+      }
+    },
+    {
+      "time": "10:55",
+      "field": "Feld 5",
+      "group": "Gruppe 5",
+      "round": 6,
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/2"
+      },
+      "away": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 3"
+      }
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "round": 1,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      }
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "round": 1,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 1"
+      }
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 3",
+      "group": "Gruppe 4",
+      "round": 1,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 2"
+      },
+      "away": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/1"
+      }
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "round": 1,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/1"
+      }
+    },
+    {
+      "time": "11:06",
+      "field": "Feld 6",
+      "group": "Gruppe 5",
+      "round": 1,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 3"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/2"
+      }
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "round": 2,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/1"
+      },
+      "away": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 2"
+      }
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "round": 2,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      },
+      "away": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 1"
+      }
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 3",
+      "group": "Gruppe 4",
+      "round": 2,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/2"
+      },
+      "away": {
+        "club": "VFR Großbottwar",
+        "team": "VFR Großbottwar 2"
+      }
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "round": 2,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 2"
+      },
+      "away": {
+        "club": "TSV Grünbühl",
+        "team": "TSV Grünbühl"
+      }
+    },
+    {
+      "time": "11:17",
+      "field": "Feld 6",
+      "group": "Gruppe 5",
+      "round": 2,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      },
+      "away": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/2"
+      }
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "round": 3,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/1"
+      }
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "round": 3,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      }
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 3",
+      "group": "Gruppe 4",
+      "round": 3,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/2"
+      }
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "round": 3,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      },
+      "away": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 2"
+      }
+    },
+    {
+      "time": "11:28",
+      "field": "Feld 6",
+      "group": "Gruppe 5",
+      "round": 3,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 3"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      }
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "round": 4,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 2"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      }
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "round": 4,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 1"
+      },
+      "away": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 1"
+      }
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 3",
+      "group": "Gruppe 4",
+      "round": 4,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "VFR Großbottwar",
+        "team": "VFR Großbottwar 2"
+      },
+      "away": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/1"
+      }
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "round": 4,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TSV Grünbühl",
+        "team": "TSV Grünbühl"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/1"
+      }
+    },
+    {
+      "time": "11:39",
+      "field": "Feld 6",
+      "group": "Gruppe 5",
+      "round": 4,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/2"
+      }
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "round": 5,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/1"
+      }
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "round": 5,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TV Neckarweihingen",
+        "team": "TV Neckarweihingen 1"
+      },
+      "away": {
+        "club": "SG Hochberg-Hochdorf",
+        "team": "SG Hochberg-Hochdorf 1"
+      }
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 3",
+      "group": "Gruppe 4",
+      "round": 5,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 18/2"
+      }
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "round": 5,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/1"
+      },
+      "away": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 2"
+      }
+    },
+    {
+      "time": "11:50",
+      "field": "Feld 6",
+      "group": "Gruppe 5",
+      "round": 5,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 19/2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 3"
+      }
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "round": 6,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 2"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 1"
+      }
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "round": 6,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TSG Steinheim",
+        "team": "TSG Steinheim 1"
+      },
+      "away": {
+        "club": "MTV Ludwigsburg",
+        "team": "MTV Ludwigsburg 1"
+      }
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 3",
+      "group": "Gruppe 4",
+      "round": 6,
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "VFR Großbottwar",
+        "team": "VFR Großbottwar 2"
+      },
+      "away": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 2"
+      }
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "round": 6,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TSV Grünbühl",
+        "team": "TSV Grünbühl"
+      },
+      "away": {
+        "club": "FC Marbach",
+        "team": "FC Marbach 2"
+      }
+    },
+    {
+      "time": "12:01",
+      "field": "Feld 6",
+      "group": "Gruppe 5",
+      "round": 6,
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "GSV Erdmannhausen",
+        "team": "GSV Erdmannhausen 19/2"
+      },
+      "away": {
+        "club": "SG Hochberg - Hochdorf",
+        "team": "SG Hochberg - Hochdorf 3"
+      }
+    }
+  ]
+}
