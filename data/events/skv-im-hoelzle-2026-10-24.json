@@ -33,7 +33,8 @@
   },
   "directions": {
     "address": "SKV Sportgelände Im Hölzle\nWaldallee 70\n71686 Remseck am Neckar",
-    "parking": "Keine Angaben vorhanden."
+    "parking": "Keine Angaben vorhanden.",
+    "website": "https://skv.sghochx.de"
   },
   "fieldLayout": {
     "title": "Spielfelder 1 bis 6",
@@ -1102,5 +1103,12 @@
         "team": "SG Hochberg - Hochdorf 3"
       }
     }
-  ]
+  ],
+  "organizer": {
+    "name": "SG Hochberg-Hochdorf",
+    "logo": {
+      "url": "logo.svg",
+      "alt": "Vereinslogo der SG Hochberg-Hochdorf"
+    }
+  }
 }

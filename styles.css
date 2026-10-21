@@ -3,7 +3,7 @@
 body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);background-repeat:no-repeat;background-size:cover;color:var(--text);line-height:1.4}
 body.theme-kids-football{--bg:linear-gradient(180deg,#e0f2fe 0%,#f0fdf4 50%,#fef9c3 100%);--text:#1f2937;--muted:#475569;--primary:#16a34a;--border:#86efac;--accent:#f97316}
 header,main,footer{width:min(980px,100% - 1rem);margin-inline:auto}
-main{display:grid;gap:.8rem;padding-bottom:1.25rem}
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:.8rem;padding-bottom:1.25rem}
 .card{background:var(--card);border:1px solid var(--border);border-radius:.75rem;padding:.75rem}
 .hero{margin:.6rem auto;position:sticky;top:.25rem;z-index:5}
 h1,h2,h3,p{margin:0 0 .5rem}
@@ -31,9 +31,9 @@ input[type='password'],textarea{border:1px solid var(--border);border-radius:.5r
 .autocomplete-item:hover{background:#f1f5f9}
 .button{border:none;border-radius:.5rem;background:var(--primary);color:#fff;padding:.45rem .55rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-size:.9rem}
 .button.secondary{background:#334155}.button.active{outline:2px solid var(--accent);background:#0f172a}
-.match-list{display:grid;gap:.5rem;scroll-margin-top:11rem}
-.match-card{border:1px solid var(--border);border-radius:.6rem;padding:.6rem;background:#fff}
-.match-line{margin:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.match-list{display:grid;grid-template-columns:minmax(0,1fr);gap:.5rem;min-width:0;scroll-margin-top:11rem}
+.match-card{border:1px solid var(--border);border-radius:.6rem;padding:.6rem;background:#fff;min-width:0}
+.match-line{margin:0;font-weight:600;white-space:normal;overflow-wrap:anywhere}
 .match-card.is-running{border:2px solid var(--accent);background:#fff7ed}
 .match-header{display:flex;justify-content:space-between;gap:.5rem}
 #kickoffCountdown{text-align:center;padding:.5rem 0}
@@ -84,3 +84,7 @@ footer{text-align:center;padding:0 0 1.25rem}
   .tournament-actions{grid-template-columns:1fr}
 }
 .admin-page{--primary:#4338ca}.admin-login{max-width:440px;margin:auto}.admin-login form{display:grid;gap:.55rem}.admin-toolbar,.admin-actions,.form-heading{display:flex;gap:.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}.admin-layout{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,2fr);gap:.8rem;margin-top:.8rem}.event-list{display:grid;gap:.35rem}.event-list-item{border:1px solid var(--border);background:#fff;border-radius:.5rem;padding:.55rem;text-align:left;cursor:pointer;display:grid;gap:.15rem}.event-list-item.is-selected{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}.event-list-item small{color:var(--muted)}#eventForm{display:grid;gap:.55rem}#eventJson{min-height:520px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.82rem;line-height:1.45;resize:vertical}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer}.danger{background:#b91c1c}.form-message{min-height:1.4em;color:#166534}.form-message.is-error{color:#b91c1c}.admin-help{margin-top:.8rem}.admin-help ol{padding-left:1.25rem;margin:0 0 .5rem}@media(max-width:700px){.admin-layout{grid-template-columns:1fr}#eventJson{min-height:360px}}
+
+/* Prevent mobile grid content from exceeding the shared header/main width. */
+main > .card{min-width:0}
+.schedule-card{min-width:0;max-width:100%}
