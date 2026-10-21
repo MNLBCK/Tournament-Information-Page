@@ -6,12 +6,10 @@ const elements = {
   directionsContent: document.querySelector('#directionsContent'),
   fieldLayoutContent: document.querySelector('#fieldLayoutContent'),
   scheduleList: document.querySelector('#scheduleList'),
-  scheduleSources: document.querySelector('#scheduleSourceLinks'),
   pageMeta: document.querySelector('#pageMeta'),
   filters: {
     searchTerm: document.querySelector('#searchTerm'),
-    fieldPills: document.querySelector('#fieldFilterPills'),
-    groupPills: document.querySelector('#groupFilterPills')
+    fieldPills: document.querySelector('#fieldFilterPills')
   },
   searchSuggestions: document.querySelector('#searchSuggestions'),
   tournamentSearch: document.querySelector('#tournamentSearch'),
@@ -25,7 +23,6 @@ const state = {
   countdownTimer: null,
   siteTitle: '',
   activeField: '',
-  activeGroup: '',
   searchPool: [],
   fieldColors: {},
   tournaments: [],
@@ -260,31 +257,17 @@ function renderTournamentInfo(tournament = {}) {
 
 function currentFilters() {
   const query = elements.filters.searchTerm?.value.trim().toLowerCase() ?? '';
-  return { field: state.activeField.toLowerCase(), group: state.activeGroup.toLowerCase(), query };
+  return { field: state.activeField.toLowerCase(), query };
 }
 
 function matchesFilter(match, filter) {
   const values = [match.home?.team, match.away?.team, match.home?.club, match.away?.club].filter(Boolean).map((v) => v.toLowerCase());
   return (!filter.field || (match.field ?? '').toLowerCase() === filter.field || (match.group ?? '').toLowerCase() === filter.field)
-    && (!filter.group || (match.group ?? '').toLowerCase() === filter.group)
     && (!filter.query || values.some((v) => v.includes(filter.query)));
 }
 
 function parseMatchDate(time) {
   return matchDateForTournament(state.selectedTournament, time);
-}
-
-function renderScheduleSources(tournament = {}) {
-  const plans = Array.isArray(tournament.schedules) ? tournament.schedules : [];
-  if (!elements.scheduleSources) return;
-  if (!plans.length) { elements.scheduleSources.innerHTML = ''; return; }
-  const rows = plans.map((plan) => {
-    const href = safeImageUrl(String(plan.url ?? ''));
-    if (!href) return '';
-    const name = [plan.group, plan.phase, plan.field, plan.format].filter(Boolean).join(' · ');
-    return `<a class="schedule-source-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(name)} ↗</a>`;
-  }).join('');
-  elements.scheduleSources.innerHTML = `<details class="source-details"><summary>Original-Spielpläne bei MeinTurnierplan (${plans.length})</summary><div class="schedule-source-grid">${rows}</div></details>`;
 }
 
 function renderMatches() {
@@ -327,7 +310,6 @@ function populateScheduleFilters() {
   const matches = state.selectedTournament.matches ?? [];
   const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'de'));
   const fields = uniq(matches.map((m) => m.field || m.group));
-  const groups = uniq(matches.map((m) => m.group));
   state.searchPool = uniq(matches.flatMap((m) => [m.home?.team, m.away?.team, m.home?.club, m.away?.club]));
 
   state.fieldColors = {};
@@ -342,12 +324,6 @@ function populateScheduleFilters() {
       return `<button type="button" class="pill${colorClass}${active ? ' is-active' : ''}" data-field="${escapeHtml(value)}">${escapeHtml(name)}</button>`;
     }).join('');
     elements.filters.fieldPills.innerHTML = pills;
-  }
-  if (elements.filters.groupPills) {
-    elements.filters.groupPills.innerHTML = ['Alle Gruppen', ...groups].map((name) => {
-      const value = name === 'Alle Gruppen' ? '' : name;
-      return `<button type="button" class="pill${value === state.activeGroup ? ' is-active' : ''}" data-group="${escapeHtml(value)}">${escapeHtml(name)}</button>`;
-    }).join('');
   }
 }
 
@@ -367,13 +343,6 @@ function updateSearchSuggestions() {
 function wireScheduleFilters() {
   if (!hasScheduleUi) return;
   elements.filters.searchTerm?.addEventListener('input', () => { updateSearchSuggestions(); renderMatches(); });
-  elements.filters.groupPills?.addEventListener('click', (event) => {
-    const button = event.target.closest('button[data-group]');
-    if (!button) return;
-    state.activeGroup = button.getAttribute('data-group') ?? '';
-    populateScheduleFilters();
-    renderMatches();
-  });
   elements.filters.fieldPills?.addEventListener('click', (event) => {
     const button = event.target.closest('button[data-field]');
     if (!button) return;
@@ -699,7 +668,6 @@ function renderDetailPages() {
   applyPageMeta(selected.event ?? {});
   renderTournamentInfo(selected);
   populateScheduleFilters();
-  renderScheduleSources(selected);
   renderMatches();
   wireScheduleFilters();
 }
