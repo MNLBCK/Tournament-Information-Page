@@ -100,3 +100,19 @@ main > .card{min-width:0}
   .schedule-page .hero,.schedule-page .schedule-card{padding:.55rem}
   .schedule-page .match-card{padding:.5rem}
 }
+
+/* Collapse the sticky hero after scrolling on tournament detail pages. */
+.host-logo[hidden]{display:none}
+.hero.is-compact{padding:.35rem .5rem;box-shadow:0 3px 14px rgba(15,23,42,.13)}
+.hero.is-compact .subpage-header{gap:.45rem;min-height:1.8rem;min-width:0}
+.hero.is-compact .host-logo{width:30px;height:30px;max-height:30px;object-fit:contain;flex:none}
+.hero.is-compact #pageMeta{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.88rem;line-height:1.2}
+.hero.is-compact .top-nav{margin:.3rem 0 0;gap:.3rem}
+.hero.is-compact .top-nav .button{display:flex;align-items:center;justify-content:center;min-height:36px;padding:.3rem .35rem;font-size:.78rem}
+@media(max-width:700px){
+  /* 16px prevents Safari on iPhone from auto-zooming when a search input gets focus. */
+  input[type='search']{font-size:16px}
+  .hero.is-compact .top-nav{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity}
+  .hero.is-compact .top-nav::-webkit-scrollbar{display:none}
+  .hero.is-compact .top-nav .button{flex:0 0 auto;min-height:40px;padding:.38rem .7rem;scroll-snap-align:start}
+}

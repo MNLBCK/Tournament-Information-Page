@@ -140,7 +140,10 @@ function applyPageMeta(eventData = {}) {
   const subtitle = elements.pageMeta.getAttribute('data-subtitle') ?? '';
   const titlePart = eventData.name ?? 'Turnier';
   const datePart = formatDateDE(eventData.date ?? '');
-  elements.pageMeta.textContent = `${titlePart} am ${datePart}${subtitle ? ` | ${subtitle}` : ''}`;
+  const fullTitle = `${titlePart} am ${datePart}${subtitle ? ` | ${subtitle}` : ''}`;
+  elements.pageMeta.dataset.expandedText = fullTitle;
+  elements.pageMeta.dataset.compactText = subtitle ? `${subtitle} · ${datePart}` : datePart;
+  elements.pageMeta.textContent = fullTitle;
 }
 
 function markActiveNav() {
@@ -165,8 +168,16 @@ function applyOrganizerBranding(tournament = {}) {
   const logo = document.querySelector('#organizerLogo');
   if (!logo) return;
   const organizer = tournament.organizer ?? {};
-  const logoUrl = safeImageUrl(organizer.logo?.url ?? '');
-  if (logoUrl) logo.src = logoUrl;
+  const requestedLogo = String(organizer.logo?.url ?? '').trim();
+  const logoUrl = requestedLogo ? safeImageUrl(requestedLogo) : '';
+  if (logoUrl) {
+    logo.onerror = () => { logo.hidden = true; logo.removeAttribute('src'); };
+    logo.src = logoUrl;
+    logo.hidden = false;
+  } else {
+    logo.hidden = true;
+    logo.removeAttribute('src');
+  }
   logo.alt = organizer.logo?.alt || (organizer.name ? `Gastgeberlogo ${organizer.name}` : 'Gastgeberlogo');
 }
 
@@ -663,6 +674,34 @@ async function loadConfigAndTournaments() {
   }
 }
 
+// Compact the sticky tournament header after scrolling, keeping navigation accessible.
+function initCompactHero() {
+  const hero = document.querySelector('.hero');
+  const nav = hero?.querySelector('.top-nav');
+  if (!nav) return;
+
+  const update = () => {
+    const wasCompact = hero.classList.contains('is-compact');
+    const compact = window.scrollY > (wasCompact ? 24 : 64);
+    if (compact === wasCompact) return;
+    hero.classList.toggle('is-compact', compact);
+    const meta = hero.querySelector('#pageMeta');
+    if (meta?.dataset.expandedText) {
+      meta.textContent = compact ? meta.dataset.compactText : meta.dataset.expandedText;
+    }
+    if (compact && nav.scrollWidth > nav.clientWidth) {
+      const active = nav.querySelector('.button.active');
+      if (active) {
+        const navRect = nav.getBoundingClientRect();
+        const activeRect = active.getBoundingClientRect();
+        nav.scrollLeft += activeRect.left - navRect.left - (nav.clientWidth - activeRect.width) / 2;
+      }
+    }
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
 function renderDetailPages() {
   const tournamentId = selectedTournamentIdFromUrl() || chooseDefaultTournamentId();
   const selected = state.tournaments.find((tournament) => tournament.id === tournamentId);
@@ -675,6 +714,7 @@ function renderDetailPages() {
   markActiveNav();
   applyOrganizerBranding(selected);
   applyPageMeta(selected.event ?? {});
+  initCompactHero();
   renderTournamentInfo(selected);
   populateScheduleFilters();
   renderMatches();

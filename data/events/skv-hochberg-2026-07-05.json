@@ -851,5 +851,12 @@
         "team": "SG Hochberg/H'dorf 4"
       }
     }
-  ]
+  ],
+  "organizer": {
+    "name": "SG Hochberg-Hochdorf",
+    "logo": {
+      "url": "images/hosts/sg-hochberg-hochdorf.png",
+      "alt": "Gastgeberlogo der SG Hochberg-Hochdorf"
+    }
+  }
 }
