@@ -38,7 +38,7 @@ if [[ $missing -ne 0 ]]; then
 fi
 
 echo "[3/4] Asset-Dateien prüfen"
-required_assets=(styles.css script.js admin.js logo.svg favicon.svg)
+required_assets=(styles.css script.js admin.js Host_Logo.png favicon.svg)
 for asset in "${required_assets[@]}"; do
   [[ -f "$asset" ]] || { echo "Fehlendes Asset: $asset"; exit 1; }
 done
