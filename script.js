@@ -292,6 +292,7 @@ function renderTeamLabel(fullName = '') {
 
 function renderMatches(scrollToRunning = false) {
   if (!hasScheduleUi || !state.selectedTournament) return;
+  updateCompactHeroFilter();
   const allMatches = state.selectedTournament.matches ?? [];
   const sortedMatches = [...allMatches].sort((a, b) =>
     String(a.time ?? '').localeCompare(String(b.time ?? ''))
@@ -676,6 +677,19 @@ async function loadConfigAndTournaments() {
 
 // Show a small independent toolbar as the full header scrolls out of view.
 // Unlike resizing the sticky header, this keeps the document layout stable.
+function updateCompactHeroFilter() {
+  const label = document.querySelector('.mini-hero-filter');
+  if (!label) return;
+  // The regular search input and activeField are the only sources of truth.
+  const query = elements.filters.searchTerm?.value.trim() || '';
+  const field = state.activeField.trim();
+  const parts = [field, query ? `„${query}“` : ''].filter(Boolean);
+  const summary = parts.join(' · ') || 'Alle Spiele';
+  label.textContent = summary;
+  label.title = summary;
+}
+
+// Keep the existing search controls as the one and only search interface.
 function initCompactHero() {
   const hero = document.querySelector('.hero');
   const nav = hero?.querySelector('.top-nav');
@@ -693,77 +707,29 @@ function initCompactHero() {
       <strong class="mini-hero-page">${escapeHtml(page)}</strong>
       ${canSearch ? '<span class="mini-hero-filter" aria-live="polite"></span>' : ''}
       <div class="mini-hero-actions">
-        ${canSearch ? '<button type="button" class="mini-hero-search-toggle" aria-controls="miniHeroSearchPanel" aria-expanded="false">Suche</button>' : ''}
+        ${canSearch ? '<button type="button" class="mini-hero-search-toggle" aria-controls="searchTerm">Suche</button>' : ''}
         <button type="button" class="mini-hero-top" aria-label="Nach oben zum vollständigen Menü scrollen">☰ Menü ↑</button>
       </div>
     </div>
-    ${canSearch ? `<div id="miniHeroSearchPanel" class="mini-hero-search-panel" aria-hidden="true">
-      <div class="mini-hero-search-inner">
-        <label for="miniHeroSearchInput">Mannschaft oder Verein suchen</label>
-        <input id="miniHeroSearchInput" type="search" placeholder="Mannschaft oder Verein" autocomplete="off" disabled />
-        <button type="button" class="mini-hero-field-link">Feldfilter anzeigen</button>
-      </div>
-    </div>` : ''}
   `;
   document.body.append(mini);
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const searchInput = mini.querySelector('#miniHeroSearchInput');
-  const searchPanel = mini.querySelector('#miniHeroSearchPanel');
-  if (searchPanel) searchPanel.inert = true;
-  const searchToggle = mini.querySelector('.mini-hero-search-toggle');
-  const updateSummary = () => {
-    const label = mini.querySelector('.mini-hero-filter');
-    if (!label) return;
-    const query = elements.filters.searchTerm?.value.trim() || '';
-    const parts = [state.activeField, query ? `„${query}“` : ''].filter(Boolean);
-    const summary = parts.join(' · ') || 'Alle Spiele';
-    label.textContent = summary;
-    label.title = summary;
-    if (searchInput && searchInput.value !== query) searchInput.value = query;
-  };
-
-  const toggleSearch = (open) => {
-    if (!canSearch) return;
-    mini.classList.toggle('is-search-open', open);
-    searchToggle.setAttribute('aria-expanded', String(open));
-    searchToggle.textContent = open ? 'Schließen' : 'Suche';
-    searchPanel.setAttribute('aria-hidden', String(!open));
-    searchPanel.inert = !open;
-    searchInput.disabled = !open;
-    if (open) {
-      searchInput.value = elements.filters.searchTerm.value;
-      searchInput.focus({ preventScroll: true });
-    } else if (document.activeElement === searchInput) {
-      searchInput.blur();
-    }
-  };
+  const scrollBehavior = () => reducedMotion.matches ? 'auto' : 'smooth';
 
   if (canSearch) {
-    searchToggle.addEventListener('click', () => {
-      toggleSearch(!mini.classList.contains('is-search-open'));
-    });
-    searchInput.addEventListener('input', () => {
-      elements.filters.searchTerm.value = searchInput.value;
-      elements.filters.searchTerm.dispatchEvent(new Event('input', { bubbles: true }));
-      updateSummary();
-    });
-    mini.querySelector('.mini-hero-field-link').addEventListener('click', () => {
-      toggleSearch(false);
-      elements.filters.fieldPills?.scrollIntoView({
-        behavior: reducedMotion.matches ? 'auto' : 'smooth',
+    mini.querySelector('.mini-hero-search-toggle').addEventListener('click', () => {
+      // Scroll to the *existing* field selector and search field; never create a second input.
+      document.querySelector('#schedule .search-grid')?.scrollIntoView({
+        behavior: scrollBehavior(),
         block: 'start'
       });
     });
-    elements.filters.searchTerm.addEventListener('input', updateSummary);
-    elements.filters.fieldPills?.addEventListener('click', () => queueMicrotask(updateSummary));
-    elements.searchSuggestions?.addEventListener('click', () => queueMicrotask(updateSummary));
-    updateSummary();
+    updateCompactHeroFilter();
   }
 
   mini.querySelector('.mini-hero-top').addEventListener('click', () => {
-    toggleSearch(false);
-    window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   });
 
   let visible = false;
@@ -773,7 +739,6 @@ function initCompactHero() {
     visible = shouldShow;
     mini.classList.toggle('is-visible', visible);
     mini.inert = !visible;
-    if (!visible) toggleSearch(false);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
