@@ -61,6 +61,34 @@ nodes.delete.addEventListener('click', () => { const event = selectedEvent(); if
 document.querySelector('#downloadData').addEventListener('click', downloadData);
 document.querySelector('#logout').addEventListener('click', () => { sessionStorage.removeItem(storageKey); location.reload(); });
 document.querySelector('#uploadImage').addEventListener('click', () => nodes.imageFile.click());
-nodes.imageFile.addEventListener('change', () => { const file = nodes.imageFile.files?.[0]; if (!file) return; const reader = new FileReader(); reader.onload = () => { try { const event = JSON.parse(nodes.json.value); event.organizer ??= {}; event.organizer.logo = { url: reader.result, alt: file.name }; nodes.json.value = JSON.stringify(event, null, 2); showMessage(nodes.editorMessage, 'Veranstalterlogo eingebettet. Bitte Alt-Text prüfen und Änderungen übernehmen.'); } catch { showMessage(nodes.editorMessage, 'Zuerst gültige Event-Daten im Editor bereitstellen.', true); } }; reader.readAsDataURL(file); });
+function hostLogoFilename(name, extension) {
+  const slug = String(name || 'gastgeber').toLowerCase()
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'gastgeber';
+  return `${slug}.${extension}`;
+}
+nodes.imageFile.addEventListener('change', () => {
+  const file = nodes.imageFile.files?.[0];
+  if (!file) return;
+  try {
+    const event = JSON.parse(nodes.json.value);
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (!['png', 'jpg', 'jpeg', 'webp', 'svg'].includes(ext)) throw new Error('PNG, JPG, WEBP oder SVG auswählen.');
+    event.organizer ??= {};
+    const filename = hostLogoFilename(event.organizer.name || event.id || event.event?.name, ext);
+    event.organizer.logo = {
+      url: `images/hosts/${filename}`,
+      alt: `Gastgeberlogo ${event.organizer.name || event.event?.name || ''}`.trim()
+    };
+    nodes.json.value = JSON.stringify(event, null, 2);
+    downloadBlob(file, filename);
+    showMessage(nodes.editorMessage, `Original-Logo ${filename} exportiert. Bitte unter images/hosts/ ablegen und Event-Daten veröffentlichen.`);
+  } catch (error) {
+    showMessage(nodes.editorMessage, error.message || 'Zuerst gültige Event-Daten bereitstellen.', true);
+  } finally {
+    nodes.imageFile.value = '';
+  }
+});
 nodes.import.addEventListener('change', async () => { const file = nodes.import.files?.[0]; if (!file) return; try { const incoming = JSON.parse(await file.text()); if (!incoming.id) throw new Error('Die importierte Datei muss ein einzelnes Event mit id enthalten.'); validate(incoming); const index = events.findIndex((event) => event.id === incoming.id); if (index >= 0) events[index] = incoming; else events.push(incoming); selectedId = incoming.id; render(); showMessage(nodes.editorMessage, 'Event importiert.'); } catch (error) { showMessage(nodes.editorMessage, error.message || 'Import fehlgeschlagen.', true); } });
 if (sessionStorage.getItem(storageKey) === '1') unlock();

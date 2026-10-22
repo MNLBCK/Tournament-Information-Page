@@ -35,7 +35,8 @@ Bestehende Einzeldateien unter `data/*.json` bleiben als Referenz erhalten.
 
 ## Projektstruktur
 
-- `styles.css` – responsives Layout inkl. Auswahlkarten, Status-Badges und QR-Code-Darstellung
+- `styles.css` – responsives Layout inkl. Auswahlkarten, Status-Badges, QR-Codes und kompakter Sticky-Navigation beim Scrollen
+- `images/hosts/` – unveränderte Original-Logos der Gastgeber, per Turnier via `organizer.logo.url` referenziert
 - `script.js` – Laden der Turnierdaten, Auswahl/Suche, Geo-/Zeit-Vorschläge, Rendern der Turnierseiten
 - `admin.html` / `admin.js` – passwortgeschützte Verwaltungsoberfläche für Events, JSON-Import/-Export und eingebettete Layoutbilder
 - `scripts/pages-preflight.sh` – Preflight inkl. Validierung des Event-Verzeichnisses und aller Event-Dateien

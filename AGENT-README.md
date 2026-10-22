@@ -58,16 +58,18 @@ Optional. Jedes Turnier kann ein eigenes Gastgeberlogo verwenden, unabhängig vo
 "organizer": {
   "name": "Name des Ausrichters",
   "logo": {
-    "url": "Host_Logo.png",
+    "url": "images/hosts/sg-hochberg-hochdorf.png",
     "alt": "Gastgeberlogo des Ausrichters"
   }
 }
 ```
 
-- `organizer.logo.url` zeigt auf eine vorhandene Bilddatei im Repository, z. B. `Host_Logo.png` oder `images/verein-x.png`. Die Schreibweise ist einschließlich Groß-/Kleinschreibung exakt.
+- `organizer.logo.url` zeigt auf eine vorhandene Bilddatei im Repository, z. B. `images/hosts/sg-hochberg-hochdorf.png` oder `images/hosts/verein-x.png`. Die Schreibweise ist einschließlich Groß-/Kleinschreibung exakt.
 - `organizer.logo.alt` beschreibt das Logo für Screenreader.
 - Die App lädt für das ausgewählte Turnier dessen eigene `organizer.logo.url`; andere Turniere bleiben davon unberührt.
-- Wenn kein `organizer.logo.url` gesetzt wird, zeigen die bestehenden HTML-Seiten derzeit das Standardbild `Host_Logo.png`. Das ist nur ein Fallback und kann für andere Gastgeber unpassend sein.
+- Wenn kein `organizer.logo.url` gesetzt wird, bleibt das Logo ausgeblendet. Es gibt keinen globalen Vereinslogo-Fallback.
+- Gastgeberlogos unverändert unter `images/hosts/` mit sprechenden Dateinamen ablegen (z. B. `sg-hochberg-hochdorf.png`). Mehrere Turniere desselben Ausrichters dürfen die gleiche Datei referenzieren.
+- In der Admin-Oberfläche wird die gewählte Originaldatei unter einem passenden Dateinamen exportiert; sie muss anschließend unter `images/hosts/` ins Repository übernommen werden.
 - Logo-Dateien unverändert verwenden; keine Ersatzlogos erfinden oder nachbauen.
 
 ### `quickInfo`
