@@ -270,6 +270,15 @@ function parseMatchDate(time) {
   return matchDateForTournament(state.selectedTournament, time);
 }
 
+// Keep the final team identifier visible when a long club name is shortened.
+function renderTeamLabel(fullName = '') {
+  const value = String(fullName);
+  const match = value.match(/^(.*\S)\s+(\d+(?:\/\d+)?)$/u);
+  const clubName = match ? match[1] : value;
+  const teamNumber = match ? match[2] : '';
+  return `<span class="match-team" title="${escapeHtml(value)}"><span class="match-team-name">${escapeHtml(clubName)}</span>${teamNumber ? `<span class="match-team-number">${escapeHtml(teamNumber)}</span>` : ''}</span>`;
+}
+
 function renderMatches() {
   if (!hasScheduleUi || !state.selectedTournament) return;
   const allMatches = state.selectedTournament.matches ?? [];
@@ -299,7 +308,7 @@ function renderMatches() {
     const opponentLabel = m.away?.team ? m.away.team : 'Spielfrei';
     const roundLabel = m.round ? ` · Runde ${escapeHtml(m.round)}` : '';
     const phaseLabel = m.phase ? ` · ${escapeHtml(m.phase)}` : '';
-    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${escapeHtml(m.time ?? '--:--')}</strong><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-meta">${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}</p><p class="match-line">${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}</p></article>`;
+    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${escapeHtml(m.time ?? '--:--')}</strong><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-meta">${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}</p><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
   }).join('');
 
   if (firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });

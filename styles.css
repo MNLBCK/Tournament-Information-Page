@@ -3,6 +3,8 @@
 body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);background-repeat:no-repeat;background-size:cover;color:var(--text);line-height:1.4}
 body.theme-kids-football{--bg:linear-gradient(180deg,#e0f2fe 0%,#f0fdf4 50%,#fef9c3 100%);--text:#1f2937;--muted:#475569;--primary:#16a34a;--border:#86efac;--accent:#f97316}
 header,main,footer{width:min(980px,100% - 1rem);margin-inline:auto}
+/* Give the schedule and its navigation the same wider container. */
+.schedule-page header,.schedule-page main,.schedule-page footer{width:min(1200px,calc(100% - .5rem))}
 main{display:grid;grid-template-columns:minmax(0,1fr);gap:.8rem;padding-bottom:1.25rem}
 .card{background:var(--card);border:1px solid var(--border);border-radius:.75rem;padding:.75rem}
 .hero{margin:.6rem auto;position:sticky;top:.25rem;z-index:5}
@@ -33,7 +35,11 @@ input[type='password'],textarea{border:1px solid var(--border);border-radius:.5r
 .button.secondary{background:#334155}.button.active{outline:2px solid var(--accent);background:#0f172a}
 .match-list{display:grid;grid-template-columns:minmax(0,1fr);gap:.5rem;min-width:0;scroll-margin-top:11rem}
 .match-card{border:1px solid var(--border);border-radius:.6rem;padding:.6rem;background:#fff;min-width:0}
-.match-line{margin:0;font-weight:600;white-space:normal;overflow-wrap:anywhere}
+.match-line{margin:0;font-weight:600;display:flex;align-items:baseline;gap:.22rem;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden}
+.match-team{display:inline-flex;align-items:baseline;min-width:0;flex:0 1 auto;overflow:hidden}
+.match-team-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.match-team-number{flex:none;white-space:nowrap;margin-left:.2rem}
+.match-separator{flex:none}
 .match-card.is-running{border:2px solid var(--accent);background:#fff7ed}
 .match-header{display:flex;justify-content:space-between;gap:.5rem}
 #kickoffCountdown{text-align:center;padding:.5rem 0}
@@ -88,3 +94,9 @@ footer{text-align:center;padding:0 0 1.25rem}
 /* Prevent mobile grid content from exceeding the shared header/main width. */
 main > .card{min-width:0}
 .schedule-card{min-width:0;max-width:100%}
+
+/* Use the available width on small screens without horizontal overflow. */
+@media(max-width:700px){
+  .schedule-page .hero,.schedule-page .schedule-card{padding:.55rem}
+  .schedule-page .match-card{padding:.5rem}
+}
