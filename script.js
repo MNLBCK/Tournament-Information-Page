@@ -272,7 +272,7 @@ function currentFilters() {
 }
 
 function matchesFilter(match, filter) {
-  const values = [match.home?.team, match.away?.team, match.home?.club, match.away?.club].filter(Boolean).map((v) => v.toLowerCase());
+  const values = [match.group, match.field, match.home?.team, match.away?.team, match.home?.club, match.away?.club].filter(Boolean).map((v) => v.toLowerCase());
   return (!filter.field || (match.field ?? '').toLowerCase() === filter.field || (match.group ?? '').toLowerCase() === filter.field)
     && (!filter.query || values.some((v) => v.includes(filter.query)));
 }
@@ -331,7 +331,7 @@ function populateScheduleFilters() {
   const matches = state.selectedTournament.matches ?? [];
   const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'de'));
   const fields = uniq(matches.map((m) => m.field || m.group));
-  state.searchPool = uniq(matches.flatMap((m) => [m.home?.team, m.away?.team, m.home?.club, m.away?.club]));
+  state.searchPool = uniq(matches.flatMap((m) => [m.group, m.field, m.home?.team, m.away?.team, m.home?.club, m.away?.club]));
 
   state.fieldColors = {};
   const palette = ['pill-c0', 'pill-c1', 'pill-c2', 'pill-c3', 'pill-c4', 'pill-c5'];
