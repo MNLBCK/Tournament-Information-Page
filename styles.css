@@ -201,3 +201,6 @@ main > .card{min-width:0}
   .selector-search .date-filter input[type='date']{flex-basis:12rem;width:12rem}
   .tournament-search-row{gap:.35rem}
 }
+
+/* Keep submitted results visible below the sticky selector header. */
+#tournamentResultsHeading{scroll-margin-top:9rem}

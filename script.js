@@ -582,7 +582,7 @@ function filterBySearchWindow(tournaments = [], selectedDate = null) {
 function ensureMinimumTournaments(base = [], minimum = MIN_VISIBLE_TOURNAMENTS) {
   if (base.length >= minimum) return base;
   const now = new Date();
-  const queryTokens = parseSearchTokens(elements.tournamentSearch?.value ?? '');
+  const queryTokens = parseSearchTokens(state.submittedTournamentQuery);
   const searchCache = new Map(state.tournaments.map((tournament) => [tournament.id, searchableTournamentText(tournament)]));
   const fallback = [...state.tournaments].sort((a, b) => {
     const va = tournamentSortValue(a, now, queryTokens, searchCache.get(a.id) ?? '');
@@ -603,7 +603,7 @@ function ensureMinimumTournaments(base = [], minimum = MIN_VISIBLE_TOURNAMENTS) 
 }
 
 function filterAndSortTournaments(minimum = 0) {
-  const queryTokens = parseSearchTokens(elements.tournamentSearch?.value ?? '');
+  const queryTokens = parseSearchTokens(state.submittedTournamentQuery);
   const now = new Date();
   const selectedDate = parseIsoDate(state.selectedDate);
   const searchCache = new Map(state.tournaments.map((tournament) => [tournament.id, searchableTournamentText(tournament)]));
