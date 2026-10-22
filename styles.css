@@ -143,3 +143,29 @@ main > .card{min-width:0}
 @media(prefers-reduced-motion:reduce){
   .mini-hero{transition:none}
 }
+
+/* Responsive selector and branded cards. */
+.site-brand{gap:1rem}
+.site-logo{width:66px;height:66px;object-fit:contain;flex:none}
+.site-brand h1{margin-bottom:.1rem}
+.selector-search,.selector-search .date-filter,.selector-search .autocomplete-wrap{min-width:0;max-width:100%}
+.selector-search input[type='date']{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+.tournament-heading{display:flex;align-items:center;gap:.75rem;min-width:0}
+.tournament-heading h3{margin:0;min-width:0}
+.tournament-host-logo{width:66px;height:66px;max-width:66px;flex:none;object-fit:contain;border-radius:.5rem}
+.tournament-host-logo[hidden]{display:none}
+.tournament-actions{display:flex;justify-content:flex-start}
+.tournament-actions .button{min-width:7rem}
+/* One event-specific QR code in the detail hero, not on the selector cards. */
+.tournament-hero .subpage-header{min-height:76px;padding-right:88px;min-width:0}
+.tournament-hero .subpage-header #pageMeta{min-width:0;overflow-wrap:anywhere}
+.hero-qr{position:absolute;top:.55rem;right:.7rem;width:76px;height:76px;object-fit:contain;padding:3px;border:1px solid var(--border);border-radius:.45rem;background:#fff}
+.hero-qr[hidden]{display:none}
+@media(max-width:700px){
+  .selector-search input[type='date']{font-size:16px}
+  .site-logo{width:52px;height:52px}
+  .site-brand{align-items:center;gap:.7rem}
+  .tournament-hero .subpage-header{min-height:65px;padding-right:71px}
+  .hero-qr{top:.45rem;right:.45rem;width:62px;height:62px}
+  .tournament-host-logo{width:56px;height:56px;max-width:56px}
+}

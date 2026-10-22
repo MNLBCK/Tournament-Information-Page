@@ -23,6 +23,7 @@ const state = {
   countdownTimer: null,
   siteTitle: '',
   activeField: '',
+  activeFilterType: '',
   searchOptions: [],
   selectedSearchOption: null,
   fieldColors: {},
@@ -224,6 +225,15 @@ function renderCountdown(tournament) {
   state.countdownTimer = window.setInterval(update, 1000);
 }
 
+function renderTournamentQr(tournamentId) {
+  const qr = document.querySelector('#tournamentQr');
+  if (!qr) return;
+  const startUrl = new URL(pageUrlWithTournament('turnier.html', tournamentId), location.href).href;
+  qr.onerror = () => { qr.hidden = true; };
+  qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(startUrl)}`;
+  qr.hidden = false;
+}
+
 function renderTournamentInfo(tournament = {}) {
   setHtml(elements.quickInfoContent, createList(tournament.quickInfo));
 
@@ -245,7 +255,8 @@ function renderTournamentInfo(tournament = {}) {
     const notesHtml = c.notes ? `<p class="catering-notes"><strong>Hinweis:</strong> ${escapeHtml(c.notes)}</p>` : '';
     setHtml(elements.cateringContent, tablesHtml + notesHtml);
   } else {
-    setHtml(elements.cateringContent, `${createList(c.offerings ?? [])}<p><strong>Hinweis:</strong> ${escapeHtml(c.notes ?? '-')}</p>`);
+    const notes = String(c.notes ?? '').trim();
+    setHtml(elements.cateringContent, createList(c.offerings ?? []) + (notes ? `<p class="catering-notes"><strong>Hinweis:</strong> ${escapeHtml(notes)}</p>` : ''));
   }
 
   const d = tournament.directions ?? {};
@@ -269,11 +280,14 @@ function renderTournamentInfo(tournament = {}) {
 
 function currentFilters() {
   const query = elements.filters.searchTerm?.value.trim().toLowerCase() ?? '';
-  return { field: state.activeField.toLowerCase(), query, selectedSearchOption: state.selectedSearchOption };
+  return { field: state.activeField.toLowerCase(), filterType: state.activeFilterType, query, selectedSearchOption: state.selectedSearchOption };
 }
 
 function matchesFilter(match, filter) {
-  if (filter.field && (match.field ?? '').toLowerCase() !== filter.field && (match.group ?? '').toLowerCase() !== filter.field) return false;
+  if (filter.field) {
+    const value = filter.filterType === 'group' ? match.group : match.field;
+    if (String(value ?? '').toLocaleLowerCase('de') !== filter.field) return false;
+  }
 
   const selected = filter.selectedSearchOption;
   if (selected) {
@@ -377,25 +391,37 @@ function buildScheduleSearchOptions(matches) {
   return [...unique.values()].sort((a, b) => a.label.localeCompare(b.label, 'de'));
 }
 
+function scheduleFilterOptions(matches) {
+  const unique = (values) => [...new Set(values.map((value) => String(value ?? '').trim()).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, 'de', { numeric: true }));
+  const groups = unique(matches.map((m) => m.group));
+  const fields = unique(matches.map((m) => m.field));
+  if (groups.length === 1 && fields.length === 1) return { type: '', options: [] };
+  if (groups.length) return { type: 'group', options: groups };
+  if (fields.length) return { type: 'field', options: fields };
+  return { type: '', options: [] };
+}
+
 function populateScheduleFilters() {
   if (!hasScheduleUi || !state.selectedTournament) return;
   const matches = state.selectedTournament.matches ?? [];
-  const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'de'));
-  const fields = uniq(matches.map((m) => m.field || m.group));
+  const { type, options } = scheduleFilterOptions(matches);
+  state.activeFilterType = type;
+  if (!options.includes(state.activeField)) state.activeField = '';
   state.searchOptions = buildScheduleSearchOptions(matches);
 
-  state.fieldColors = {};
+  const fields = [...new Set(matches.map((m) => m.field).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, 'de', { numeric: true }));
   const palette = ['pill-c0', 'pill-c1', 'pill-c2', 'pill-c3', 'pill-c4', 'pill-c5'];
+  state.fieldColors = {};
   fields.forEach((field, i) => { state.fieldColors[field.toLowerCase()] = palette[i % palette.length]; });
 
   if (elements.filters.fieldPills) {
-    const pills = ['Alle', ...fields].map((name) => {
-      const value = name === 'Alle' ? '' : name;
-      const active = value === state.activeField;
-      const colorClass = name === 'Alle' ? '' : ` ${state.fieldColors[name.toLowerCase()]}`;
-      return `<button type="button" class="pill${colorClass}${active ? ' is-active' : ''}" data-field="${escapeHtml(value)}">${escapeHtml(name)}</button>`;
-    }).join('');
-    elements.filters.fieldPills.innerHTML = pills;
+    elements.filters.fieldPills.innerHTML = options.map((name, i) =>
+      `<button type="button" class="pill ${palette[i % palette.length]}${name === state.activeField ? ' is-active' : ''}" data-field="${escapeHtml(name)}" aria-pressed="${name === state.activeField}">${escapeHtml(name)}</button>`
+    ).join('');
+    elements.filters.fieldPills.hidden = !options.length;
+    elements.filters.fieldPills.setAttribute('aria-label', type === 'group' ? 'Gruppenfilter' : 'Feldfilter');
   }
 }
 
@@ -425,7 +451,8 @@ function wireScheduleFilters() {
   elements.filters.fieldPills?.addEventListener('click', (event) => {
     const button = event.target.closest('button[data-field]');
     if (!button) return;
-    state.activeField = button.getAttribute('data-field') ?? '';
+    const clicked = button.getAttribute('data-field') ?? '';
+    state.activeField = state.activeField === clicked ? '' : clicked;
     populateScheduleFilters();
     renderMatches();
   });
@@ -630,21 +657,23 @@ function renderTournamentCards() {
     const event = tournament.event ?? {};
     const status = tournamentStatus(tournament, now);
     const detailPath = pageUrlWithTournament('turnier.html', tournament.id);
-    const detailUrl = new URL(detailPath, location.href).href;
-    const schedulePath = pageUrlWithTournament('spielplan.html', tournament.id);
     const distance = formatDistanceLabel(haversineKm(state.userPosition, tournament.geo));
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=${encodeURIComponent(detailUrl)}`;
+    const rawLogo = String(tournament.organizer?.logo?.url ?? '').trim();
+    const logoUrl = rawLogo ? safeImageUrl(rawLogo) : '';
+    const logoHtml = logoUrl
+      ? `<img class="tournament-host-logo" src="${escapeHtml(logoUrl)}" alt="${escapeHtml(tournament.organizer?.logo?.alt || tournament.organizer?.name || 'Gastgeberlogo')}" loading="lazy" />`
+      : '';
 
-    return `<article class="tournament-card"><div class="tournament-meta"><span class="status-badge status-${status.key}">${escapeHtml(status.label)}</span>${distance ? `<span class="distance-label">${escapeHtml(distance)}</span>` : ''}</div><h3>${escapeHtml(event.name ?? 'Turnier')}</h3><p>${escapeHtml(formatDateTimeDE(event.date ?? '', event.startTime ?? ''))}${event.endTime ? ` – ${escapeHtml(event.endTime)} Uhr` : ''}</p><p class="hint">${escapeHtml(event.location ?? '-')}</p><div class="tournament-actions"><a class="button" href="${escapeHtml(detailPath)}">Startseite öffnen</a><a class="button secondary" href="${escapeHtml(schedulePath)}">Spielplan</a></div><p class="direct-link"><strong>Direktlink:</strong> <a href="${escapeHtml(detailPath)}">${escapeHtml(detailUrl)}</a></p><img class="qr-code" src="${escapeHtml(qrUrl)}" alt="QR-Code für ${escapeHtml(event.name ?? 'Turnier')}" loading="lazy" referrerpolicy="no-referrer" /></article>`;
+    return `<article class="tournament-card">
+      <div class="tournament-meta"><span class="status-badge status-${status.key}">${escapeHtml(status.label)}</span>${distance ? `<span class="distance-label">${escapeHtml(distance)}</span>` : ''}</div>
+      <div class="tournament-heading">${logoHtml}<h3>${escapeHtml(event.name ?? 'Turnier')}</h3></div>
+      <p>${escapeHtml(formatDateTimeDE(event.date ?? '', event.startTime ?? ''))}${event.endTime ? ` – ${escapeHtml(event.endTime)} Uhr` : ''}</p>
+      <p class="hint">${escapeHtml(event.location ?? '-')}</p>
+      <div class="tournament-actions"><a class="button" href="${escapeHtml(detailPath)}">Öffnen</a></div>
+    </article>`;
   }).join('');
-
-  elements.tournamentCards.querySelectorAll('.qr-code').forEach((img) => {
-    img.addEventListener('error', () => {
-      const hint = document.createElement('p');
-      hint.className = 'hint';
-      hint.textContent = 'QR-Code konnte nicht geladen werden. Bitte Direktlink nutzen.';
-      img.replaceWith(hint);
-    }, { once: true });
+  elements.tournamentCards.querySelectorAll('.tournament-host-logo').forEach((img) => {
+    img.addEventListener('error', () => { img.hidden = true; }, { once: true });
   });
 }
 
@@ -817,6 +846,7 @@ function renderDetailPages() {
   applyTournamentLinksToNav();
   markActiveNav();
   applyOrganizerBranding(selected);
+  renderTournamentQr(selected.id);
   applyPageMeta(selected.event ?? {});
   initCompactHero();
   renderTournamentInfo(selected);

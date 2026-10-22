@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spielplan | Spieltag-Info</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=2026-10-22-club7" />
+    <link rel="stylesheet" href="styles.css?v=2026-10-22-ui8" />
   </head>
   <body class="theme-kids-football schedule-page">
-    <header class="card hero">
+    <header class="card hero tournament-hero">
       <div class="subpage-header">
         <img id="organizerLogo" class="host-logo" alt="Gastgeberlogo" hidden />
         <p id="pageMeta" data-subtitle="Spielplan">Turnier am --.--.---- | Spielplan</p>
       </div>
+      <img id="tournamentQr" class="hero-qr" alt="QR-Code zur Turnierstartseite" hidden />
       <nav class="top-nav">
         <a class="button secondary" href="index.html" data-nav="index" data-page="index.html">Turniere</a>
         <a class="button secondary" href="turnier.html" data-nav="turnier" data-page="turnier.html">Start</a>
@@ -24,7 +25,7 @@
     </header>
     <main>
       <section class="card schedule-card" id="schedule">
-        <p class="hint">Suche nach Feld, Gruppe, Mannschaft oder Verein.</p>
+        <p class="hint">Suche: Feld, Gruppe, Mannschaft oder Verein.</p>
         <div class="search-grid">
           <div id="fieldFilterPills" class="pill-filter" role="group" aria-label="Feld-Filter"></div>
           <div class="autocomplete-wrap">
@@ -35,6 +36,6 @@
         <div id="scheduleList" class="match-list"></div>
       </section>
     </main>
-    <script type="module" src="script.js?v=2026-10-22-club7"></script>
+    <script type="module" src="script.js?v=2026-10-22-ui8"></script>
   </body>
 </html>

@@ -8,8 +8,8 @@ Statische, mobilefreundliche Website für mehrere Turnierseiten (GitHub Pages ko
 
 Die Website bietet jetzt eine vorgeschaltete Auswahlseite plus Turnier-Unterseiten:
 
-- `index.html` – Turnier-Auswahl mit Suche, Zeitstatus (läuft/lief/läuft bald), Geo-basierter Sortierung, Direktlink und QR-Code
-- `turnier.html` – Turnier-Startseite mit Countdown, Orga-Infos und Kurzinformationen
+- `index.html` – gebrandete Turnier-Auswahl mit Suche, Zeitstatus, Geo-Sortierung, Host-Logo und einem Öffnen-Link
+- `turnier.html` – Turnier-Startseite mit QR-Code im Hero, Countdown, Orga-Infos und Kurzinformationen
 - `verpflegung.html` – Verpflegungsinformationen des gewählten Turniers
 - `anfahrt.html` – Anfahrt, Parken, ÖPNV/Website des gewählten Turniers
 - `spielfeldlayout.html` – Spielfeld- und Lageplan des gewählten Turniers

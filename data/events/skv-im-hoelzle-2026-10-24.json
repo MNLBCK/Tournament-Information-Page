@@ -24,7 +24,7 @@
     "location": "SKV Sportgelände Im Hölzle (genauer Treffpunkt nicht angegeben); danach Kinderbegrüßung"
   },
   "awardCeremony": {
-    "isPlanned": null
+    "isPlanned": false
   },
   "catering": {
     "offerings": [
@@ -147,7 +147,6 @@
       "time": "10:00",
       "field": "Feld 1",
       "group": "Gruppe 1",
-      "round": 1,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -163,7 +162,6 @@
       "time": "10:00",
       "field": "Feld 2",
       "group": "Gruppe 2",
-      "round": 1,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -179,7 +177,6 @@
       "time": "10:00",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "round": 1,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -195,7 +192,6 @@
       "time": "10:00",
       "field": "Feld 4",
       "group": "Gruppe 4",
-      "round": 1,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -211,7 +207,6 @@
       "time": "10:00",
       "field": "Feld 5",
       "group": "Gruppe 5",
-      "round": 1,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -227,7 +222,6 @@
       "time": "10:11",
       "field": "Feld 1",
       "group": "Gruppe 1",
-      "round": 2,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -243,7 +237,6 @@
       "time": "10:11",
       "field": "Feld 2",
       "group": "Gruppe 2",
-      "round": 2,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -259,7 +252,6 @@
       "time": "10:11",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "round": 2,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -275,7 +267,6 @@
       "time": "10:11",
       "field": "Feld 4",
       "group": "Gruppe 4",
-      "round": 2,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -291,7 +282,6 @@
       "time": "10:11",
       "field": "Feld 5",
       "group": "Gruppe 5",
-      "round": 2,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -307,7 +297,6 @@
       "time": "10:22",
       "field": "Feld 1",
       "group": "Gruppe 1",
-      "round": 3,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -323,7 +312,6 @@
       "time": "10:22",
       "field": "Feld 2",
       "group": "Gruppe 2",
-      "round": 3,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -339,7 +327,6 @@
       "time": "10:22",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "round": 3,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -355,7 +342,6 @@
       "time": "10:22",
       "field": "Feld 4",
       "group": "Gruppe 4",
-      "round": 3,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -371,7 +357,6 @@
       "time": "10:22",
       "field": "Feld 5",
       "group": "Gruppe 5",
-      "round": 3,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -387,7 +372,6 @@
       "time": "10:33",
       "field": "Feld 1",
       "group": "Gruppe 1",
-      "round": 4,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -403,7 +387,6 @@
       "time": "10:33",
       "field": "Feld 2",
       "group": "Gruppe 2",
-      "round": 4,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -419,7 +402,6 @@
       "time": "10:33",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "round": 4,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -435,7 +417,6 @@
       "time": "10:33",
       "field": "Feld 4",
       "group": "Gruppe 4",
-      "round": 4,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -451,7 +432,6 @@
       "time": "10:33",
       "field": "Feld 5",
       "group": "Gruppe 5",
-      "round": 4,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -467,7 +447,6 @@
       "time": "10:44",
       "field": "Feld 1",
       "group": "Gruppe 1",
-      "round": 5,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -483,7 +462,6 @@
       "time": "10:44",
       "field": "Feld 2",
       "group": "Gruppe 2",
-      "round": 5,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -499,7 +477,6 @@
       "time": "10:44",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "round": 5,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -515,7 +492,6 @@
       "time": "10:44",
       "field": "Feld 4",
       "group": "Gruppe 4",
-      "round": 5,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -531,7 +507,6 @@
       "time": "10:44",
       "field": "Feld 5",
       "group": "Gruppe 5",
-      "round": 5,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -547,7 +522,6 @@
       "time": "10:55",
       "field": "Feld 1",
       "group": "Gruppe 1",
-      "round": 6,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -563,7 +537,6 @@
       "time": "10:55",
       "field": "Feld 2",
       "group": "Gruppe 2",
-      "round": 6,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -579,7 +552,6 @@
       "time": "10:55",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "round": 6,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -595,7 +567,6 @@
       "time": "10:55",
       "field": "Feld 4",
       "group": "Gruppe 4",
-      "round": 6,
       "phase": "Vorrunde",
       "format": "3 vs. 3",
       "home": {
@@ -611,7 +582,6 @@
       "time": "10:55",
       "field": "Feld 5",
       "group": "Gruppe 5",
-      "round": 6,
       "phase": "Vorrunde",
       "format": "4 vs. 4",
       "home": {
@@ -627,7 +597,6 @@
       "time": "11:06",
       "field": "Feld 1",
       "group": "Gruppe 2",
-      "round": 1,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -643,7 +612,6 @@
       "time": "11:06",
       "field": "Feld 2",
       "group": "Gruppe 1",
-      "round": 1,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -659,7 +627,6 @@
       "time": "11:06",
       "field": "Feld 3",
       "group": "Gruppe 4",
-      "round": 1,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -675,7 +642,6 @@
       "time": "11:06",
       "field": "Feld 4",
       "group": "Gruppe 3",
-      "round": 1,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -691,7 +657,6 @@
       "time": "11:06",
       "field": "Feld 6",
       "group": "Gruppe 5",
-      "round": 1,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -707,7 +672,6 @@
       "time": "11:17",
       "field": "Feld 1",
       "group": "Gruppe 2",
-      "round": 2,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -723,7 +687,6 @@
       "time": "11:17",
       "field": "Feld 2",
       "group": "Gruppe 1",
-      "round": 2,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -739,7 +702,6 @@
       "time": "11:17",
       "field": "Feld 3",
       "group": "Gruppe 4",
-      "round": 2,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -755,7 +717,6 @@
       "time": "11:17",
       "field": "Feld 4",
       "group": "Gruppe 3",
-      "round": 2,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -771,7 +732,6 @@
       "time": "11:17",
       "field": "Feld 6",
       "group": "Gruppe 5",
-      "round": 2,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -787,7 +747,6 @@
       "time": "11:28",
       "field": "Feld 1",
       "group": "Gruppe 2",
-      "round": 3,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -803,7 +762,6 @@
       "time": "11:28",
       "field": "Feld 2",
       "group": "Gruppe 1",
-      "round": 3,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -819,7 +777,6 @@
       "time": "11:28",
       "field": "Feld 3",
       "group": "Gruppe 4",
-      "round": 3,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -835,7 +792,6 @@
       "time": "11:28",
       "field": "Feld 4",
       "group": "Gruppe 3",
-      "round": 3,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -851,7 +807,6 @@
       "time": "11:28",
       "field": "Feld 6",
       "group": "Gruppe 5",
-      "round": 3,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -867,7 +822,6 @@
       "time": "11:39",
       "field": "Feld 1",
       "group": "Gruppe 2",
-      "round": 4,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -883,7 +837,6 @@
       "time": "11:39",
       "field": "Feld 2",
       "group": "Gruppe 1",
-      "round": 4,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -899,7 +852,6 @@
       "time": "11:39",
       "field": "Feld 3",
       "group": "Gruppe 4",
-      "round": 4,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -915,7 +867,6 @@
       "time": "11:39",
       "field": "Feld 4",
       "group": "Gruppe 3",
-      "round": 4,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -931,7 +882,6 @@
       "time": "11:39",
       "field": "Feld 6",
       "group": "Gruppe 5",
-      "round": 4,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -947,7 +897,6 @@
       "time": "11:50",
       "field": "Feld 1",
       "group": "Gruppe 2",
-      "round": 5,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -963,7 +912,6 @@
       "time": "11:50",
       "field": "Feld 2",
       "group": "Gruppe 1",
-      "round": 5,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -979,7 +927,6 @@
       "time": "11:50",
       "field": "Feld 3",
       "group": "Gruppe 4",
-      "round": 5,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -995,7 +942,6 @@
       "time": "11:50",
       "field": "Feld 4",
       "group": "Gruppe 3",
-      "round": 5,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -1011,7 +957,6 @@
       "time": "11:50",
       "field": "Feld 6",
       "group": "Gruppe 5",
-      "round": 5,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -1027,7 +972,6 @@
       "time": "12:01",
       "field": "Feld 1",
       "group": "Gruppe 2",
-      "round": 6,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -1043,7 +987,6 @@
       "time": "12:01",
       "field": "Feld 2",
       "group": "Gruppe 1",
-      "round": 6,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -1059,7 +1002,6 @@
       "time": "12:01",
       "field": "Feld 3",
       "group": "Gruppe 4",
-      "round": 6,
       "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
@@ -1075,7 +1017,6 @@
       "time": "12:01",
       "field": "Feld 4",
       "group": "Gruppe 3",
-      "round": 6,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
@@ -1091,7 +1032,6 @@
       "time": "12:01",
       "field": "Feld 6",
       "group": "Gruppe 5",
-      "round": 6,
       "phase": "Rückrunde",
       "format": "3 vs. 3",
       "home": {
