@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verpflegung | Spieltag-Info</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=2026-10-22-ui8" />
+    <link rel="stylesheet" href="styles.css?v=2026-10-22-cards11" />
   </head>
   <body class="theme-kids-football">
     <header class="card hero tournament-hero">
@@ -13,9 +13,11 @@
         <img id="organizerLogo" class="host-logo" alt="Gastgeberlogo" hidden />
         <p id="pageMeta" data-subtitle="Verpflegung">Turnier am --.--.---- | Verpflegung</p>
       </div>
-      <img id="tournamentQr" class="hero-qr" alt="QR-Code zur Turnierstartseite" hidden />
+      <button type="button" id="tournamentQrTrigger" class="hero-qr-trigger" aria-label="QR-Code für den Spielplan vergrößern und teilen" hidden>
+        <img id="tournamentQr" class="hero-qr" alt="QR-Code zum Spielplan" />
+      </button>
       <nav class="top-nav">
-        <a class="button secondary" href="index.html" data-nav="index" data-page="index.html">Turniere</a>
+        <a class="button back-link" href="index.html" data-nav="index" data-page="index.html"><span aria-hidden="true">←</span> Turniere</a>
         <a class="button secondary" href="turnier.html" data-nav="turnier" data-page="turnier.html">Start</a>
         <a class="button secondary" href="verpflegung.html" data-nav="verpflegung" data-page="verpflegung.html">Verpflegung</a>
         <a class="button secondary" href="anfahrt.html" data-nav="anfahrt" data-page="anfahrt.html">Anfahrt</a>
@@ -26,6 +28,6 @@
     <main>
       <section class="card" id="catering"><div id="cateringContent"></div></section>
     </main>
-    <script type="module" src="script.js?v=2026-10-22-ui8"></script>
+    <script type="module" src="script.js?v=2026-10-22-cards11"></script>
   </body>
 </html>

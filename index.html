@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turnier-Auswahl | Spieltag-Info</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=2026-10-22-search10" />
+    <link rel="stylesheet" href="styles.css?v=2026-10-22-cards11" />
   </head>
   <body>
     <header class="card hero">
@@ -27,8 +27,14 @@
         </div>
         <form id="tournamentSearchForm" class="tournament-search-row" role="search">
           <label for="tournamentSearch">Turnier:</label>
-          <input id="tournamentSearch" type="search" placeholder="Turnier, Ort, Veranstalter" autocomplete="off" />
-          <button type="submit" class="tournament-search-button" aria-label="Turniere suchen" title="Turniere suchen">🔎</button>
+          <div class="tournament-search-input-wrap">
+            <input id="tournamentSearch" type="search" placeholder="Turnier, Ort, Veranstalter" autocomplete="off" />
+            <button type="submit" class="tournament-search-button" aria-label="Turniere suchen" title="Turniere suchen">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <circle cx="10.8" cy="10.8" r="6.5" /><path d="m15.5 15.5 5 5" />
+              </svg>
+            </button>
+          </div>
         </form>
       </section>
 
@@ -41,6 +47,6 @@
 
     <footer><small>GitHub Pages kompatible, statische Website. <a href="admin.html">Event-Verwaltung</a></small></footer>
 
-    <script type="module" src="script.js?v=2026-10-22-search10"></script>
+    <script type="module" src="script.js?v=2026-10-22-cards11"></script>
   </body>
 </html>

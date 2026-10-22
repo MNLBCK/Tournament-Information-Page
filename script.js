@@ -101,12 +101,29 @@ function tournamentEndDate(tournament = {}) {
   return kickoffDate(event);
 }
 
+function upcomingCountdownLabel(start, now = new Date()) {
+  const remainingMinutes = (start.getTime() - now.getTime()) / 60000;
+  if (remainingMinutes < 60) return 'Startet bald';
+
+  const hours = Math.ceil(remainingMinutes / 60);
+  if (remainingMinutes < 24 * 60) return `in ${hours} ${hours === 1 ? 'Stunde' : 'Stunden'}`;
+
+  const days = Math.ceil(remainingMinutes / (24 * 60));
+  if (remainingMinutes < 7 * 24 * 60) return `in ${days} ${days === 1 ? 'Tag' : 'Tagen'}`;
+
+  const weeks = Math.ceil(remainingMinutes / (7 * 24 * 60));
+  if (remainingMinutes < 30 * 24 * 60) return `in ${weeks} ${weeks === 1 ? 'Woche' : 'Wochen'}`;
+
+  const months = Math.ceil(remainingMinutes / (30.44 * 24 * 60));
+  return `in ${months} ${months === 1 ? 'Monat' : 'Monaten'}`;
+}
+
 function tournamentStatus(tournament = {}, now = new Date()) {
   const start = kickoffDate(tournament.event ?? {});
   const end = tournamentEndDate(tournament);
   if (!start || !end) return { key: 'unknown', label: 'Unbekannt', rank: 3 };
   if (now >= start && now <= end) return { key: 'running', label: 'Läuft gerade', rank: 0 };
-  if (now < start) return { key: 'upcoming', label: 'Kommt noch', rank: 1 };
+  if (now < start) return { key: 'upcoming', label: upcomingCountdownLabel(start, now), rank: 1 };
   return { key: 'past', label: 'Bereits vorbei', rank: 2 };
 }
 
@@ -231,13 +248,39 @@ function renderCountdown(tournament) {
 
 function renderTournamentQr(tournamentId) {
   const qr = document.querySelector('#tournamentQr');
-  if (!qr) return;
-  const startUrl = new URL(pageUrlWithTournament('turnier.html', tournamentId), location.href).href;
-  qr.onerror = () => { qr.hidden = true; };
-  qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(startUrl)}`;
-  qr.hidden = false;
-}
+  const trigger = document.querySelector('#tournamentQrTrigger');
+  if (!qr || !trigger) return;
 
+  const tournament = state.selectedTournament;
+  const planUrl = new URL(pageUrlWithTournament('spielplan.html', tournamentId), location.href).href;
+  const qrImageUrl = (size) => `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(planUrl)}`;
+  qr.onerror = () => { trigger.hidden = true; };
+  qr.src = qrImageUrl(180);
+  trigger.hidden = false;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'qr-share-dialog';
+  dialog.setAttribute('aria-labelledby', 'qrShareTitle');
+  const title = tournament?.event?.name || 'Turnier';
+  const date = formatDateDE(tournament?.event?.date || '');
+  const shareText = `Spielplan: ${title}${date ? ` am ${date}` : ''}\n${planUrl}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+  dialog.innerHTML = `
+    <div class="qr-share-content">
+      <button type="button" class="qr-share-close" aria-label="QR-Code schließen">×</button>
+      <h2 id="qrShareTitle">Spielplan teilen</h2>
+      <p>Spielplan mit Eltern und Trainern teilen.</p>
+      <img class="qr-share-image" src="${escapeHtml(qrImageUrl(600))}" alt="QR-Code zum Spielplan von ${escapeHtml(title)}" />
+      <a class="qr-whatsapp-link" href="${escapeHtml(whatsappUrl)}" target="_blank" rel="noopener noreferrer">Per WhatsApp teilen</a>
+    </div>`;
+  document.body.append(dialog);
+
+  trigger.addEventListener('click', () => dialog.showModal());
+  dialog.querySelector('.qr-share-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+}
 function renderTournamentInfo(tournament = {}) {
   setHtml(elements.quickInfoContent, createList(tournament.quickInfo));
 
@@ -269,7 +312,10 @@ function renderTournamentInfo(tournament = {}) {
   const websiteUrl = safeImageUrl(website);
   const websiteHtml = websiteUrl ? `<p><strong>Website:</strong> <a href="${escapeHtml(websiteUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(website)}</a></p>` : '';
   const noticeHtml = d.notice ? `<p><strong>Hinweis:</strong> ${escapeHtml(d.notice)}</p>` : '';
-  setHtml(elements.directionsContent, `<p><strong>Adresse:</strong><br />${addressHtml}</p>${websiteHtml}${noticeHtml}<p><strong>Parken:</strong> ${escapeHtml(d.parking ?? '-')}</p>`);
+  const parking = String(d.parking ?? '').trim();
+  const hasParking = parking && !/^(?:-|keine angaben(?: vorhanden)?\.?|nicht angegeben\.?|unbekannt\.?)$/i.test(parking);
+  const parkingHtml = hasParking ? `<p><strong>Parken:</strong> ${escapeHtml(parking)}</p>` : '';
+  setHtml(elements.directionsContent, `<p><strong>Adresse:</strong><br />${addressHtml}</p>${websiteHtml}${noticeHtml}${parkingHtml}`);
 
   const f = tournament.fieldLayout ?? {};
   const fieldListHtml = createList((f.fields ?? []).map((x) => `${x.field}: ${x.group}`));
@@ -692,14 +738,23 @@ function renderTournamentCards() {
       ? `<img class="tournament-host-logo" src="${escapeHtml(logoUrl)}" alt="${escapeHtml(tournament.organizer?.logo?.alt || tournament.organizer?.name || 'Gastgeberlogo')}" loading="lazy" />`
       : '';
 
-    return `<article class="tournament-card">
-      <div class="tournament-meta"><span class="status-badge status-${status.key}">${escapeHtml(status.label)}</span>${distance ? `<span class="distance-label">${escapeHtml(distance)}</span>` : ''}</div>
+    // Put the distance on the final address line, alongside the city.
+    const location = String(event.location ?? '').trim();
+    const addressPieces = location.split(',').map((part) => part.trim()).filter(Boolean);
+    const finalLine = addressPieces.at(-1) ?? '';
+    const prefix = addressPieces.slice(0, -1).join(', ');
+    const locationHtml = prefix
+      ? `<span class="tournament-address-prefix">${escapeHtml(prefix)},</span><span class="tournament-address-last"><span>${escapeHtml(finalLine)}</span>${distance ? `<span class="distance-badge">${escapeHtml(distance)}</span>` : ''}</span>`
+      : `<span class="tournament-address-last"><span>${escapeHtml(location || 'Ort nicht angegeben')}</span>${distance ? `<span class="distance-badge">${escapeHtml(distance)}</span>` : ''}</span>`;
+
+    return `<a class="tournament-card tournament-card-link" href="${escapeHtml(detailPath)}" aria-label="${escapeHtml(event.name ?? 'Turnier')} öffnen">
       <div class="tournament-heading">${logoHtml}<h3>${escapeHtml(event.name ?? 'Turnier')}</h3></div>
-      <p>${escapeHtml(formatDateTimeDE(event.date ?? '', event.startTime ?? ''))}${event.endTime ? ` – ${escapeHtml(event.endTime)} Uhr` : ''}</p>
-      <p class="hint">${escapeHtml(event.location ?? '-')}</p>
-      <div class="tournament-actions"><a class="button" href="${escapeHtml(detailPath)}">Öffnen</a></div>
-    </article>`;
+      <div class="tournament-when"><span>${escapeHtml(formatDateTimeDE(event.date ?? '', event.startTime ?? ''))}${event.endTime ? ` – ${escapeHtml(event.endTime)} Uhr` : ''}</span><span class="status-badge status-${status.key}">${escapeHtml(status.label)}</span></div>
+      <div class="tournament-address">${locationHtml}</div>
+      <span class="tournament-open-cue" aria-hidden="true">Öffnen <span>→</span></span>
+    </a>`;
   }).join('');
+
   elements.tournamentCards.querySelectorAll('.tournament-host-logo').forEach((img) => {
     img.addEventListener('error', () => { img.hidden = true; }, { once: true });
   });

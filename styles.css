@@ -204,3 +204,68 @@ main > .card{min-width:0}
 
 /* Keep submitted results visible below the sticky selector header. */
 #tournamentResultsHeading{scroll-margin-top:9rem}
+
+/* Card layout: all clickable, date/status and final address line/route as aligned pairs. */
+.tournament-card-link{color:inherit;text-decoration:none;cursor:pointer;transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.tournament-card-link:hover,.tournament-card-link:focus-visible{border-color:var(--primary);box-shadow:0 4px 18px rgba(13,110,253,.12);transform:translateY(-1px)}
+.tournament-card-link:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.tournament-when{display:flex;align-items:baseline;gap:.55rem;justify-content:space-between;flex-wrap:wrap}
+.tournament-when .status-badge{margin-left:auto;white-space:nowrap;flex:none;font-size:.78rem}
+.tournament-address{min-width:0;color:var(--muted)}
+.tournament-address-prefix{display:block}
+.tournament-address-last{display:flex;align-items:baseline;gap:.6rem;justify-content:space-between;flex-wrap:wrap;min-width:0}
+.tournament-address-last>span:first-child{min-width:0;overflow-wrap:anywhere}
+.distance-badge{display:inline-flex;align-items:center;white-space:nowrap;background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;border-radius:999px;padding:.16rem .55rem;font-size:.78rem;font-weight:700;margin-left:auto}
+.tournament-open-cue{justify-self:end;display:inline-flex;align-items:center;gap:.5rem;color:#155e75;font-weight:700}
+.tournament-open-cue span{font-size:1.2rem;transition:transform .18s ease}
+.tournament-card-link:hover .tournament-open-cue span{transform:translateX(3px)}
+
+/* The magnifier lives inside the search input, using a monochrome vector icon. */
+.selector-search .date-filter,.selector-search .tournament-search-row{
+  display:grid;grid-template-columns:5.35rem minmax(0,1fr);gap:.55rem;
+  align-items:center;min-width:0;max-width:100%
+}
+.selector-search .date-filter input[type='date']{
+  width:min(14rem,100%);max-width:100%;min-width:0;flex:none
+}
+.tournament-search-input-wrap{position:relative;min-width:0;width:100%}
+.tournament-search-input-wrap input[type='search']{width:100%;min-width:0;max-width:100%;padding-right:3.25rem;font-size:16px}
+.tournament-search-input-wrap .tournament-search-button{
+  position:absolute;right:.25rem;top:50%;transform:translateY(-50%);
+  width:40px;min-width:40px;height:38px;min-height:38px;
+  background:transparent;color:#475569;border:0;border-radius:.35rem;padding:0
+}
+.tournament-search-input-wrap .tournament-search-button:hover{background:#e2e8f0;color:#0f172a}
+.tournament-search-button svg{display:block}
+
+/* Hero is always above the search card as the page scrolls past it. */
+header.hero{z-index:30}
+.selector-search{z-index:1}
+
+/* A native modal puts the QR on its own top layer, even on iOS Safari. */
+.hero-qr-trigger{position:absolute;top:.55rem;right:.7rem;width:76px;height:76px;display:grid;place-items:center;border:0;background:none;padding:0;cursor:zoom-in}
+.hero-qr-trigger[hidden]{display:none}
+.hero-qr-trigger .hero-qr{position:static;display:block;width:100%;height:100%;object-fit:contain}
+.hero-qr-trigger:focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:.5rem}
+.qr-share-dialog{position:fixed;inset:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;
+  border:0;background:#f8fafc;color:#19212a;padding:clamp(1rem,4vw,2rem);overflow:auto}
+.qr-share-dialog::backdrop{background:rgba(15,23,42,.78)}
+.qr-share-content{position:relative;min-height:100%;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;gap:1rem;text-align:center}
+.qr-share-content h2,.qr-share-content p{margin:0}
+.qr-share-close{position:absolute;right:0;top:0;border:0;background:#e2e8f0;border-radius:50%;
+  width:44px;height:44px;font-size:2rem;color:#0f172a;cursor:pointer}
+.qr-share-image{display:block;width:min(86vw,460px,54dvh);height:auto;aspect-ratio:1;object-fit:contain;
+  padding:.5rem;border:1px solid #cbd5e1;border-radius:.75rem;background:#fff}
+.qr-whatsapp-link{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;
+  background:#166534;color:#fff;border-radius:.6rem;font-size:1rem;font-weight:700;padding:.75rem 1.4rem;min-height:44px}
+.top-nav a.back-link{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
+.top-nav a.back-link:hover,.top-nav a.back-link:focus-visible{background:#bae6fd}
+@media(max-width:700px){
+  .hero-qr-trigger{top:.45rem;right:.45rem;width:62px;height:62px}
+  .selector-search .date-filter,.selector-search .tournament-search-row{grid-template-columns:4.9rem minmax(0,1fr);gap:.4rem}
+  .tournament-when .status-badge{font-size:.74rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .tournament-card-link,.tournament-open-cue span{transition:none}
+}
