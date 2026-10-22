@@ -290,7 +290,7 @@ function renderTeamLabel(fullName = '') {
   return `<span class="match-team" title="${escapeHtml(value)}"><span class="match-team-name">${escapeHtml(clubName)}</span>${teamNumber ? `<span class="match-team-number">${escapeHtml(teamNumber)}</span>` : ''}</span>`;
 }
 
-function renderMatches() {
+function renderMatches(scrollToRunning = false) {
   if (!hasScheduleUi || !state.selectedTournament) return;
   const allMatches = state.selectedTournament.matches ?? [];
   const sortedMatches = [...allMatches].sort((a, b) =>
@@ -322,7 +322,7 @@ function renderMatches() {
     return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${escapeHtml(m.time ?? '--:--')}</strong><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-meta">${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}</p><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
   }).join('');
 
-  if (firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (scrollToRunning && firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function populateScheduleFilters() {
@@ -754,8 +754,8 @@ function initCompactHero() {
       });
     });
     elements.filters.searchTerm.addEventListener('input', updateSummary);
-    elements.filters.fieldPills?.addEventListener('click', updateSummary);
-    elements.searchSuggestions?.addEventListener('click', updateSummary);
+    elements.filters.fieldPills?.addEventListener('click', () => queueMicrotask(updateSummary));
+    elements.searchSuggestions?.addEventListener('click', () => queueMicrotask(updateSummary));
     updateSummary();
   }
 
@@ -793,7 +793,7 @@ function renderDetailPages() {
   initCompactHero();
   renderTournamentInfo(selected);
   populateScheduleFilters();
-  renderMatches();
+  renderMatches(true);
   wireScheduleFilters();
 }
 
