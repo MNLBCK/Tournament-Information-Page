@@ -50,6 +50,26 @@ Optional, aber empfohlen für die Geo-Sortierung auf der Auswahlseite:
 
 Wenn keine verlässlichen Koordinaten vorliegen, das Objekt lieber weglassen statt zu raten.
 
+### `organizer` (Host-Logo pro Turnier)
+
+Optional. Jedes Turnier kann ein eigenes Gastgeberlogo verwenden, unabhängig von den anderen Turnieren. Es wird ohne Nachzeichnen oder Bildumwandlung direkt aus dem Repository geladen:
+
+```json
+"organizer": {
+  "name": "Name des Ausrichters",
+  "logo": {
+    "url": "Host_Logo.png",
+    "alt": "Gastgeberlogo des Ausrichters"
+  }
+}
+```
+
+- `organizer.logo.url` zeigt auf eine vorhandene Bilddatei im Repository, z. B. `Host_Logo.png` oder `images/verein-x.png`. Die Schreibweise ist einschließlich Groß-/Kleinschreibung exakt.
+- `organizer.logo.alt` beschreibt das Logo für Screenreader.
+- Die App lädt für das ausgewählte Turnier dessen eigene `organizer.logo.url`; andere Turniere bleiben davon unberührt.
+- Wenn kein `organizer.logo.url` gesetzt wird, zeigen die bestehenden HTML-Seiten derzeit das Standardbild `Host_Logo.png`. Das ist nur ein Fallback und kann für andere Gastgeber unpassend sein.
+- Logo-Dateien unverändert verwenden; keine Ersatzlogos erfinden oder nachbauen.
+
 ### `quickInfo`
 
 Pflicht:
