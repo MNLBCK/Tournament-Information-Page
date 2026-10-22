@@ -710,6 +710,7 @@ function initCompactHero() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const searchInput = mini.querySelector('#miniHeroSearchInput');
   const searchPanel = mini.querySelector('#miniHeroSearchPanel');
+  if (searchPanel) searchPanel.inert = true;
   const searchToggle = mini.querySelector('.mini-hero-search-toggle');
   const updateSummary = () => {
     const label = mini.querySelector('.mini-hero-filter');
@@ -728,6 +729,7 @@ function initCompactHero() {
     searchToggle.setAttribute('aria-expanded', String(open));
     searchToggle.textContent = open ? 'Schließen' : 'Suche';
     searchPanel.setAttribute('aria-hidden', String(!open));
+    searchPanel.inert = !open;
     searchInput.disabled = !open;
     if (open) {
       searchInput.value = elements.filters.searchTerm.value;
