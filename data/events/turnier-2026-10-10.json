@@ -71,8 +71,8 @@
       "field": "Feld 3",
       "group": "Gruppe 1",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "away": {
         "club": "TV Neckarweihingen",
@@ -101,8 +101,8 @@
       "field": "Feld 3",
       "group": "Gruppe 1",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "away": {
         "club": "FC Marbach",
@@ -135,8 +135,8 @@
         "team": "TV Neckarweihingen 18/2"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "round": 6,
       "phase": "Unbekannt"
@@ -161,8 +161,8 @@
       "field": "Feld 3",
       "group": "Gruppe 1",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "away": {
         "club": "SV Poppenweiler",
@@ -228,8 +228,8 @@
         "team": "TV Neckarweihingen 18/2"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "round": 1,
       "phase": "Unbekannt"
@@ -254,8 +254,8 @@
         "team": "TV Neckarweihingen 18/1"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "round": 3,
       "phase": "Unbekannt"
@@ -265,8 +265,8 @@
       "field": "Feld 4",
       "group": "Gruppe 1",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       },
       "round": 4,
       "phase": "Unbekannt"
@@ -383,8 +383,8 @@
       "field": "Feld 2",
       "group": "Gruppe 2",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 2"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
       },
       "away": {
         "club": "TV Neckarweihingen",
@@ -402,8 +402,8 @@
         "team": "TSV Affalterbach 1"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 2"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
       },
       "round": 3,
       "phase": "Vorrunde"
@@ -432,8 +432,8 @@
         "team": "FC Marbach 2"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 2"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
       },
       "round": 5,
       "phase": "Vorrunde"
@@ -473,8 +473,8 @@
       "field": "Feld 1",
       "group": "Gruppe 2",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 2"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
       },
       "away": {
         "club": "TV Neckarweihingen",
@@ -492,8 +492,8 @@
         "team": "TSV Affalterbach 1"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 2"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
       },
       "round": 3,
       "phase": "Rückrunde"
@@ -522,8 +522,8 @@
         "team": "FC Marbach 2"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 2"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
       },
       "round": 5,
       "phase": "Rückrunde"
@@ -567,8 +567,8 @@
         "team": "TV Neckarweihingen 3"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 3"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "round": 2,
       "phase": "Vorrunde"
@@ -593,8 +593,8 @@
       "field": "Feld 1",
       "group": "Gruppe 3",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 3"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "away": {
         "club": "FC Marbach",
@@ -623,8 +623,8 @@
       "field": "Feld 1",
       "group": "Gruppe 3",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 3"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "away": {
         "club": "TSV Affalterbach",
@@ -657,8 +657,8 @@
         "team": "TV neckarweihingen 3"
       },
       "away": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 3"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "round": 2,
       "phase": "Rückrunde"
@@ -683,8 +683,8 @@
       "field": "Feld 2",
       "group": "Gruppe 3",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 3"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "away": {
         "club": "FC Marbach",
@@ -713,8 +713,8 @@
       "field": "Feld 2",
       "group": "Gruppe 3",
       "home": {
-        "club": "SG Hochberg-Hochdorf",
-        "team": "SG Hochberg-Hochdorf 3"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "away": {
         "club": "TSV Affalterbach",

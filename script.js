@@ -23,7 +23,8 @@ const state = {
   countdownTimer: null,
   siteTitle: '',
   activeField: '',
-  searchPool: [],
+  searchOptions: [],
+  selectedSearchOption: null,
   fieldColors: {},
   tournaments: [],
   selectedTournamentId: '',
@@ -268,13 +269,24 @@ function renderTournamentInfo(tournament = {}) {
 
 function currentFilters() {
   const query = elements.filters.searchTerm?.value.trim().toLowerCase() ?? '';
-  return { field: state.activeField.toLowerCase(), query };
+  return { field: state.activeField.toLowerCase(), query, selectedSearchOption: state.selectedSearchOption };
 }
 
 function matchesFilter(match, filter) {
-  const values = [match.group, match.field, match.home?.team, match.away?.team, match.home?.club, match.away?.club].filter(Boolean).map((v) => v.toLowerCase());
-  return (!filter.field || (match.field ?? '').toLowerCase() === filter.field || (match.group ?? '').toLowerCase() === filter.field)
-    && (!filter.query || values.some((v) => v.includes(filter.query)));
+  if (filter.field && (match.field ?? '').toLowerCase() !== filter.field && (match.group ?? '').toLowerCase() !== filter.field) return false;
+
+  const selected = filter.selectedSearchOption;
+  if (selected) {
+    const values = selected.type === 'team' ? [match.home?.team, match.away?.team]
+      : selected.type === 'club' ? [match.home?.club, match.away?.club]
+      : selected.type === 'group' ? [match.group]
+      : selected.type === 'field' ? [match.field] : [];
+    return values.some((value) => String(value ?? '').toLocaleLowerCase('de') === selected.value.toLocaleLowerCase('de'));
+  }
+
+  const values = [match.group, match.field, match.home?.team, match.away?.team, match.home?.club, match.away?.club]
+    .filter(Boolean).map((value) => value.toLocaleLowerCase('de'));
+  return !filter.query || values.some((value) => value.includes(filter.query));
 }
 
 function parseMatchDate(time) {
@@ -326,12 +338,51 @@ function renderMatches(scrollToRunning = false) {
   if (scrollToRunning && firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
+
+function buildScheduleSearchOptions(matches) {
+  const groups = new Map(), fields = new Map(), teams = new Map(), clubs = new Map();
+  const normalized = (value) => String(value ?? '').trim().toLocaleLowerCase('de');
+  const addUnique = (map, value) => {
+    const text = String(value ?? '').trim();
+    if (text && !map.has(normalized(text))) map.set(normalized(text), text);
+  };
+  for (const m of matches) {
+    addUnique(groups, m.group);
+    addUnique(fields, m.field);
+    for (const side of [m.home, m.away]) {
+      const team = String(side?.team ?? '').trim();
+      const club = String(side?.club ?? '').trim();
+      addUnique(teams, team);
+      if (!club) continue;
+      const key = normalized(club);
+      if (!clubs.has(key)) clubs.set(key, { name: club, teams: new Set() });
+      if (team) clubs.get(key).teams.add(normalized(team));
+    }
+  }
+
+  const options = [];
+  for (const [type, map] of [['group', groups], ['field', fields], ['team', teams]]) {
+    for (const value of map.values()) options.push({ label: value, type, value });
+  }
+  for (const [key, info] of clubs) {
+    // "(alle)" only if an unnumbered team and additional teams share the club.
+    const ambiguous = info.teams.size > 1 && info.teams.has(key);
+    options.push({ label: ambiguous ? `${info.name} (alle)` : info.name, type: 'club', value: info.name });
+  }
+  const unique = new Map();
+  for (const option of options) {
+    const key = normalized(option.label);
+    if (!unique.has(key)) unique.set(key, option);
+  }
+  return [...unique.values()].sort((a, b) => a.label.localeCompare(b.label, 'de'));
+}
+
 function populateScheduleFilters() {
   if (!hasScheduleUi || !state.selectedTournament) return;
   const matches = state.selectedTournament.matches ?? [];
   const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort((a, b) => a.localeCompare(b, 'de'));
   const fields = uniq(matches.map((m) => m.field || m.group));
-  state.searchPool = uniq(matches.flatMap((m) => [m.group, m.field, m.home?.team, m.away?.team, m.home?.club, m.away?.club]));
+  state.searchOptions = buildScheduleSearchOptions(matches);
 
   state.fieldColors = {};
   const palette = ['pill-c0', 'pill-c1', 'pill-c2', 'pill-c3', 'pill-c4', 'pill-c5'];
@@ -350,20 +401,27 @@ function populateScheduleFilters() {
 
 function updateSearchSuggestions() {
   if (!elements.searchSuggestions) return;
-  const q = (elements.filters.searchTerm?.value ?? '').trim().toLowerCase();
+  const q = (elements.filters.searchTerm?.value ?? '').trim().toLocaleLowerCase('de');
   if (!q) {
     elements.searchSuggestions.innerHTML = '';
     return;
   }
-  window.setTimeout(() => {
-    const hits = state.searchPool.filter((value) => value.toLowerCase().includes(q)).slice(0, 8);
-    elements.searchSuggestions.innerHTML = hits.map((hit) => `<button type="button" class="autocomplete-item" role="option">${escapeHtml(hit)}</button>`).join('');
-  }, 120);
+  const hits = state.searchOptions
+    .map((option, index) => ({ option, index }))
+    .filter(({ option }) => option.label.toLocaleLowerCase('de').includes(q))
+    .slice(0, 8);
+  elements.searchSuggestions.innerHTML = hits.map(({ option, index }) =>
+    `<button type="button" class="autocomplete-item" data-suggestion-index="${index}" role="option">${escapeHtml(option.label)}</button>`
+  ).join('');
 }
 
 function wireScheduleFilters() {
   if (!hasScheduleUi) return;
-  elements.filters.searchTerm?.addEventListener('input', () => { updateSearchSuggestions(); renderMatches(); });
+  elements.filters.searchTerm?.addEventListener('input', () => {
+    state.selectedSearchOption = null;
+    updateSearchSuggestions();
+    renderMatches();
+  });
   elements.filters.fieldPills?.addEventListener('click', (event) => {
     const button = event.target.closest('button[data-field]');
     if (!button) return;
@@ -372,9 +430,12 @@ function wireScheduleFilters() {
     renderMatches();
   });
   elements.searchSuggestions?.addEventListener('click', (event) => {
-    const button = event.target.closest('.autocomplete-item');
+    const button = event.target.closest('.autocomplete-item[data-suggestion-index]');
     if (!button || !elements.filters.searchTerm) return;
-    elements.filters.searchTerm.value = button.textContent ?? '';
+    const selected = state.searchOptions[Number(button.dataset.suggestionIndex)];
+    if (!selected) return;
+    state.selectedSearchOption = selected;
+    elements.filters.searchTerm.value = selected.label;
     elements.searchSuggestions.innerHTML = '';
     renderMatches();
   });
