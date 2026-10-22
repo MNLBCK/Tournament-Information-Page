@@ -13,6 +13,8 @@ const elements = {
   },
   searchSuggestions: document.querySelector('#searchSuggestions'),
   tournamentSearch: document.querySelector('#tournamentSearch'),
+  tournamentSearchForm: document.querySelector('#tournamentSearchForm'),
+  tournamentResultsHeading: document.querySelector('#tournamentResultsHeading'),
   tournamentDate: document.querySelector('#tournamentDate'),
   tournamentSuggestions: document.querySelector('#tournamentSuggestions'),
   tournamentCards: document.querySelector('#tournamentCards'),
@@ -31,7 +33,9 @@ const state = {
   selectedTournamentId: '',
   selectedTournament: null,
   userPosition: null,
-  selectedDate: ''
+  selectedDate: '',
+  dateManuallyChanged: false,
+  submittedTournamentQuery: ''
 };
 
 const hasScheduleUi = Boolean(elements.scheduleList);
@@ -520,6 +524,7 @@ function searchableTournamentText(tournament = {}) {
   return [
     event.name,
     event.location,
+    tournament.organizer?.name,
     formatDateDE(event.date ?? ''),
     event.date,
     event.startTime,
@@ -629,27 +634,50 @@ function filterAndSortTournaments(minimum = 0) {
   return minimum > 0 ? ensureMinimumTournaments(sorted, minimum) : sorted;
 }
 
-function renderTournamentSuggestions() {
-  if (!elements.tournamentSuggestions) return;
-  const queryTokens = parseSearchTokens(elements.tournamentSearch?.value ?? '');
-  if (!queryTokens.length) {
-    elements.tournamentSuggestions.innerHTML = '';
-    return;
-  }
-  const suggestions = filterAndSortTournaments(MIN_VISIBLE_TOURNAMENTS).slice(0, MIN_VISIBLE_TOURNAMENTS);
-  elements.tournamentSuggestions.innerHTML = suggestions.map((tournament) => {
-    const event = tournament.event ?? {};
-    return `<button type="button" class="autocomplete-item" data-id="${escapeHtml(tournament.id ?? '')}" role="option">${escapeHtml(event.name ?? 'Turnier')} · ${escapeHtml(formatDateDE(event.date ?? ''))}</button>`;
-  }).join('');
-}
 
 function renderTournamentCards() {
   if (!elements.tournamentCards) return;
   const now = new Date();
-  const tournaments = ensureMinimumTournaments(filterAndSortTournaments(MIN_VISIBLE_TOURNAMENTS), MIN_VISIBLE_TOURNAMENTS);
+  const tokens = parseSearchTokens(state.submittedTournamentQuery);
+  let tournaments;
+  if (tokens.length) {
+    // Submitted search is an actual result filter: no unrelated fallback cards.
+    // The initial "today" date is only a browsing preference, not an invisible
+    // requirement for someone explicitly searching for an older/newer tournament.
+    tournaments = state.tournaments.filter((tournament) => {
+      const searchable = searchableTournamentText(tournament);
+      return tokens.every((token) => searchable.includes(token));
+    });
+    if (state.dateManuallyChanged && state.selectedDate) {
+      const selected = parseIsoDate(state.selectedDate);
+      if (selected) {
+        tournaments = tournaments.filter((tournament) => {
+          const date = eventDate(tournament);
+          if (!date) return false;
+          if (!isWeekend(selected)) return isSameDay(date, selected);
+          const weekend = weekendRange(selected);
+          return dayValue(date) >= dayValue(weekend.start) && dayValue(date) <= dayValue(weekend.end);
+        });
+      }
+    }
+    tournaments.sort((a, b) => {
+      const va = tournamentSortValue(a, now, tokens, searchableTournamentText(a));
+      const vb = tournamentSortValue(b, now, tokens, searchableTournamentText(b));
+      return va.statusRank - vb.statusRank
+        || va.distanceRank - vb.distanceRank
+        || va.timeRank - vb.timeRank
+        || va.name.localeCompare(vb.name, 'de');
+    });
+  } else {
+    tournaments = filterAndSortTournaments(MIN_VISIBLE_TOURNAMENTS);
+  }
 
+  if (elements.tournamentResultsHeading) {
+    elements.tournamentResultsHeading.textContent = tokens.length
+      ? `Suchergebnisse (${tournaments.length})` : 'Vorschläge';
+  }
   if (!tournaments.length) {
-    elements.tournamentCards.innerHTML = '<p class="hint">Keine Turniere für diese Suche gefunden.</p>';
+    elements.tournamentCards.innerHTML = '<p class="hint">Keine passenden Turniere gefunden.</p>';
     return;
   }
 
@@ -689,22 +717,27 @@ function chooseDefaultTournamentId() {
 }
 
 function wireTournamentSelector() {
+  elements.tournamentSearchForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    state.submittedTournamentQuery = elements.tournamentSearch?.value.trim() ?? '';
+    renderTournamentCards();
+    elements.tournamentSearch?.blur();
+    // Results appear in the existing "Vorschläge" section immediately below.
+    elements.tournamentResultsHeading?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  });
   elements.tournamentSearch?.addEventListener('input', () => {
-    renderTournamentSuggestions();
-    renderTournamentCards();
+    // Clearing a completed query restores the normal upcoming tournaments.
+    if (!elements.tournamentSearch.value.trim() && state.submittedTournamentQuery) {
+      state.submittedTournamentQuery = '';
+      renderTournamentCards();
+    }
   });
-  elements.tournamentDate?.addEventListener('input', () => {
+  elements.tournamentDate?.addEventListener('change', () => {
     state.selectedDate = elements.tournamentDate?.value ?? '';
-    renderTournamentSuggestions();
-    renderTournamentCards();
-  });
-  elements.tournamentSuggestions?.addEventListener('click', (event) => {
-    const button = event.target.closest('button[data-id]');
-    if (!button || !elements.tournamentSearch) return;
-    const id = button.getAttribute('data-id') ?? '';
-    const tournament = state.tournaments.find((item) => item.id === id);
-    elements.tournamentSearch.value = tournament?.event?.name ?? '';
-    elements.tournamentSuggestions.innerHTML = '';
+    state.dateManuallyChanged = Boolean(state.selectedDate);
     renderTournamentCards();
   });
 }

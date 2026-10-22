@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turnier-Auswahl | Spieltag-Info</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=2026-10-22-ui8" />
+    <link rel="stylesheet" href="styles.css?v=2026-10-22-search9" />
   </head>
   <body>
     <header class="card hero">
@@ -21,25 +21,26 @@
     <main>
       <section class="card selector-search">
         <h2>Suche</h2>
-        <p class="hint" id="locationStatus">Standort wird für Vorschläge genutzt (optional).</p>
         <div class="date-filter">
-          <label for="tournamentDate">Datum wählen</label>
+          <label for="tournamentDate">Datum:</label>
           <input id="tournamentDate" type="date" aria-label="Turnierdatum auswählen" />
         </div>
-        <div class="autocomplete-wrap">
-          <input id="tournamentSearch" type="search" placeholder="Turnier, Ort oder Datum suchen" autocomplete="off" aria-label="Turniersuche" />
-          <div id="tournamentSuggestions" class="autocomplete-list" role="listbox" aria-label="Turnier-Vorschläge"></div>
-        </div>
+        <form id="tournamentSearchForm" class="tournament-search-row" role="search">
+          <label for="tournamentSearch">Turnier:</label>
+          <input id="tournamentSearch" type="search" placeholder="Turnier, Ort, Veranstalter" autocomplete="off" />
+          <button type="submit" class="tournament-search-button" aria-label="Turniere suchen" title="Turniere suchen">🔎</button>
+        </form>
       </section>
 
       <section class="card">
-        <h2>Vorschläge</h2>
+        <h2 id="tournamentResultsHeading">Vorschläge</h2>
+        <p class="hint" id="locationStatus">Standort wird für Vorschläge genutzt (optional).</p>
         <div id="tournamentCards" class="tournament-grid"></div>
       </section>
     </main>
 
     <footer><small>GitHub Pages kompatible, statische Website. <a href="admin.html">Event-Verwaltung</a></small></footer>
 
-    <script type="module" src="script.js?v=2026-10-22-ui8"></script>
+    <script type="module" src="script.js?v=2026-10-22-search9"></script>
   </body>
 </html>
