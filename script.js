@@ -366,6 +366,19 @@ function renderTeamLabel(fullName = '') {
   return `<span class="match-team" title="${escapeHtml(value)}"><span class="match-team-name">${escapeHtml(clubName)}</span>${teamNumber ? `<span class="match-team-number">${escapeHtml(teamNumber)}</span>` : ''}</span>`;
 }
 
+// End times are displayed only when supplied or backed by a known playing duration.
+function matchEndDate(match, tournament, start) {
+  if (!start || Number.isNaN(start.getTime())) return null;
+  if (/^\d{2}:\d{2}$/.test(match.endTime ?? '')) {
+    const end = matchDateForTournament(tournament, match.endTime);
+    if (end && end <= start) end.setDate(end.getDate() + 1);
+    return end;
+  }
+  const duration = Number(match.durationMinutes ?? tournament.event?.durationMinutes);
+  return Number.isFinite(duration) && duration > 0
+    ? new Date(start.getTime() + duration * 60000) : null;
+}
+
 function renderMatches(scrollToRunning = false) {
   if (!hasScheduleUi || !state.selectedTournament) return;
   updateCompactHeroFilter();
@@ -384,7 +397,11 @@ function renderMatches(scrollToRunning = false) {
   let firstActiveId = '';
   elements.scheduleList.innerHTML = filtered.map((m, i) => {
     const start = parseMatchDate(m.time);
-    const end = start ? new Date(start.getTime() + 9 * 60000) : null;
+    const knownEnd = matchEndDate(m, state.selectedTournament, start);
+    const end = knownEnd ?? (start ? new Date(start.getTime() + 9 * 60000) : null);
+    const endLabel = knownEnd
+      ? `${String(knownEnd.getHours()).padStart(2, '0')}:${String(knownEnd.getMinutes()).padStart(2, '0')}` : '';
+    const timeLabel = `${m.time ?? '--:--'}${endLabel ? `–${endLabel}` : ''}`;
     const isRunning = start && end && now >= start && now < end;
     const id = `match-${i}`;
     if (isRunning && !firstActiveId) firstActiveId = id;
@@ -395,8 +412,9 @@ function renderMatches(scrollToRunning = false) {
     const homeLabel = m.home?.team ?? 'TBD';
     const opponentLabel = m.away?.team ? m.away.team : 'Spielfrei';
     const roundLabel = m.round ? ` · Runde ${escapeHtml(m.round)}` : '';
-    const phaseLabel = m.phase ? ` · ${escapeHtml(m.phase)}` : '';
-    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong>${escapeHtml(m.time ?? '--:--')}</strong><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-meta">${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}</p><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
+    const phaseLabel = m.phase && m.phase !== 'Unbekannt' ? ` · ${escapeHtml(m.phase)}` : '';
+    const metaLabel = `${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}`;
+    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong class="match-time">${escapeHtml(timeLabel)}</strong><span class="match-meta" title="${metaLabel}">${metaLabel}</span><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
   }).join('');
 
   if (scrollToRunning && firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });

@@ -4,7 +4,8 @@
     "date": "2026-11-01",
     "startTime": "13:00",
     "endTime": "15:40",
-    "location": "Sportplatz Aldingen (Kunstrasen), Neckarkanalstr. 41, 71686 Remseck am Neckar"
+    "location": "Sportplatz Aldingen (Kunstrasen), Neckarkanalstr. 41, 71686 Remseck am Neckar",
+    "durationMinutes": 10
   },
   "organizer": {
     "name": "TV Aldingen 1898 e.V."

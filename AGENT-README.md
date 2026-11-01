@@ -40,6 +40,7 @@ Pflicht:
 Optional:
 
 - `event.endTime` (24h-Uhrzeit `HH:MM`)
+- `event.durationMinutes` (positive Zahl): bekannte Spieldauer in Minuten für die Endzeit auf Spielkarten. Pro Spiel können `durationMinutes` oder eine explizite `endTime` (`HH:MM`) abweichend gesetzt werden. Ohne bekannte Spieldauer/Endzeit zeigt die Karte nur den Beginn; Pausen zählen nicht zur Spieldauer.
 
 ### `geo`
 
