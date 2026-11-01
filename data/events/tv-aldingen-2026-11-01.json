@@ -1,0 +1,681 @@
+{
+  "event": {
+    "name": "Spieltag in Aldingen",
+    "date": "2026-11-01",
+    "startTime": "13:00",
+    "endTime": "15:40",
+    "location": "Sportplatz Aldingen (Kunstrasen), Neckarkanalstr. 41, 71686 Remseck am Neckar"
+  },
+  "organizer": {
+    "name": "TV Aldingen 1898 e.V."
+  },
+  "quickInfo": [
+    "16 Mannschaften in vier Gruppen (A bis D) auf vier Spielfeldern.",
+    "Hin- und Rückrunde innerhalb der Gruppen; jede Mannschaft spielt sechs Spiele.",
+    "Spieldauer: 10 Minuten; Spielbeginn im 12-Minuten-Takt.",
+    "Pause nach den Spielen um 14:00 Uhr; die nächsten Spiele beginnen um 14:30 Uhr.",
+    "Letzter Spielbeginn: 15:30 Uhr; planmäßiges Spielende: 15:40 Uhr.",
+    "Trainerbesprechung, Siegerehrung und Verpflegung sind im vorliegenden Spielplan nicht angegeben."
+  ],
+  "trainerMeeting": {
+    "time": "nicht angegeben",
+    "location": "nicht angegeben"
+  },
+  "awardCeremony": {},
+  "catering": {
+    "offerings": [
+      "Im vorliegenden Spielplan sind keine Angaben zur Verpflegung enthalten."
+    ]
+  },
+  "directions": {
+    "address": "Sportplatz Aldingen (Kunstrasen)\nNeckarkanalstr. 41\n71686 Remseck am Neckar"
+  },
+  "fieldLayout": {
+    "title": "Vier Spielfelder",
+    "summary": "Gruppe A spielt auf Feld 1, Gruppe B auf Feld 2, Gruppe C auf Feld 3 und Gruppe D auf Feld 4. Ein Lageplan ist im vorliegenden Spielplan nicht enthalten.",
+    "fields": [
+      {
+        "field": "Feld 1",
+        "group": "Gruppe A"
+      },
+      {
+        "field": "Feld 2",
+        "group": "Gruppe B"
+      },
+      {
+        "field": "Feld 3",
+        "group": "Gruppe C"
+      },
+      {
+        "field": "Feld 4",
+        "group": "Gruppe D"
+      }
+    ]
+  },
+  "matches": [
+    {
+      "time": "13:00",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      },
+      "away": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 1"
+      }
+    },
+    {
+      "time": "13:00",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TSV Münster",
+        "team": "TSV Münster"
+      },
+      "away": {
+        "club": "TSF Ditzingen",
+        "team": "TSF Ditzingen"
+      }
+    },
+    {
+      "time": "13:00",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      },
+      "away": {
+        "club": "FV Markgröningen",
+        "team": "FV Markgröningen"
+      }
+    },
+    {
+      "time": "13:00",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "TSV Schmiden",
+        "team": "TSV Schmiden"
+      },
+      "away": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 2"
+      }
+    },
+    {
+      "time": "13:12",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "SV Pattonville",
+        "team": "SV Pattonville"
+      },
+      "away": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 1"
+      }
+    },
+    {
+      "time": "13:12",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      },
+      "away": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 1"
+      }
+    },
+    {
+      "time": "13:12",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 5"
+      },
+      "away": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 2"
+      }
+    },
+    {
+      "time": "13:12",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 4"
+      },
+      "away": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 2"
+      }
+    },
+    {
+      "time": "13:24",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      },
+      "away": {
+        "club": "SV Pattonville",
+        "team": "SV Pattonville"
+      }
+    },
+    {
+      "time": "13:24",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TSV Münster",
+        "team": "TSV Münster"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      }
+    },
+    {
+      "time": "13:24",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 5"
+      }
+    },
+    {
+      "time": "13:24",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "TSV Schmiden",
+        "team": "TSV Schmiden"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 4"
+      }
+    },
+    {
+      "time": "13:36",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 1"
+      },
+      "away": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 1"
+      }
+    },
+    {
+      "time": "13:36",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 1"
+      },
+      "away": {
+        "club": "TSF Ditzingen",
+        "team": "TSF Ditzingen"
+      }
+    },
+    {
+      "time": "13:36",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 2"
+      },
+      "away": {
+        "club": "FV Markgröningen",
+        "team": "FV Markgröningen"
+      }
+    },
+    {
+      "time": "13:36",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 2"
+      },
+      "away": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 2"
+      }
+    },
+    {
+      "time": "13:48",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 1"
+      },
+      "away": {
+        "club": "SV Pattonville",
+        "team": "SV Pattonville"
+      }
+    },
+    {
+      "time": "13:48",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TSF Ditzingen",
+        "team": "TSF Ditzingen"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      }
+    },
+    {
+      "time": "13:48",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "FV Markgröningen",
+        "team": "FV Markgröningen"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 5"
+      }
+    },
+    {
+      "time": "13:48",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 4"
+      }
+    },
+    {
+      "time": "14:00",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      }
+    },
+    {
+      "time": "14:00",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 1"
+      },
+      "away": {
+        "club": "TSV Münster",
+        "team": "TSV Münster"
+      }
+    },
+    {
+      "time": "14:00",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      }
+    },
+    {
+      "time": "14:00",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 2"
+      },
+      "away": {
+        "club": "TSV Schmiden",
+        "team": "TSV Schmiden"
+      }
+    },
+    {
+      "time": "14:30",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      }
+    },
+    {
+      "time": "14:30",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TSF Ditzingen",
+        "team": "TSF Ditzingen"
+      },
+      "away": {
+        "club": "TSV Münster",
+        "team": "TSV Münster"
+      }
+    },
+    {
+      "time": "14:30",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "FV Markgröningen",
+        "team": "FV Markgröningen"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      }
+    },
+    {
+      "time": "14:30",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 2"
+      },
+      "away": {
+        "club": "TSV Schmiden",
+        "team": "TSV Schmiden"
+      }
+    },
+    {
+      "time": "14:42",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 1"
+      },
+      "away": {
+        "club": "SV Pattonville",
+        "team": "SV Pattonville"
+      }
+    },
+    {
+      "time": "14:42",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      }
+    },
+    {
+      "time": "14:42",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 5"
+      }
+    },
+    {
+      "time": "14:42",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 4"
+      }
+    },
+    {
+      "time": "14:54",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "SV Pattonville",
+        "team": "SV Pattonville"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      }
+    },
+    {
+      "time": "14:54",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      },
+      "away": {
+        "club": "TSV Münster",
+        "team": "TSV Münster"
+      }
+    },
+    {
+      "time": "14:54",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 5"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      }
+    },
+    {
+      "time": "14:54",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 4"
+      },
+      "away": {
+        "club": "TSV Schmiden",
+        "team": "TSV Schmiden"
+      }
+    },
+    {
+      "time": "15:06",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 1"
+      },
+      "away": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 1"
+      }
+    },
+    {
+      "time": "15:06",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TSF Ditzingen",
+        "team": "TSF Ditzingen"
+      },
+      "away": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 1"
+      }
+    },
+    {
+      "time": "15:06",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "FV Markgröningen",
+        "team": "FV Markgröningen"
+      },
+      "away": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 2"
+      }
+    },
+    {
+      "time": "15:06",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 2"
+      },
+      "away": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 2"
+      }
+    },
+    {
+      "time": "15:18",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "SV Pattonville",
+        "team": "SV Pattonville"
+      },
+      "away": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 1"
+      }
+    },
+    {
+      "time": "15:18",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      },
+      "away": {
+        "club": "TSF Ditzingen",
+        "team": "TSF Ditzingen"
+      }
+    },
+    {
+      "time": "15:18",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 5"
+      },
+      "away": {
+        "club": "FV Markgröningen",
+        "team": "FV Markgröningen"
+      }
+    },
+    {
+      "time": "15:18",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 4"
+      },
+      "away": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 2"
+      }
+    },
+    {
+      "time": "15:30",
+      "field": "Feld 1",
+      "group": "Gruppe A",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      },
+      "away": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 1"
+      }
+    },
+    {
+      "time": "15:30",
+      "field": "Feld 2",
+      "group": "Gruppe B",
+      "home": {
+        "club": "TSV Münster",
+        "team": "TSV Münster"
+      },
+      "away": {
+        "club": "SV Leonberg/Eltingen",
+        "team": "SV Leonberg/Eltingen 1"
+      }
+    },
+    {
+      "time": "15:30",
+      "field": "Feld 3",
+      "group": "Gruppe C",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      },
+      "away": {
+        "club": "VfB Neckarrems",
+        "team": "VfB Neckarrems 2"
+      }
+    },
+    {
+      "time": "15:30",
+      "field": "Feld 4",
+      "group": "Gruppe D",
+      "home": {
+        "club": "TSV Schmiden",
+        "team": "TSV Schmiden"
+      },
+      "away": {
+        "club": "SKV Hochberg",
+        "team": "SKV Hochberg 2"
+      }
+    }
+  ]
+}
