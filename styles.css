@@ -26,6 +26,11 @@ input[type='password'],textarea{border:1px solid var(--border);border-radius:.5r
 .pill-c4{background:#fef9c3;color:#854d0e;border-color:#fde047}.pill-c4.is-active{background:#854d0e;color:#fff;border-color:#854d0e}
 .pill-c5{background:#fce7f3;color:#9d174d;border-color:#f9a8d4}.pill-c5.is-active{background:#9d174d;color:#fff;border-color:#9d174d}
 .autocomplete-wrap{position:relative}
+.schedule-page .autocomplete-wrap input[type='search']{padding-right:2.85rem}
+.schedule-page .autocomplete-wrap input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;display:none}
+.schedule-search-clear{position:absolute;right:.25rem;top:50%;transform:translateY(-50%);height:2.1rem;min-width:2.1rem;border:0;border-radius:50%;background:#e2e8f0;color:#334155;font-size:1.35rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.schedule-search-clear[hidden]{display:none}
+.schedule-search-clear:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
 .date-filter{display:grid;gap:.25rem;margin-bottom:.6rem}
 .date-filter label{font-size:.9rem;font-weight:600;color:var(--muted)}
 .autocomplete-list{position:absolute;z-index:4;left:0;right:0;top:calc(100% + .2rem);background:#fff;border:1px solid var(--border);border-radius:.5rem;display:grid;max-height:220px;overflow:auto}
