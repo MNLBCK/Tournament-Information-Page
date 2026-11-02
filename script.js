@@ -409,13 +409,17 @@ function renderMatches(scrollToRunning = false) {
 
     const fieldName = m.field || m.group || 'Feld';
     const colorClass = state.fieldColors[fieldName.toLowerCase()] ?? '';
+    // Show the known game format alongside the field without adding a third card row.
+    // E.g. "4 vs. 4" becomes "4:4"; missing formats stay hidden, never guessed.
+    const gameFormat = String(m.format ?? '').trim().replace(/\b(\d+)\s*(?:vs\.?|gegen|:)\s*(\d+)\b/gi, '$1:$2');
+    const fieldAndFormat = gameFormat ? `${fieldName} · ${gameFormat}` : fieldName;
 
     const homeLabel = m.home?.team ?? 'TBD';
     const opponentLabel = m.away?.team ? m.away.team : 'Spielfrei';
     const roundLabel = m.round ? ` · Runde ${escapeHtml(m.round)}` : '';
     const phaseLabel = m.phase && m.phase !== 'Unbekannt' ? ` · ${escapeHtml(m.phase)}` : '';
     const metaLabel = `${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}`;
-    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong class="match-time">${escapeHtml(timeLabel)}</strong><span class="match-meta" title="${metaLabel}">${metaLabel}</span><span class="pill field-pill ${colorClass}">${escapeHtml(fieldName)}</span></div><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
+    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong class="match-time">${escapeHtml(timeLabel)}</strong><span class="match-meta" title="${metaLabel}">${metaLabel}</span><span class="pill field-pill ${colorClass}" title="${escapeHtml(fieldAndFormat)}">${escapeHtml(fieldAndFormat)}</span></div><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
   }).join('');
 
   if (scrollToRunning && firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
