@@ -12,6 +12,7 @@ const elements = {
     fieldPills: document.querySelector('#fieldFilterPills')
   },
   searchSuggestions: document.querySelector('#searchSuggestions'),
+  searchClear: document.querySelector('#clearScheduleSearch'),
   tournamentSearch: document.querySelector('#tournamentSearch'),
   tournamentSearchForm: document.querySelector('#tournamentSearchForm'),
   tournamentResultsHeading: document.querySelector('#tournamentResultsHeading'),
@@ -493,6 +494,12 @@ function populateScheduleFilters() {
   }
 }
 
+// An explicit clear control works on iOS Safari and resets the selected autocomplete option.
+function syncScheduleSearchClear() {
+  if (!elements.searchClear) return;
+  elements.searchClear.hidden = !(elements.filters.searchTerm?.value.trim());
+}
+
 function updateSearchSuggestions() {
   if (!elements.searchSuggestions) return;
   const q = (elements.filters.searchTerm?.value ?? '').trim().toLocaleLowerCase('de');
@@ -511,11 +518,22 @@ function updateSearchSuggestions() {
 
 function wireScheduleFilters() {
   if (!hasScheduleUi) return;
-  elements.filters.searchTerm?.addEventListener('input', () => {
+  const onSearchInput = () => {
+    // Clearing via the browser's native search control must also drop the selected club/team.
     state.selectedSearchOption = null;
     updateSearchSuggestions();
+    syncScheduleSearchClear();
     renderMatches();
+  };
+  elements.filters.searchTerm?.addEventListener('input', onSearchInput);
+  elements.filters.searchTerm?.addEventListener('search', onSearchInput);
+  elements.searchClear?.addEventListener('click', () => {
+    if (!elements.filters.searchTerm) return;
+    elements.filters.searchTerm.value = '';
+    onSearchInput();
+    elements.filters.searchTerm.focus();
   });
+  syncScheduleSearchClear();
   elements.filters.fieldPills?.addEventListener('click', (event) => {
     const button = event.target.closest('button[data-field]');
     if (!button) return;
@@ -532,6 +550,7 @@ function wireScheduleFilters() {
     state.selectedSearchOption = selected;
     elements.filters.searchTerm.value = selected.label;
     elements.searchSuggestions.innerHTML = '';
+    syncScheduleSearchClear();
     renderMatches();
   });
 }
