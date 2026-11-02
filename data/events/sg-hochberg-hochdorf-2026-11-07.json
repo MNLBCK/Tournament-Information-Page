@@ -19,8 +19,7 @@
     "Anstoß alle 10 Minuten ab 09:15 Uhr, Spieldauer 10 Minuten; letztes Spiel endet um 11:15 Uhr.",
     "Gruppe 1: Vorrunde Feld 1 (4 gegen 4), Rückrunde Feld 2 (Funino 3 gegen 3).",
     "Gruppe 2: Vorrunde Feld 2 (Funino 3 gegen 3), Rückrunde Feld 1 (4 gegen 4).",
-    "Gruppe 3: laut Mitteilung Vorrunde Feld 1 (4 gegen 4), Rückrunde Feld 2 (Funino 3 gegen 3). Weil dies Gruppe 1 doppelt belegt, wird das konkrete Spielfeld im Spielplan bis zur Bestätigung als offen geführt.",
-    "WICHTIG: Die gemeldeten Feldzuordnungen für Gruppe 1 und 3 überschneiden sich zeitgleich. Die Zuordnung von Gruppe 3 muss vom Veranstalter bestätigt werden.",
+    "Gruppe 3: Vorrunde Feld 3 (4 gegen 4), Rückrunde Feld 4 (Funino 3 gegen 3).",
     "Die drei Original-Spielpläne sind unter „Spielplan“ als Quelle hinterlegt; Änderungen beim Veranstalter werden nicht automatisch synchronisiert."
   ],
   "trainerMeeting": {
@@ -37,8 +36,8 @@
     "address": "SGV Hochdorf\nKirchenweinbergweg 10\n71686 Remseck am Neckar"
   },
   "fieldLayout": {
-    "title": "Spielfeldzuordnung (Gruppe 3 noch offen)",
-    "summary": "Gruppe 1 und 2 wechseln nach den ersten sechs Spielen zwischen Feld 1 und 2. Für Gruppe 3 nennt die Mitteilung ebenfalls Feld 1 und 2, obwohl die Spiele gleichzeitig stattfinden. Deshalb wird die Feldnummer von Gruppe 3 bis zur Bestätigung nicht als verbindlich angezeigt.",
+    "title": "Spielfelder 1 bis 4",
+    "summary": "In der Rückrunde wechseln die Gruppen jeweils die Spielfelder und den Spielmodus. Gruppe 1 und 2 nutzen Feld 1 (4 gegen 4) und Feld 2 (Funino 3 gegen 3); Gruppe 3 nutzt Feld 3 (4 gegen 4) und Feld 4 (Funino 3 gegen 3).",
     "fields": [
       {
         "field": "Feld 1 (4 vs. 4)",
@@ -49,8 +48,12 @@
         "group": "Gruppe 2 Vorrunde / Gruppe 1 Rückrunde"
       },
       {
-        "field": "Feld noch offen",
-        "group": "Gruppe 3: Vorrunde 4 vs. 4 / Rückrunde 3 vs. 3; tatsächliche Feldnummer prüfen"
+        "field": "Feld 3 (4 vs. 4)",
+        "group": "Gruppe 3 Vorrunde"
+      },
+      {
+        "field": "Feld 4 (3 vs. 3)",
+        "group": "Gruppe 3 Rückrunde"
       }
     ]
   },
@@ -72,7 +75,7 @@
     {
       "group": "Gruppe 3",
       "phase": "Vor- und Rückrunde",
-      "field": "Feldnummer offen (laut Mitteilung Feld 1 / Feld 2)",
+      "field": "Feld 3 / Feld 4",
       "format": "4 vs. 4 / 3 vs. 3",
       "url": "https://www.meinturnierplan.de/c/mv3qd51w/07-11-2026-gruppe-3/"
     }
@@ -110,7 +113,7 @@
     },
     {
       "time": "09:15",
-      "field": "Feld noch offen",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
       "format": "4 vs. 4",
@@ -155,7 +158,7 @@
     },
     {
       "time": "09:25",
-      "field": "Feld noch offen",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
       "format": "4 vs. 4",
@@ -200,7 +203,7 @@
     },
     {
       "time": "09:35",
-      "field": "Feld noch offen",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
       "format": "4 vs. 4",
@@ -245,7 +248,7 @@
     },
     {
       "time": "09:45",
-      "field": "Feld noch offen",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
       "format": "4 vs. 4",
@@ -290,7 +293,7 @@
     },
     {
       "time": "09:55",
-      "field": "Feld noch offen",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
       "format": "4 vs. 4",
@@ -335,7 +338,7 @@
     },
     {
       "time": "10:05",
-      "field": "Feld noch offen",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
       "format": "4 vs. 4",
@@ -380,7 +383,7 @@
     },
     {
       "time": "10:15",
-      "field": "Feld noch offen",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
       "format": "3 vs. 3",
@@ -425,7 +428,7 @@
     },
     {
       "time": "10:25",
-      "field": "Feld noch offen",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
       "format": "3 vs. 3",
@@ -470,7 +473,7 @@
     },
     {
       "time": "10:35",
-      "field": "Feld noch offen",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
       "format": "3 vs. 3",
@@ -515,7 +518,7 @@
     },
     {
       "time": "10:45",
-      "field": "Feld noch offen",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
       "format": "3 vs. 3",
@@ -560,7 +563,7 @@
     },
     {
       "time": "10:55",
-      "field": "Feld noch offen",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
       "format": "3 vs. 3",
@@ -605,7 +608,7 @@
     },
     {
       "time": "11:05",
-      "field": "Feld noch offen",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
       "format": "3 vs. 3",
