@@ -43,7 +43,6 @@ const hasScheduleUi = Boolean(elements.scheduleList);
 const hasSelectorUi = Boolean(elements.tournamentCards);
 const TOURNAMENT_ID_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 const MIN_VISIBLE_TOURNAMENTS = 5;
-const NEARBY_RADIUS_KM = 60;
 
 const createList = (items = []) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
 const setHtml = (node, html) => { if (node) node.innerHTML = html; };
@@ -287,12 +286,29 @@ function renderTournamentInfo(tournament = {}) {
 
   const tm = tournament.trainerMeeting ?? {};
   const ac = tournament.awardCeremony ?? {};
-  const awardTime = String(ac.time ?? '').trim();
+  const knownInfo = (value) => {
+    const valueText = String(value ?? '').trim();
+    return valueText && !/^(?:-|n\/a|k\. ?a\.?|keine angaben?(?: vorhanden)?|nicht angegeben|unbekannt)\.?$/i.test(valueText) ? valueText : '';
+  };
+  const meetingTime = knownInfo(tm.time);
+  const meetingLocation = knownInfo(tm.location);
+  const meetingParts = [
+    meetingTime ? (/^\d{1,2}:\d{2}$/.test(meetingTime) ? `${meetingTime} Uhr` : meetingTime) : '',
+    meetingLocation
+  ].filter(Boolean);
+  const trainerHtml = meetingParts.length
+    ? `<p><strong>Trainerbesprechung:</strong> ${escapeHtml(meetingParts.join(', '))}</p>` : '';
+
+  const awardTime = knownInfo(ac.time);
   const awardTimeLabel = awardTime && /\buhr\b/i.test(awardTime) ? awardTime : awardTime ? `${awardTime} Uhr` : '';
   const awardLabel = ac.isPlanned === true
     ? `Ja${awardTimeLabel ? `, geplant um ${escapeHtml(awardTimeLabel)}` : ''}${ac.location ? ` (${escapeHtml(ac.location)})` : ''}.`
-    : ac.isPlanned === false ? 'Nein.' : 'Unbekannt.';
-  setHtml(elements.orgaInfoContent, `<p><strong>Trainerbesprechung:</strong> ${escapeHtml(tm.time ?? '-')} Uhr, ${escapeHtml(tm.location ?? '-')}</p><p><strong>Siegerehrung:</strong> ${awardLabel}</p>`);
+    : ac.isPlanned === false ? 'Nein.' : '';
+  const awardHtml = awardLabel ? `<p><strong>Siegerehrung:</strong> ${awardLabel}</p>` : '';
+  const organizationHtml = trainerHtml + awardHtml;
+  setHtml(elements.orgaInfoContent, organizationHtml);
+  // Avoid an empty Orga-Infos section if both meeting and award details are unknown.
+  if (elements.orgaInfoContent) elements.orgaInfoContent.closest('section')?.toggleAttribute('hidden', !organizationHtml);
 
   const c = tournament.catering ?? {};
   if (Array.isArray(c.categories) && c.categories.length) {
@@ -407,19 +423,20 @@ function renderMatches(scrollToRunning = false) {
     const id = `match-${i}`;
     if (isRunning && !firstActiveId) firstActiveId = id;
 
-    const fieldName = m.field || m.group || 'Feld';
-    const colorClass = state.fieldColors[fieldName.toLowerCase()] ?? '';
-    // Show the known game format alongside the field without adding a third card row.
-    // E.g. "4 vs. 4" becomes "4:4"; missing formats stay hidden, never guessed.
+    // Never invent a pitch for games where the source schedule does not specify one.
+    const fieldName = String(m.field ?? '').trim();
+    const colorClass = fieldName ? (state.fieldColors[fieldName.toLowerCase()] ?? '') : '';
     const gameFormat = String(m.format ?? '').trim().replace(/\b(\d+)\s*(?:vs\.?|gegen|:)\s*(\d+)\b/gi, '$1:$2');
-    const fieldAndFormat = gameFormat ? `${fieldName} · ${gameFormat}` : fieldName;
+    const fieldAndFormat = [fieldName, gameFormat].filter(Boolean).join(' · ');
+    const fieldPillHtml = fieldAndFormat
+      ? `<span class="pill field-pill ${colorClass}" title="${escapeHtml(fieldAndFormat)}">${escapeHtml(fieldAndFormat)}</span>` : '';
 
     const homeLabel = m.home?.team ?? 'TBD';
     const opponentLabel = m.away?.team ? m.away.team : 'Spielfrei';
     const roundLabel = m.round ? ` · Runde ${escapeHtml(m.round)}` : '';
     const phaseLabel = m.phase && m.phase !== 'Unbekannt' ? ` · ${escapeHtml(m.phase)}` : '';
     const metaLabel = `${escapeHtml(m.group ?? '')}${roundLabel}${phaseLabel}`;
-    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong class="match-time">${escapeHtml(timeLabel)}</strong><span class="match-meta" title="${metaLabel}">${metaLabel}</span><span class="pill field-pill ${colorClass}" title="${escapeHtml(fieldAndFormat)}">${escapeHtml(fieldAndFormat)}</span></div><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
+    return `<article id="${id}" class="match-card${isRunning ? ' is-running' : ''}"><div class="match-header"><strong class="match-time">${escapeHtml(timeLabel)}</strong><span class="match-meta" title="${metaLabel}">${metaLabel}</span>${fieldPillHtml}</div><p class="match-line" aria-label="${escapeHtml(homeLabel)} gegen ${escapeHtml(opponentLabel)}" title="${escapeHtml(homeLabel)} : ${escapeHtml(opponentLabel)}">${renderTeamLabel(homeLabel)}<span class="match-separator" aria-hidden="true">:</span>${renderTeamLabel(opponentLabel)}</p></article>`;
   }).join('');
 
   if (scrollToRunning && firstActiveId) document.getElementById(firstActiveId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -699,16 +716,11 @@ function filterAndSortTournaments(minimum = 0) {
     return queryState.hasMatch;
   });
   const searchBase = textMatches.length ? textMatches : [...state.tournaments];
-  const nearbyBase = state.userPosition
-    ? (() => {
-      const nearby = searchBase.filter((tournament) => {
-        const distance = haversineKm(state.userPosition, tournament.geo);
-        return distance != null && distance <= NEARBY_RADIUS_KM;
-      });
-      return nearby.length ? nearby : searchBase;
-    })()
+  // Never drop a future event just because coordinates are unavailable.
+  // Default browsing includes all dates; the date picker acts as an explicit filter.
+  const visible = state.dateManuallyChanged
+    ? filterBySearchWindow(searchBase, selectedDate)
     : searchBase;
-  const visible = filterBySearchWindow(nearbyBase, selectedDate);
   const sorted = visible.sort((a, b) => {
     const va = tournamentSortValue(a, now, queryTokens, searchCache.get(a.id) ?? '');
     const vb = tournamentSortValue(b, now, queryTokens, searchCache.get(b.id) ?? '');
@@ -718,7 +730,7 @@ function filterAndSortTournaments(minimum = 0) {
       || va.timeRank - vb.timeRank
       || va.name.localeCompare(vb.name, 'de');
   });
-  return minimum > 0 ? ensureMinimumTournaments(sorted, minimum) : sorted;
+  return minimum > 0 && !state.dateManuallyChanged ? ensureMinimumTournaments(sorted, minimum) : sorted;
 }
 
 
@@ -986,11 +998,9 @@ function renderDetailPages() {
 
 function renderSelectorPage() {
   markActiveNav();
-  if (elements.tournamentDate && !elements.tournamentDate.value) {
-    const today = new Date();
-    elements.tournamentDate.value = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-  }
+  // Keep the optional date filter empty until the visitor selects a date.
   state.selectedDate = elements.tournamentDate?.value ?? '';
+  state.dateManuallyChanged = Boolean(state.selectedDate);
   wireTournamentSelector();
   renderTournamentCards();
   requestUserLocation();
