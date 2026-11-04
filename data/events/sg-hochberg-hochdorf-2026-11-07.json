@@ -22,14 +22,11 @@
     "Gruppe 3: Vorrunde Feld 3 (4 gegen 4), Rückrunde Feld 4 (Funino 3 gegen 3).",
     "Die drei Original-Spielpläne sind unter „Spielplan“ als Quelle hinterlegt; Änderungen beim Veranstalter werden nicht automatisch synchronisiert."
   ],
-  "trainerMeeting": {
-    "time": "nicht angegeben",
-    "location": "nicht angegeben"
-  },
+  "trainerMeeting": {},
   "awardCeremony": {},
   "catering": {
     "offerings": [
-      "Zum Verpflegungsangebot liegen keine Angaben vor."
+      "Am Turniertag wird Verpflegung inklusive Kuchen angeboten."
     ]
   },
   "directions": {
@@ -621,5 +618,9 @@
         "team": "DJK Ludwigsburg 3"
       }
     }
-  ]
+  ],
+  "geo": {
+    "lat": 48.8973,
+    "lon": 9.30013
+  }
 }

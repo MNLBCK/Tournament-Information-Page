@@ -1,0 +1,503 @@
+{
+  "event": {
+    "name": "Freundschaftsturnier SG Hochberg/Hochdorf",
+    "date": "2026-11-14",
+    "startTime": "09:15",
+    "endTime": "11:25",
+    "location": "SGV Hochdorf (Kunstrasen), Kirchenweinbergweg 10, 71686 Remseck am Neckar",
+    "durationMinutes": 10
+  },
+  "geo": {
+    "lat": 48.8973,
+    "lon": 9.30013
+  },
+  "organizer": {
+    "name": "SG Hochberg/Hochdorf",
+    "logo": {
+      "url": "images/hosts/sg-hochberg-hochdorf.png",
+      "alt": "Gastgeberlogo der SG Hochberg/Hochdorf"
+    }
+  },
+  "quickInfo": [
+    "Drei Gruppen, insgesamt 13 Mannschaften und 37 angesetzte Begegnungen.",
+    "Gruppe 1: 4 Mannschaften, 12 Spiele. Gruppe 2: 5 Mannschaften, 13 Spiele. Gruppe 3: 4 Mannschaften, 12 Spiele.",
+    "Erster Anstoß 09:15 Uhr, Spielbeginn alle zehn Minuten; pro Spiel zehn Minuten Spieldauer. Letzter Anstoß 11:15 Uhr, voraussichtliches Ende 11:25 Uhr.",
+    "Die drei Original-Spielpläne enthalten keine Feldnummern oder Angaben zum Spielmodus (3:3/4:4). Diese Informationen werden nicht geschätzt.",
+    "Die Links zu den drei MeinTurnierplan-Spielplänen sind als Quellen hinterlegt; spätere Änderungen werden nicht automatisch synchronisiert."
+  ],
+  "trainerMeeting": {},
+  "awardCeremony": {},
+  "catering": {
+    "offerings": [
+      "Am Turniertag wird Verpflegung inklusive Kuchen angeboten."
+    ]
+  },
+  "directions": {
+    "address": "SGV Hochdorf (Kunstrasen)\nKirchenweinbergweg 10\n71686 Remseck am Neckar"
+  },
+  "fieldLayout": {
+    "title": "Spielfeldzuordnung noch nicht angegeben",
+    "summary": "In den drei bereitgestellten PDF-Spielplänen stehen weder Feldnummern noch Angaben zum Modus 3:3 beziehungsweise 4:4.",
+    "fields": []
+  },
+  "schedules": [
+    {
+      "group": "Gruppe 1",
+      "url": "https://www.meinturnierplan.de/c/5huezbgy/"
+    },
+    {
+      "group": "Gruppe 2",
+      "url": "https://www.meinturnierplan.de/c/9qi6n3j7/"
+    },
+    {
+      "group": "Gruppe 3",
+      "url": "https://www.meinturnierplan.de/c/7bliocru/"
+    }
+  ],
+  "matches": [
+    {
+      "time": "09:15",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 1"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      }
+    },
+    {
+      "time": "09:15",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 3"
+      }
+    },
+    {
+      "time": "09:15",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      },
+      "away": {
+        "club": "TSV Schwieberdingen",
+        "team": "TSV Schwieberdingen"
+      }
+    },
+    {
+      "time": "09:25",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      }
+    },
+    {
+      "time": "09:25",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      }
+    },
+    {
+      "time": "09:25",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
+      }
+    },
+    {
+      "time": "09:35",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 1"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
+      }
+    },
+    {
+      "time": "09:35",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
+      }
+    },
+    {
+      "time": "09:35",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
+      }
+    },
+    {
+      "time": "09:45",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      }
+    },
+    {
+      "time": "09:45",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 3"
+      }
+    },
+    {
+      "time": "09:45",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
+      },
+      "away": {
+        "club": "TSV Schwieberdingen",
+        "team": "TSV Schwieberdingen"
+      }
+    },
+    {
+      "time": "09:55",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
+      }
+    },
+    {
+      "time": "09:55",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 2"
+      }
+    },
+    {
+      "time": "09:55",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Schwieberdingen",
+        "team": "TSV Schwieberdingen"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
+      }
+    },
+    {
+      "time": "10:05",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 1"
+      }
+    },
+    {
+      "time": "10:05",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 2"
+      }
+    },
+    {
+      "time": "10:05",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      }
+    },
+    {
+      "time": "10:15",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 1"
+      }
+    },
+    {
+      "time": "10:15",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      }
+    },
+    {
+      "time": "10:15",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Schwieberdingen",
+        "team": "TSV Schwieberdingen"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      }
+    },
+    {
+      "time": "10:25",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
+      }
+    },
+    {
+      "time": "10:25",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 2"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 3"
+      }
+    },
+    {
+      "time": "10:25",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
+      }
+    },
+    {
+      "time": "10:35",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 1"
+      }
+    },
+    {
+      "time": "10:35",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 3"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
+      }
+    },
+    {
+      "time": "10:35",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      }
+    },
+    {
+      "time": "10:45",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      }
+    },
+    {
+      "time": "10:45",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      },
+      "away": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 2"
+      }
+    },
+    {
+      "time": "10:45",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TSV Schwieberdingen",
+        "team": "TSV Schwieberdingen"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
+      }
+    },
+    {
+      "time": "10:55",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      }
+    },
+    {
+      "time": "10:55",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      }
+    },
+    {
+      "time": "10:55",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
+      },
+      "away": {
+        "club": "TSV Schwieberdingen",
+        "team": "TSV Schwieberdingen"
+      }
+    },
+    {
+      "time": "11:05",
+      "group": "Gruppe 1",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 1"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 1"
+      }
+    },
+    {
+      "time": "11:05",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 3"
+      },
+      "away": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 2"
+      }
+    },
+    {
+      "time": "11:05",
+      "group": "Gruppe 3",
+      "home": {
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
+      }
+    },
+    {
+      "time": "11:15",
+      "group": "Gruppe 2",
+      "home": {
+        "club": "SV Poppenweiler",
+        "team": "SV Poppenweiler 2"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      }
+    }
+  ]
+}
