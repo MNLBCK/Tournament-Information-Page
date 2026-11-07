@@ -19,7 +19,7 @@
     "Anstoß alle 10 Minuten ab 09:15 Uhr, Spieldauer 10 Minuten; letztes Spiel endet um 11:15 Uhr.",
     "Gruppe 1: Vorrunde Feld 1 (4 gegen 4), Rückrunde Feld 2 (Funino 3 gegen 3).",
     "Gruppe 2: Vorrunde Feld 2 (Funino 3 gegen 3), Rückrunde Feld 1 (4 gegen 4).",
-    "Gruppe 3: Vorrunde Feld 3 (4 gegen 4), Rückrunde Feld 4 (Funino 3 gegen 3).",
+    "Gruppe 3: Vorrunde Feld 4 (Funino 3 gegen 3), Rückrunde Feld 3 (4 gegen 4).",
     "Die drei Original-Spielpläne sind unter „Spielplan“ als Quelle hinterlegt; Änderungen beim Veranstalter werden nicht automatisch synchronisiert."
   ],
   "trainerMeeting": {},
@@ -34,7 +34,7 @@
   },
   "fieldLayout": {
     "title": "Spielfelder 1 bis 4",
-    "summary": "In der Rückrunde wechseln die Gruppen jeweils die Spielfelder und den Spielmodus. Gruppe 1 und 2 nutzen Feld 1 (4 gegen 4) und Feld 2 (Funino 3 gegen 3); Gruppe 3 nutzt Feld 3 (4 gegen 4) und Feld 4 (Funino 3 gegen 3).",
+    "summary": "In der Rückrunde wechseln die Gruppen zwischen den Spielfeldern und Spielmodi. Gruppe 1 und 2 nutzen Feld 1 (4 gegen 4) und Feld 2 (Funino 3 gegen 3). Gruppe 3 beginnt auf Feld 4 (Funino 3 gegen 3) und wechselt für die Rückrunde auf Feld 3 (4 gegen 4).",
     "fields": [
       {
         "field": "Feld 1 (4 vs. 4)",
@@ -46,11 +46,11 @@
       },
       {
         "field": "Feld 3 (4 vs. 4)",
-        "group": "Gruppe 3 Vorrunde"
+        "group": "Gruppe 3 Rückrunde"
       },
       {
         "field": "Feld 4 (3 vs. 3)",
-        "group": "Gruppe 3 Rückrunde"
+        "group": "Gruppe 3 Vorrunde"
       }
     ]
   },
@@ -72,8 +72,8 @@
     {
       "group": "Gruppe 3",
       "phase": "Vor- und Rückrunde",
-      "field": "Feld 3 / Feld 4",
-      "format": "4 vs. 4 / 3 vs. 3",
+      "field": "Feld 4 / Feld 3",
+      "format": "3 vs. 3 / 4 vs. 4",
       "url": "https://www.meinturnierplan.de/c/mv3qd51w/07-11-2026-gruppe-3/"
     }
   ],
@@ -110,10 +110,10 @@
     },
     {
       "time": "09:15",
-      "field": "Feld 3",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
-      "format": "4 vs. 4",
+      "format": "3 vs. 3",
       "home": {
         "club": "TSV Schwaikheim",
         "team": "TSV Schwaikheim 19/2"
@@ -155,10 +155,10 @@
     },
     {
       "time": "09:25",
-      "field": "Feld 3",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
-      "format": "4 vs. 4",
+      "format": "3 vs. 3",
       "home": {
         "club": "SG Hochberg/Hochdorf",
         "team": "SG Hochberg/Hochdorf 2"
@@ -200,10 +200,10 @@
     },
     {
       "time": "09:35",
-      "field": "Feld 3",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
-      "format": "4 vs. 4",
+      "format": "3 vs. 3",
       "home": {
         "club": "TSV Schwaikheim",
         "team": "TSV Schwaikheim 19/2"
@@ -245,10 +245,10 @@
     },
     {
       "time": "09:45",
-      "field": "Feld 3",
+      "field": "Feld 4",
       "group": "Gruppe 3",
       "phase": "Vorrunde",
-      "format": "4 vs. 4",
+      "format": "3 vs. 3",
       "home": {
         "club": "DJK Ludwigsburg",
         "team": "DJK Ludwigsburg 3"
@@ -290,145 +290,145 @@
     },
     {
       "time": "09:55",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "FSV Oßweil",
+        "team": "FSV Oßweil 2"
+      },
+      "away": {
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 2"
+      }
+    },
+    {
+      "time": "10:05",
+      "field": "Feld 1",
+      "group": "Gruppe 1",
+      "phase": "Vorrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "TSV Schwaikheim",
+        "team": "TSV Schwaikheim 18/1"
+      },
+      "away": {
+        "club": "TSV Schwaikheim",
+        "team": "TSV Schwaikheim 19/1"
+      }
+    },
+    {
+      "time": "10:05",
+      "field": "Feld 2",
+      "group": "Gruppe 2",
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "TSV Schwaikheim",
+        "team": "TSV Schwaikheim 18/2"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      }
+    },
+    {
+      "time": "10:05",
+      "field": "Feld 4",
+      "group": "Gruppe 3",
+      "phase": "Vorrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 3"
+      },
+      "away": {
+        "club": "TSV Schwaikheim",
+        "team": "TSV Schwaikheim 19/2"
+      }
+    },
+    {
+      "time": "10:15",
+      "field": "Feld 2",
+      "group": "Gruppe 1",
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
+      "home": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 1"
+      },
+      "away": {
+        "club": "TSV Schwaikheim",
+        "team": "TSV Schwaikheim 19/1"
+      }
+    },
+    {
+      "time": "10:15",
+      "field": "Feld 1",
+      "group": "Gruppe 2",
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
+      "home": {
+        "club": "FSV Oßweil",
+        "team": "FSV Oßweil 1"
+      },
+      "away": {
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 2"
+      }
+    },
+    {
+      "time": "10:15",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "phase": "Vorrunde",
+      "phase": "Rückrunde",
       "format": "4 vs. 4",
       "home": {
         "club": "FSV Oßweil",
         "team": "FSV Oßweil 2"
       },
       "away": {
-        "club": "SG Hochberg/Hochdorf",
-        "team": "SG Hochberg/Hochdorf 2"
+        "club": "TSV Schwaikheim",
+        "team": "TSV Schwaikheim 19/2"
       }
     },
     {
-      "time": "10:05",
-      "field": "Feld 1",
+      "time": "10:25",
+      "field": "Feld 2",
       "group": "Gruppe 1",
-      "phase": "Vorrunde",
-      "format": "4 vs. 4",
+      "phase": "Rückrunde",
+      "format": "3 vs. 3",
       "home": {
         "club": "TSV Schwaikheim",
         "team": "TSV Schwaikheim 18/1"
       },
       "away": {
-        "club": "TSV Schwaikheim",
-        "team": "TSV Schwaikheim 19/1"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 1"
       }
     },
     {
-      "time": "10:05",
-      "field": "Feld 2",
+      "time": "10:25",
+      "field": "Feld 1",
       "group": "Gruppe 2",
-      "phase": "Vorrunde",
-      "format": "3 vs. 3",
+      "phase": "Rückrunde",
+      "format": "4 vs. 4",
       "home": {
         "club": "TSV Schwaikheim",
         "team": "TSV Schwaikheim 18/2"
       },
       "away": {
         "club": "DJK Ludwigsburg",
-        "team": "DJK Ludwigsburg 2"
+        "team": "DJK Ludwigsburg 4"
       }
     },
     {
-      "time": "10:05",
+      "time": "10:25",
       "field": "Feld 3",
       "group": "Gruppe 3",
-      "phase": "Vorrunde",
-      "format": "4 vs. 4",
-      "home": {
-        "club": "DJK Ludwigsburg",
-        "team": "DJK Ludwigsburg 3"
-      },
-      "away": {
-        "club": "TSV Schwaikheim",
-        "team": "TSV Schwaikheim 19/2"
-      }
-    },
-    {
-      "time": "10:15",
-      "field": "Feld 2",
-      "group": "Gruppe 1",
-      "phase": "Rückrunde",
-      "format": "3 vs. 3",
-      "home": {
-        "club": "DJK Ludwigsburg",
-        "team": "DJK Ludwigsburg 1"
-      },
-      "away": {
-        "club": "TSV Schwaikheim",
-        "team": "TSV Schwaikheim 19/1"
-      }
-    },
-    {
-      "time": "10:15",
-      "field": "Feld 1",
-      "group": "Gruppe 2",
       "phase": "Rückrunde",
       "format": "4 vs. 4",
-      "home": {
-        "club": "FSV Oßweil",
-        "team": "FSV Oßweil 1"
-      },
-      "away": {
-        "club": "DJK Ludwigsburg",
-        "team": "DJK Ludwigsburg 2"
-      }
-    },
-    {
-      "time": "10:15",
-      "field": "Feld 4",
-      "group": "Gruppe 3",
-      "phase": "Rückrunde",
-      "format": "3 vs. 3",
-      "home": {
-        "club": "FSV Oßweil",
-        "team": "FSV Oßweil 2"
-      },
-      "away": {
-        "club": "TSV Schwaikheim",
-        "team": "TSV Schwaikheim 19/2"
-      }
-    },
-    {
-      "time": "10:25",
-      "field": "Feld 2",
-      "group": "Gruppe 1",
-      "phase": "Rückrunde",
-      "format": "3 vs. 3",
-      "home": {
-        "club": "TSV Schwaikheim",
-        "team": "TSV Schwaikheim 18/1"
-      },
-      "away": {
-        "club": "SG Hochberg/Hochdorf",
-        "team": "SG Hochberg/Hochdorf 1"
-      }
-    },
-    {
-      "time": "10:25",
-      "field": "Feld 1",
-      "group": "Gruppe 2",
-      "phase": "Rückrunde",
-      "format": "4 vs. 4",
-      "home": {
-        "club": "TSV Schwaikheim",
-        "team": "TSV Schwaikheim 18/2"
-      },
-      "away": {
-        "club": "DJK Ludwigsburg",
-        "team": "DJK Ludwigsburg 4"
-      }
-    },
-    {
-      "time": "10:25",
-      "field": "Feld 4",
-      "group": "Gruppe 3",
-      "phase": "Rückrunde",
-      "format": "3 vs. 3",
       "home": {
         "club": "DJK Ludwigsburg",
         "team": "DJK Ludwigsburg 3"
@@ -470,10 +470,10 @@
     },
     {
       "time": "10:35",
-      "field": "Feld 4",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
-      "format": "3 vs. 3",
+      "format": "4 vs. 4",
       "home": {
         "club": "SG Hochberg/Hochdorf",
         "team": "SG Hochberg/Hochdorf 2"
@@ -515,10 +515,10 @@
     },
     {
       "time": "10:45",
-      "field": "Feld 4",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
-      "format": "3 vs. 3",
+      "format": "4 vs. 4",
       "home": {
         "club": "FSV Oßweil",
         "team": "FSV Oßweil 2"
@@ -560,10 +560,10 @@
     },
     {
       "time": "10:55",
-      "field": "Feld 4",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
-      "format": "3 vs. 3",
+      "format": "4 vs. 4",
       "home": {
         "club": "SG Hochberg/Hochdorf",
         "team": "SG Hochberg/Hochdorf 2"
@@ -605,10 +605,10 @@
     },
     {
       "time": "11:05",
-      "field": "Feld 4",
+      "field": "Feld 3",
       "group": "Gruppe 3",
       "phase": "Rückrunde",
-      "format": "3 vs. 3",
+      "format": "4 vs. 4",
       "home": {
         "club": "TSV Schwaikheim",
         "team": "TSV Schwaikheim 19/2"
