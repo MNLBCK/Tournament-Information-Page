@@ -19,11 +19,12 @@
     }
   },
   "quickInfo": [
-    "Drei Gruppen, insgesamt 13 Mannschaften und 37 angesetzte Begegnungen.",
-    "Gruppe 1: 4 Mannschaften, 12 Spiele. Gruppe 2: 5 Mannschaften, 13 Spiele. Gruppe 3: 4 Mannschaften, 12 Spiele.",
+    "Drei Gruppen, insgesamt 12 Mannschaften und 37 angesetzte Begegnungen.",
+    "Gruppe 1: 4 Mannschaften, 12 Spiele. Gruppe 2: 5 Mannschaften, 13 Spiele. Gruppe 3: 3 Mannschaften, 12 Spiele.",
     "Erster Anstoß 09:15 Uhr, Spielbeginn alle zehn Minuten; pro Spiel zehn Minuten Spieldauer. Letzter Anstoß 11:15 Uhr, voraussichtliches Ende 11:25 Uhr.",
     "Die drei Original-Spielpläne enthalten keine Feldnummern oder Angaben zum Spielmodus (3:3/4:4). Diese Informationen werden nicht geschätzt.",
-    "Die Links zu den drei MeinTurnierplan-Spielplänen sind als Quellen hinterlegt; spätere Änderungen werden nicht automatisch synchronisiert."
+    "Die Links zu den drei MeinTurnierplan-Spielplänen sind als Quellen hinterlegt; spätere Änderungen werden nicht automatisch synchronisiert.",
+    "Aktualisierung vom 14.11.2026: TSV Schwieberdingen fällt in Gruppe 3 aus. SG Hochberg/Hochdorf 3, TV Aldingen 3 und DJK Ludwigsburg 4 übernehmen die sechs Begegnungen; Spielzeiten bleiben unverändert."
   ],
   "trainerMeeting": {},
   "awardCeremony": {},
@@ -87,8 +88,8 @@
         "team": "TV Aldingen 3"
       },
       "away": {
-        "club": "TSV Schwieberdingen",
-        "team": "TSV Schwieberdingen"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       }
     },
     {
@@ -195,8 +196,8 @@
         "team": "DJK Ludwigsburg 4"
       },
       "away": {
-        "club": "TSV Schwieberdingen",
-        "team": "TSV Schwieberdingen"
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
       }
     },
     {
@@ -227,8 +228,8 @@
       "time": "09:55",
       "group": "Gruppe 3",
       "home": {
-        "club": "TSV Schwieberdingen",
-        "team": "TSV Schwieberdingen"
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
       },
       "away": {
         "club": "SG Hochberg/Hochdorf",
@@ -299,8 +300,8 @@
       "time": "10:15",
       "group": "Gruppe 3",
       "home": {
-        "club": "TSV Schwieberdingen",
-        "team": "TSV Schwieberdingen"
+        "club": "SG Hochberg/Hochdorf",
+        "team": "SG Hochberg/Hochdorf 3"
       },
       "away": {
         "club": "TV Aldingen",
@@ -407,8 +408,8 @@
       "time": "10:45",
       "group": "Gruppe 3",
       "home": {
-        "club": "TSV Schwieberdingen",
-        "team": "TSV Schwieberdingen"
+        "club": "TV Aldingen",
+        "team": "TV Aldingen 3"
       },
       "away": {
         "club": "DJK Ludwigsburg",
@@ -447,8 +448,8 @@
         "team": "SG Hochberg/Hochdorf 3"
       },
       "away": {
-        "club": "TSV Schwieberdingen",
-        "team": "TSV Schwieberdingen"
+        "club": "DJK Ludwigsburg",
+        "team": "DJK Ludwigsburg 4"
       }
     },
     {
